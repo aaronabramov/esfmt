@@ -4,8 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha --compilers js:babel/register test/*.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "espree": "^2.2.4",
+    "esprima-fb": "^15001.1001.0-dev-harmony-fb",
+    "estraverse": "^4.1.0",
+    "estraverse-fb": "^1.3.1"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "chai": "^3.2.0",
+    "mocha": "^2.3.0"
+  }
 }
