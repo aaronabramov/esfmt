@@ -12,6 +12,8 @@ import * as ReturnStatement from './nodes/return_statement';
 import * as BinaryExpression from './nodes/binary_expression';
 import * as FunctionExpression from './nodes/function_expression';
 import * as NewExpression from './nodes/new_expression';
+import * as ObjectExpression from './nodes/object_expression';
+import * as Property from './nodes/property';
 
 import esprima from 'espree';
 import esprimaOptions from './esprima_options';
@@ -33,7 +35,9 @@ const NODE_TYPES = {
     ReturnStatement: ReturnStatement,
     BinaryExpression: BinaryExpression,
     FunctionExpression: FunctionExpression,
-    NewExpression: NewExpression
+    NewExpression: NewExpression,
+    ObjectExpression: ObjectExpression,
+    Property: Property
 };
 
 

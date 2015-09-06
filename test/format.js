@@ -85,4 +85,15 @@ var b = 1;
 
         expect(format(code)).to.be.equal('new Constr(\'abc\');\n');
     });
+
+    specify('defining an object', function() {
+        const code = 'var a = {a: 1, b: 2}';
+
+        expect(format(code)).to.equal(
+`var a = {
+    a: 1,
+    b: 2
+};
+`);
+    });
 });
