@@ -6,11 +6,16 @@ import * as Identifier from './nodes/identifier';
 import * as ExpressionStatement from './nodes/expression_statement';
 import * as CallExpression from './nodes/call_expression';
 import * as MemberExpression from './nodes/member_expression';
+import * as FunctionDeclaration from './nodes/function_declaration';
+import * as BlockStatement from './nodes/block_statement';
+import * as ReturnStatement from './nodes/return_statement';
+import * as BinaryExpression from './nodes/binary_expression';
 
 import esprima from 'espree';
 import esprimaOptions from './esprima_options';
 
 import defaultConfig from './default_config';
+import FormatContext from './format_context';
 
 const NODE_TYPES = {
     Program: Program,
@@ -20,7 +25,11 @@ const NODE_TYPES = {
     Identifier: Identifier,
     ExpressionStatement: ExpressionStatement,
     CallExpression: CallExpression,
-    MemberExpression: MemberExpression
+    MemberExpression: MemberExpression,
+    FunctionDeclaration: FunctionDeclaration,
+    BlockStatement: BlockStatement,
+    ReturnStatement: ReturnStatement,
+    BinaryExpression: BinaryExpression
 };
 
 
@@ -37,7 +46,7 @@ export function format(code, config) {
     // console.log('AST: \n', JSON.stringify(ast, null, 2));
 
 
-    return formatAst(ast, createFormatContext(config));
+    return formatAst(ast, new FormatContext(config));
 
 };
 
@@ -66,14 +75,5 @@ function formatAst(node, context) {
 }
 
 
-/**
- * Create a context object for formatting
- *
- * @param {Object} config formatting configuration object
- * @see ./default_config.js
- */
 function createFormatContext(config) {
-    return {
-        config: config
-    };
 };

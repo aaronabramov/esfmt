@@ -36,4 +36,14 @@ var b = 1;
 
         expect(format(code)).to.equal('a.bc(a, b);\n');
     });
+
+    specify('function declaration', function() {
+        const code = 'function abc(a, b) { return a + b; }';
+
+        expect(format(code)).to.equal(
+`function abc(a, b) {
+    return a + b;
+}
+`);
+    });
 });
