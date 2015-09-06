@@ -10,6 +10,7 @@ import * as FunctionDeclaration from './nodes/function_declaration';
 import * as BlockStatement from './nodes/block_statement';
 import * as ReturnStatement from './nodes/return_statement';
 import * as BinaryExpression from './nodes/binary_expression';
+import * as FunctionExpression from './nodes/function_expression';
 
 import esprima from 'espree';
 import esprimaOptions from './esprima_options';
@@ -29,7 +30,8 @@ const NODE_TYPES = {
     FunctionDeclaration: FunctionDeclaration,
     BlockStatement: BlockStatement,
     ReturnStatement: ReturnStatement,
-    BinaryExpression: BinaryExpression
+    BinaryExpression: BinaryExpression,
+    FunctionExpression: FunctionExpression
 };
 
 

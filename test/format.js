@@ -25,6 +25,18 @@ var b = 1;
 `);
     });
 
+    specify('let declaration', function() {
+        const code = 'let a = 4';
+
+        expect(format(code)).to.equal('let a = 4;\n');
+    });
+
+    specify('const declaration', function() {
+        const code = 'const a = 4';
+
+        expect(format(code)).to.equal('const a = 4;\n');
+    });
+
     specify('function call', function() {
         const code = 'abc(a, b);';
 
@@ -44,6 +56,16 @@ var b = 1;
 `function abc(a, b) {
     return a + b;
 }
+`);
+    });
+
+    specify('function assignment', function() {
+        const code = 'var f = function(a) { return b + c; }';
+
+        expect(format(code)).to.equal(
+`var f = function(a) {
+    return b + c;
+};
 `);
     });
 });
