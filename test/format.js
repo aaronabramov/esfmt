@@ -79,4 +79,10 @@ var b = 1;
 };
 `);
     });
+
+    specify('calling constructor', function() {
+        const code = 'new Constr(\'abc\')';
+
+        expect(format(code)).to.be.equal('new Constr(\'abc\');\n');
+    });
 });
