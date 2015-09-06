@@ -14,7 +14,5 @@
  */
 
 export function format(node, context, recur) {
-    let result = recur(node.id) + ' = ' + recur(node.init);
-
-    return result;
+    return recur(node.id) + ' = ' + recur(node.init);
 }

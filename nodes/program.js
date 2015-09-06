@@ -7,7 +7,5 @@
  */
 
 export function format(node, context, recur) {
-    return node.body.map((child) => {
-        return recur(child, context, recur);
-    }).join('\n') + '\n';
+    return node.body.map(recur).join('\n') + '\n';
 }

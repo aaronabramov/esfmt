@@ -28,6 +28,6 @@ var b = 1;
     specify('function call', function() {
         const code = 'abc(a, b);';
 
-        expect(format(code)).to.equal('abc(a, b);');
+        expect(format(code)).to.equal('abc(a, b);\n');
     });
 });

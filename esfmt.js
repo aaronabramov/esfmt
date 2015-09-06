@@ -4,6 +4,7 @@ import * as VariableDeclarator from './nodes/variable_declarator';
 import * as Literal from './nodes/literal';
 import * as Identifier from './nodes/identifier';
 import * as ExpressionStatement from './nodes/expression_statement';
+import * as CallExpression from './nodes/call_expression';
 
 import esprima from 'espree';
 import esprimaOptions from './esprima_options';
@@ -16,7 +17,8 @@ const NODE_TYPES = {
     VariableDeclarator: VariableDeclarator,
     Literal: Literal,
     Identifier: Identifier,
-    ExpressionStatement: ExpressionStatement
+    ExpressionStatement: ExpressionStatement,
+    CallExpression: CallExpression
 };
 
 
@@ -49,12 +51,18 @@ function formatAst(node, context) {
     // find the node's namespace based on its type
     const nodeNamespace = NODE_TYPES[node.type];
 
+    // recur function that will hold context and itself in a closule
+    const recur = (node) => {
+        return formatAst(node, context, recur);
+    };
+
     if (!nodeNamespace) {
         throw new Error('unknown node type: ' + node.type);
     }
 
-    return nodeNamespace.format(node, context, formatAst);
+    return nodeNamespace.format(node, context, recur);
 }
+
 
 /**
  * Create a context object for formatting
