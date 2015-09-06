@@ -15,5 +15,5 @@
  */
 
 export function format(node, context, recur) {
-    return 'return ' + recur(node.argument) + ';';
+    return 'return ' + recur(node.argument);
 }

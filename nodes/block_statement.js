@@ -8,13 +8,22 @@
  *  }
  */
 export function format(node, context, recur) {
-    context.indentIn();
     let result = '{';
 
     if (node.body.length) {
-        result += '\n' + context.getIndent()
-        + node.body.map(recur).join(context.getIndent())
-        + '\n';
+        context.indentIn();
+
+        result += '\n';
+
+        result += node.body.map((child) => {
+            return context.getIndent()
+                + recur(child)
+                + context.getLineTerminator(child);
+        }).join('\n');
+
+        result +='\n';
+
+        context.indentOut();
     }
 
     result += '}';

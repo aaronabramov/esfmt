@@ -24,13 +24,15 @@ export function format(node, context, recur) {
         context.indentIn();
         result += context.getIndent()
             + recur(node.consequent)
+            + context.getLineTerminator(node.consequent)
             + '\n}';
+        context.indentOut();
     } else {
         result += recur(node.consequent);
     }
 
     if (node.alternate) {
-        result + ' else {' + recur(node.alternate) + '}';
+        result += ' else ' + recur(node.alternate);
     }
 
     return result;
