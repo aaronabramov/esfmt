@@ -7,5 +7,11 @@
  */
 
 export function format(node, context, recur) {
-    return node.body.map(recur).join(';\n') + ';\n';
+    let result = node.body.map(recur).join(';\n') + ';';
+
+    if (context.config.newLineAtTheEnd) {
+        result += '\n';
+    }
+
+    return result;
 }

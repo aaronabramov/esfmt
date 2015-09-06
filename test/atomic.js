@@ -1,19 +1,18 @@
 import {format} from '../esfmt';
 import {expect} from 'chai';
 
-describe.only('./nodes#format()', function() {
+describe('formatting atomic code pieces', function() {
     specify('var declaration', function() {
         const code = 'var a = 5';
 
-        expect(format(code)).to.equal('var a = 5;\n');
+        expect(format(code)).to.equal('var a = 5;');
     });
 
     specify('multiple vars', function() {
         const code = 'var a = 5; var b = 1;';
 
         expect(format(code)).to.equal(`var a = 5;
-var b = 1;
-`);
+var b = 1;`);
 
     });
 
@@ -21,32 +20,31 @@ var b = 1;
         const code = 'var a = 1, b = 2;';
 
         expect(format(code)).to.equal(`var a = 1,
-    b = 2;
-`);
+    b = 2;`);
     });
 
     specify('let declaration', function() {
         const code = 'let a = 4';
 
-        expect(format(code)).to.equal('let a = 4;\n');
+        expect(format(code)).to.equal('let a = 4;');
     });
 
     specify('const declaration', function() {
         const code = 'const a = 4';
 
-        expect(format(code)).to.equal('const a = 4;\n');
+        expect(format(code)).to.equal('const a = 4;');
     });
 
     specify('function call', function() {
         const code = 'abc(a, b);';
 
-        expect(format(code)).to.equal('abc(a, b);\n');
+        expect(format(code)).to.equal('abc(a, b);');
     });
 
     specify('method call', function() {
         const code = 'a.bc(a, b)';
 
-        expect(format(code)).to.equal('a.bc(a, b);\n');
+        expect(format(code)).to.equal('a.bc(a, b);');
     });
 
     specify('function declaration', function() {
@@ -55,8 +53,7 @@ var b = 1;
         expect(format(code)).to.equal(
 `function abc(a, b) {
     return a + b;
-};
-`);
+};`);
     });
 
     specify('function assignment', function() {
@@ -65,8 +62,7 @@ var b = 1;
         expect(format(code)).to.equal(
 `var f = function(a) {
     return b + c;
-};
-`);
+};`);
     });
 
 
@@ -76,14 +72,13 @@ var b = 1;
         expect(format(code)).to.equal(
 `var f = function fn(a) {
     return b + c;
-};
-`);
+};`);
     });
 
     specify('calling constructor', function() {
         const code = 'new Constr(\'abc\')';
 
-        expect(format(code)).to.be.equal('new Constr(\'abc\');\n');
+        expect(format(code)).to.be.equal('new Constr(\'abc\');');
     });
 
     specify('defining an object', function() {
@@ -93,19 +88,18 @@ var b = 1;
 `var a = {
     a: 1,
     b: 2
-};
-`);
+};`);
     });
 
     specify('array expression', function() {
         const code = '[1, \'2\', abc, null, undefined]';
 
-        expect(format(code)).to.equal('[1, \'2\', abc, null, undefined];\n');
+        expect(format(code)).to.equal('[1, \'2\', abc, null, undefined];');
     });
 
     specify('assignment of existing var', function() {
         const code = 'abc = cde';
 
-        expect(format(code)).to.equal('abc = cde;\n');
+        expect(format(code)).to.equal('abc = cde;');
     });
 });

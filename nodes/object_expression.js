@@ -21,6 +21,10 @@
  *  }
  */
 export function  format(node, context, recur) {
+    if (!node.properties.length) {
+        return '{}';
+    }
+
     let result = '{\n';
 
     context.indentIn();

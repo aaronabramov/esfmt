@@ -1,3 +1,4 @@
 export default {
-    indentation: 4
+    indentation: 4,
+    newLineAtTheEnd: false
 }
