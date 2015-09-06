@@ -102,4 +102,13 @@ var b = 1;`);
 
         expect(format(code)).to.equal('abc = cde;');
     });
+
+    specify('if statement', function() {
+        const code = 'if (abc) return 5';
+
+        expect(format(code)).to.equal(
+`if (abc) {
+    return 5;
+}`);
+    });
 });

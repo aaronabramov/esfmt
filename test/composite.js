@@ -22,5 +22,11 @@ describe('formatting composite code pieces', function() {
 
         expect(format(code)).to.equal('a.b.c.d.e(new A(null, {}));');
     });
+
+    specify('passing binary expressions into a function', function() {
+        const code = 'a(1 + 2 + null + 0x1)';
+
+        expect(format(code)).to.equal('a(1 + 2 + null + 0x1);');
+    });
 });
 

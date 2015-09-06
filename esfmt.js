@@ -16,6 +16,7 @@ import * as ObjectExpression from './nodes/object_expression';
 import * as Property from './nodes/property';
 import * as ArrayExpression from './nodes/array_expression';
 import * as AssignmentExpression from './nodes/assignment_expression';
+import * as IfStatement from './nodes/if_statement';
 
 import esprima from 'espree';
 import esprimaOptions from './esprima_options';
@@ -41,7 +42,8 @@ const NODE_TYPES = {
     ObjectExpression: ObjectExpression,
     Property: Property,
     ArrayExpression: ArrayExpression,
-    AssignmentExpression: AssignmentExpression
+    AssignmentExpression: AssignmentExpression,
+    IfStatement: IfStatement
 };
 
 

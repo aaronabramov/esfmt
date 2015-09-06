@@ -7,7 +7,9 @@
  */
 
 export function format(node, context, recur) {
-    let result = node.body.map(recur).join(';\n') + ';';
+    let result = node.body.map((child) => {
+        return recur(child) + context.getLineTerminator(child);
+    }).join('\n');
 
     if (context.config.newLineAtTheEnd) {
         result += '\n';
