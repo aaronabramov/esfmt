@@ -55,7 +55,7 @@ var b = 1;
         expect(format(code)).to.equal(
 `function abc(a, b) {
     return a + b;
-}
+};
 `);
     });
 
@@ -100,6 +100,12 @@ var b = 1;
     specify('array expression', function() {
         const code = '[1, \'2\', abc, null, undefined]';
 
-        expect(format(code)).to.equal('[1, \'2\', abc, null, undefined]\n');
+        expect(format(code)).to.equal('[1, \'2\', abc, null, undefined];\n');
+    });
+
+    specify('assignment of existing var', function() {
+        const code = 'abc = cde';
+
+        expect(format(code)).to.equal('abc = cde;\n');
     });
 });
