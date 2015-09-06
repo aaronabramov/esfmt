@@ -96,4 +96,10 @@ var b = 1;
 };
 `);
     });
+
+    specify('array expression', function() {
+        const code = '[1, \'2\', abc, null, undefined]';
+
+        expect(format(code)).to.equal('[1, \'2\', abc, null, undefined]\n');
+    });
 });

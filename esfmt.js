@@ -14,6 +14,7 @@ import * as FunctionExpression from './nodes/function_expression';
 import * as NewExpression from './nodes/new_expression';
 import * as ObjectExpression from './nodes/object_expression';
 import * as Property from './nodes/property';
+import * as ArrayExpression from './nodes/array_expression';
 
 import esprima from 'espree';
 import esprimaOptions from './esprima_options';
@@ -37,7 +38,8 @@ const NODE_TYPES = {
     FunctionExpression: FunctionExpression,
     NewExpression: NewExpression,
     ObjectExpression: ObjectExpression,
-    Property: Property
+    Property: Property,
+    ArrayExpression: ArrayExpression
 };
 
 
