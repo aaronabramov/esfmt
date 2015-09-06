@@ -1,7 +1,7 @@
 /**
  *  {
  *      type: 'FunctionExpression',
- *      id: null,
+ *      id: { type: 'Identifier', name: 'fn' },
  *      params: [{
  *          type: 'Identifier',
  *          name: 'a'
@@ -18,6 +18,14 @@
  */
 
 export function format(node, context, recur) {
-    return 'function(' + node.params.map(recur).join(', ') + ') '
+    let result = 'function';
+
+    if (node.id) {
+        result += ' ' + recur(node.id);
+    }
+
+    result += '(' + node.params.map(recur).join(', ') + ') '
         + recur(node.body);
+
+    return result;
 }

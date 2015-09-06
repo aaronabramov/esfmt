@@ -68,4 +68,15 @@ var b = 1;
 };
 `);
     });
+
+
+    specify('named function assignment', function() {
+        const code = 'var f = function fn(a) { return b + c; }';
+
+        expect(format(code)).to.equal(
+`var f = function fn(a) {
+    return b + c;
+};
+`);
+    });
 });
