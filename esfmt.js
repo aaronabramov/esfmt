@@ -5,6 +5,7 @@ import * as Literal from './nodes/literal';
 import * as Identifier from './nodes/identifier';
 import * as ExpressionStatement from './nodes/expression_statement';
 import * as CallExpression from './nodes/call_expression';
+import * as MemberExpression from './nodes/member_expression';
 
 import esprima from 'espree';
 import esprimaOptions from './esprima_options';
@@ -18,7 +19,8 @@ const NODE_TYPES = {
     Literal: Literal,
     Identifier: Identifier,
     ExpressionStatement: ExpressionStatement,
-    CallExpression: CallExpression
+    CallExpression: CallExpression,
+    MemberExpression: MemberExpression
 };
 
 

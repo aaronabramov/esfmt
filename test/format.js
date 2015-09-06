@@ -30,4 +30,10 @@ var b = 1;
 
         expect(format(code)).to.equal('abc(a, b);\n');
     });
+
+    specify('method call', function() {
+        const code = 'a.bc(a, b)';
+
+        expect(format(code)).to.equal('a.bc(a, b);\n');
+    });
 });
