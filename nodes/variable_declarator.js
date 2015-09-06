@@ -1,11 +1,20 @@
-export default class VariableDeclarator {
-    constructor(esprimaNode, create) {
-        this.node = esprimaNode;
-        this.id = create(this.node.id);
-        this.init = create(this.node.init);
-    }
+/**
+ *  {
+ *      type: 'VariableDeclarator',
+ *      id: {
+ *          type: 'Identifier',
+ *          name: 'a'
+ *      },
+ *      init: {
+ *          type: 'Literal',
+ *          value: 5,
+ *          raw: '5'
+ *      }
+ *  }
+ */
 
-    toString() {
-        return `${this.id.toString()} = ${this.init.toString()}`;
-    }
-};
+export function format(node, context, recur) {
+    let result = recur(node.id) + ' = ' + recur(node.init);
+
+    return result;
+}

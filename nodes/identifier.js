@@ -1,10 +1,7 @@
-export default class Identifier {
-    constructor(esprimaNode, create) {
-        this.node = esprimaNode;
-        this.name = this.node.name;
-    }
+/**
+ * { type: 'Identifier', name: 'a' }
+ */
 
-    toString() {
-        return this.name;
-    }
-};
+export function format(node, context, recur) {
+    return node.name;
+}

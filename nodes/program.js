@@ -1,10 +1,13 @@
-export default class Program {
-    constructor(esprimaNode, create) {
-        this.node = esprimaNode;
-        this.children = this.node.body.map(create);
-    }
+/**
+ *  {
+ *      type: 'Program',
+ *      body: [{}, {}],
+ *      sourceType: 'module'
+ *  }
+ */
 
-    toString() {
-        return this.children.map((child) => child.toString()).join('\n');
-    }
-};
+export function format(node, context, recur) {
+    return node.body.map((child) => {
+        return recur(child, context, recur);
+    }).join('\n') + '\n';
+}
