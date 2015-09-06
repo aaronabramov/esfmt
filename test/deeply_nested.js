@@ -27,4 +27,29 @@ describe('formatting of deeply nested code', function() {
     return undefined;
 }`);
     });
+
+    specify('nested functions', function() {
+        const code =
+`a.b.c.d(function(f) {
+    return void(0)
+}, setTimeout(function() {
+    const bb = function() {
+        return function() {
+            return function() {};
+        };
+    };
+}, 100))
+`;
+
+        expect(format(code)).to.equal(
+`a.b.c.d(function(f) {
+    return void(0);
+}, setTimeout(function() {
+    const bb = function() {
+        return function() {
+            return function() {};
+        };
+    };
+}, 100));`);
+    });
 });
