@@ -24,6 +24,7 @@ export function format(node, context, recur) {
         result +='\n';
 
         context.indentOut();
+        result += context.getIndent();
     }
 
     result += '}';

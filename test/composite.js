@@ -9,7 +9,7 @@ describe('formatting composite code pieces', function() {
     });
 
     specify('passing functon with body as an argument', function() {
-        const code = 'fn(function(abc) { return 1 + 5 + abc; })';
+        const code = 'fn(function(abc) { return 1 + 5 + abc })';
 
         expect(format(code)).to.equal(
 `fn(function(abc) {

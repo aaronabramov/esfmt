@@ -25,8 +25,10 @@ export function format(node, context, recur) {
         result += context.getIndent()
             + recur(node.consequent)
             + context.getLineTerminator(node.consequent)
-            + '\n}';
+            + '\n';
+
         context.indentOut();
+        result += context.getIndent() + '}';
     } else {
         result += recur(node.consequent);
     }

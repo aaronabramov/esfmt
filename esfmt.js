@@ -53,7 +53,14 @@ const NODE_TYPES = {
  * @param {Object} config
  */
 export function format(code, config) {
-    const ast = esprima.parse(code, esprimaOptions);
+    let ast;
+
+    try {
+        ast = esprima.parse(code, esprimaOptions);
+    } catch(e) {
+        console.error('Failed parsing javascript');
+        throw e;
+    }
 
     config = Object.assign({}, config, defaultConfig);
 
