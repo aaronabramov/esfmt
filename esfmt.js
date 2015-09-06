@@ -18,6 +18,13 @@ import * as ArrayExpression from './nodes/array_expression';
 import * as AssignmentExpression from './nodes/assignment_expression';
 import * as IfStatement from './nodes/if_statement';
 import * as UnaryExpression from './nodes/unary_expression';
+import * as JSXElement from './nodes/jsx_element';
+import * as JSXOpeningElement from './nodes/jsx_opening_element';
+import * as JSXClosingElement from './nodes/jsx_closing_element';
+import * as JSXIdentifier from './nodes/jsx_identifier';
+import * as JSXAttribute from './nodes/jsx_attribute';
+import * as JSXExpressionContainer from './nodes/jsx_expression_container';
+
 
 import esprima from 'espree';
 import esprimaOptions from './esprima_options';
@@ -45,7 +52,13 @@ const NODE_TYPES = {
     ArrayExpression: ArrayExpression,
     AssignmentExpression: AssignmentExpression,
     IfStatement: IfStatement,
-    UnaryExpression: UnaryExpression
+    UnaryExpression: UnaryExpression,
+    JSXElement: JSXElement,
+    JSXOpeningElement: JSXOpeningElement,
+    JSXClosingElement: JSXClosingElement,
+    JSXIdentifier: JSXIdentifier,
+    JSXAttribute: JSXAttribute,
+    JSXExpressionContainer: JSXExpressionContainer
 };
 
 
