@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --compilers js:babel/register test/*.js"
+    "test": "./node_modules/mocha/bin/mocha --compilers js:babel/register test/**/*_test.js",
+    "watch_test": "./node_modules/mocha/bin/mocha -w --compilers js:babel/register test/**/*_test.js"
   },
   "author": "",
   "license": "ISC",

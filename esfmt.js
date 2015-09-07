@@ -24,6 +24,7 @@ import * as JSXClosingElement from './nodes/jsx_closing_element';
 import * as JSXIdentifier from './nodes/jsx_identifier';
 import * as JSXAttribute from './nodes/jsx_attribute';
 import * as JSXExpressionContainer from './nodes/jsx_expression_container';
+import * as ArrowFunctionExpression from './nodes/arrow_function_expression';
 
 
 import esprima from 'espree';
@@ -33,32 +34,33 @@ import defaultConfig from './default_config';
 import FormatContext from './format_context';
 
 const NODE_TYPES = {
-    Program: Program,
-    VariableDeclaration: VariableDeclaration,
-    VariableDeclarator: VariableDeclarator,
-    Literal: Literal,
-    Identifier: Identifier,
-    ExpressionStatement: ExpressionStatement,
-    CallExpression: CallExpression,
-    MemberExpression: MemberExpression,
-    FunctionDeclaration: FunctionDeclaration,
-    BlockStatement: BlockStatement,
-    ReturnStatement: ReturnStatement,
-    BinaryExpression: BinaryExpression,
-    FunctionExpression: FunctionExpression,
-    NewExpression: NewExpression,
-    ObjectExpression: ObjectExpression,
-    Property: Property,
-    ArrayExpression: ArrayExpression,
-    AssignmentExpression: AssignmentExpression,
-    IfStatement: IfStatement,
-    UnaryExpression: UnaryExpression,
-    JSXElement: JSXElement,
-    JSXOpeningElement: JSXOpeningElement,
-    JSXClosingElement: JSXClosingElement,
-    JSXIdentifier: JSXIdentifier,
-    JSXAttribute: JSXAttribute,
-    JSXExpressionContainer: JSXExpressionContainer
+    Program,
+    VariableDeclaration,
+    VariableDeclarator,
+    Literal,
+    Identifier,
+    ExpressionStatement,
+    CallExpression,
+    MemberExpression,
+    FunctionDeclaration,
+    BlockStatement,
+    ReturnStatement,
+    BinaryExpression,
+    FunctionExpression,
+    NewExpression,
+    ObjectExpression,
+    Property,
+    ArrayExpression,
+    AssignmentExpression,
+    IfStatement,
+    UnaryExpression,
+    JSXElement,
+    JSXOpeningElement,
+    JSXClosingElement,
+    JSXIdentifier,
+    JSXAttribute,
+    JSXExpressionContainer,
+    ArrowFunctionExpression
 };
 
 

@@ -56,6 +56,15 @@ var b = 1;`);
 };`);
     });
 
+    specify('arrow functions', function() {
+        const code = 'const a = (a, b) => { return 5 }';
+
+        expect(format(code)).to.equal(
+`const a = (a, b) => {
+    return 5;
+};`);
+    });
+
     specify('function assignment', function() {
         const code = 'var f = function(a) { return b + c; }';
 
