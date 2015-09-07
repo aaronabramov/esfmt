@@ -7,8 +7,19 @@
  */
 
 export function format(node, context, recur) {
+    let previous;
+
     let result = node.body.map((child) => {
-        return recur(child) + context.getLineTerminator(child);
+        let childResult = '';
+
+        if (context.extraNewLineBetween(previous, child)) {
+            childResult += '\n';
+        }
+
+        childResult += recur(child) + context.getLineTerminator(child);
+        previous = child;
+
+        return childResult;
     }).join('\n');
 
     if (context.config.newLineAtTheEnd) {

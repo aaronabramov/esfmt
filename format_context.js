@@ -1,7 +1,14 @@
 const DONT_NEED_SEMICOLON_AFTER = {
     IfStatement: true,
-    TryStatement: true
+    TryStatement: true,
+    FunctionDeclaration: true
 };
+
+const ALWAYS_NEED_EXTRA_NEWLINE_AFTER = {
+    FunctionDeclaration: true,
+    IfStatement: true,
+    TryStatement: true
+}
 
 export default class FormatContext {
     /**
@@ -35,5 +42,44 @@ export default class FormatContext {
      */
     getLineTerminator(node) {
         return DONT_NEED_SEMICOLON_AFTER[node.type] ? '' : ';';
+    }
+
+    /**
+     * Some elements of the body of the block (Programm, BlockStatement)
+     * need to know whether they need to prepend a newline before them.
+     *
+     * Example can be
+     *  1. Any element after imports declaration
+     *      import A from 'a';
+     *      import B from 'b';
+     *
+     *      A.b() + B.c();
+     *
+     *  2. anything after if else block
+     *      if (a) {
+     *          return b;
+     *      }
+     *
+     *      a + b;
+     *
+     *
+     * @param {Object} previous node
+     * @param {Object} current node
+     */
+    extraNewLineBetween(previous, current) {
+        // no new line before the first element of the block
+        if (!previous) {
+            return false;
+        }
+
+        if (ALWAYS_NEED_EXTRA_NEWLINE_AFTER[previous.type]) {
+            return true;
+        }
+
+        if (previous.type === 'ImportDeclaration' && current.type !== 'ImportDeclaration') {
+            return true;
+        }
+
+        return false;
     }
 }

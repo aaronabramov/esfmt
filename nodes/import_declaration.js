@@ -14,7 +14,6 @@
  */
 
 export function format(node, context, recur) {
-    // console.log(node);
     let specs = {
         ImportDefaultSpecifier: null,
         ImportSpecifier: [],
@@ -23,6 +22,10 @@ export function format(node, context, recur) {
 
     let result = 'import ';
 
+    // There can be one ImportDefaultSpecifier // A, A as B
+    // There can be multiple ImportSpecifiers // {a, b as c}
+    // They can be combined with ImportDefaultSpecifier // A, {b}
+    // ImportNamespace Specifer can only be used alone // * as C
     node.specifiers.forEach((spec) => {
         switch (spec.type) {
             case 'ImportSpecifier':
@@ -32,7 +35,7 @@ export function format(node, context, recur) {
                 specs.ImportDefaultSpecifier = spec; // import A from 'a';
                 break;
             case 'ImportNamespaceSpecifier':
-                specs.ImportNamespaceSpecifier = spec; // import * as e from 'a';
+                specs.ImportNamespaceSpecifier = spec; // import * as e from 'a'
                 break;
         }
     });

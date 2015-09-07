@@ -85,7 +85,7 @@ const NODE_TYPES = {
 
 /**
  * @param {String} code to be formatted
- * @param {Object} config
+ * @param {Object} config @see ./default_config.js
  */
 export function format(code, config) {
     let ast;
@@ -97,15 +97,12 @@ export function format(code, config) {
         throw e;
     }
 
-    config = Object.assign({}, config, defaultConfig);
+    config = Object.assign({}, defaultConfig, config);
 
     // console.log('AST: \n', JSON.stringify(ast, null, 2));
 
-
     return formatAst(ast, new FormatContext(config));
-
 };
-
 
 /**
  * Multifunction for formatting an AST node (recursively)
@@ -114,14 +111,15 @@ export function format(code, config) {
  * @param {Object} node esprima node
  * @param {Object} context formatting context object (state)
  */
-function formatAst(node, context) {
+function formatAst(node, context, recur) {
     // find the node's namespace based on its type
     const nodeNamespace = NODE_TYPES[node.type];
 
-    // recur function that will hold context and itself in a closule
-    const recur = (node) => {
-        return formatAst(node, context, recur);
-    };
+    // recur function that will hold context and itself in a closule.
+    // only if it's not defined (first call)
+    recur || (recur = (nextNode) => {
+        return formatAst(nextNode, context, recur);
+    });
 
     if (!nodeNamespace) {
         throw new Error('unknown node type: ' + node.type);
@@ -129,7 +127,3 @@ function formatAst(node, context) {
 
     return nodeNamespace.format(node, context, recur);
 }
-
-
-function createFormatContext(config) {
-};
