@@ -34,6 +34,7 @@ import * as VariableDeclarator from './nodes/variable_declarator';
 import * as ImportDefaultSpecifier from './nodes/import_default_specifier';
 import * as ImportNamespaceSpecifier from './nodes/import_namespace_specifier';
 import * as ImportSpecifier from './nodes/import_specifier';
+import * as ForStatement from './nodes/for_statement';
 
 
 import esprima from 'espree';
@@ -43,6 +44,7 @@ import defaultConfig from './default_config';
 import FormatContext from './format_context';
 
 const NODE_TYPES = {
+    ForStatement,
     ImportNamespaceSpecifier,
     ImportSpecifier,
     ArrayExpression,

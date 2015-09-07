@@ -1,7 +1,8 @@
 const DONT_NEED_SEMICOLON_AFTER = {
+    ForStatement: true,
+    FunctionDeclaration: true,
     IfStatement: true,
-    TryStatement: true,
-    FunctionDeclaration: true
+    TryStatement: true
 };
 
 const ALWAYS_NEED_EXTRA_NEWLINE_AFTER = {
