@@ -35,6 +35,18 @@ var b = 1;`);
         expect(format(code)).to.equal('const a = 4;');
     });
 
+    specify('ternary operator', function() {
+        const code = 'a || b ? 1 : true';
+
+        expect(format(code)).to.equal('a || b ? 1 : true;');
+    });
+
+    specify('increment', function() {
+        const code = 'a++';
+
+        expect(format(code)).to.equal('a++;');
+    });
+
     specify('function call', function() {
         const code = 'abc(a, b);';
 
@@ -129,6 +141,17 @@ var b = 1;`);
     return 5;
 } else {
     a + 5;
+}`);
+    });
+
+    specify('try catch finally', function() {
+        const code = 'try { a(5) } catch (e) { } finally { b(); }';
+
+        expect(format(code)).to.equal(
+`try {
+    a(5);
+} catch (e) {} finally {
+    b();
 }`);
     });
 });

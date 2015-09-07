@@ -25,6 +25,11 @@ import * as JSXIdentifier from './nodes/jsx_identifier';
 import * as JSXAttribute from './nodes/jsx_attribute';
 import * as JSXExpressionContainer from './nodes/jsx_expression_container';
 import * as ArrowFunctionExpression from './nodes/arrow_function_expression';
+import * as ConditionalExpression from './nodes/conditional_expression';
+import * as LogicalExpression from './nodes/logical_expression';
+import * as UpdateExpression from './nodes/update_expression';
+import * as TryStatement from './nodes/try_statement';
+import * as CatchClause from './nodes/catch_clause';
 
 
 import esprima from 'espree';
@@ -60,7 +65,12 @@ const NODE_TYPES = {
     JSXIdentifier,
     JSXAttribute,
     JSXExpressionContainer,
-    ArrowFunctionExpression
+    ArrowFunctionExpression,
+    ConditionalExpression,
+    LogicalExpression,
+    UpdateExpression,
+    TryStatement,
+    CatchClause
 };
 
 

@@ -1,5 +1,6 @@
 const DONT_NEED_SEMICOLON_AFTER = {
-    IfStatement: true
+    IfStatement: true,
+    TryStatement: true
 };
 
 export default class FormatContext {
