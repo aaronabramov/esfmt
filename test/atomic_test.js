@@ -59,6 +59,12 @@ var b = 1;`);
         expect(format(code)).to.equal('a.bc(a, b);');
     });
 
+    specify('bitwise', function() {
+        const code = 'a & b';
+
+        expect(format(code)).to.equal('a & b;');
+    });
+
     specify('function declaration', function() {
         const code = 'function abc(a, b) { return a + b; }';
 
