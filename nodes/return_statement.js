@@ -15,5 +15,11 @@
  */
 
 export function format(node, context, recur) {
-    return 'return ' + recur(node.argument);
+    let result = 'return';
+
+    if (node.argument) {
+        result += ' ' + recur(node.argument);
+    }
+
+    return result;
 }

@@ -35,6 +35,8 @@ import * as ImportDefaultSpecifier from './nodes/import_default_specifier';
 import * as ImportNamespaceSpecifier from './nodes/import_namespace_specifier';
 import * as ImportSpecifier from './nodes/import_specifier';
 import * as ForStatement from './nodes/for_statement';
+import * as ThisExpression from './nodes/this_expression';
+import * as ForInStatement from './nodes/for_in_statement';
 
 
 import esprima from 'espree';
@@ -44,6 +46,8 @@ import defaultConfig from './default_config';
 import FormatContext from './format_context';
 
 const NODE_TYPES = {
+    ForInStatement,
+    ThisExpression,
     ForStatement,
     ImportNamespaceSpecifier,
     ImportSpecifier,
@@ -114,12 +118,17 @@ export function format(code, config) {
  * @param {Object} context formatting context object (state)
  */
 function formatAst(node, context, recur) {
+    if (!node) {
+        throw new Error('`node` argument is required. value: ' + JSON.stringify(node));
+    }
     // find the node's namespace based on its type
     const nodeNamespace = NODE_TYPES[node.type];
 
     // recur function that will hold context and itself in a closule.
     // only if it's not defined (first call)
     recur || (recur = (nextNode) => {
+        // console.log('next node: ', nextNode);
+        //
         return formatAst(nextNode, context, recur);
     });
 

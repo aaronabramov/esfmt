@@ -1,4 +1,27 @@
 export default {
+    // Nodes have line and column-based location info
+    // loc: true,
+
+    // Nodes have an index-based location range (array)
+    range: false,
+
+    // Literals have extra property which stores the verbatim source
+    raw: false,
+
+    // An extra array containing all found tokens
+    tokens: false,
+
+    // An extra array containing all line and block comments
+    comment: false,
+
+    // attach comments to the closest relevant node as leadingComments and
+    // trailingComments
+    attachComment: true,
+
+    //An extra array containing all errors found, attempts to
+    //continue parsing when an error is encountered 
+    tolerant: false,
+
     ecmaFeatures: {
         // enable parsing of arrow functions
         arrowFunctions: true,

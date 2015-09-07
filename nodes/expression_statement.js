@@ -2,7 +2,7 @@
  *  {
  *      type: 'ExpressionStatement',
  *      expression: {
- *          type: 'CallExpression',
+ *          type: 'CallExpression', // AssignmentExpression
  *          callee: {
  *              type: 'Identifier',
  *              name: 'abc'

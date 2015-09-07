@@ -6,17 +6,19 @@
  *  }
  */
 
+import * as utils from '../utils';
+
 export function format(node, context, recur) {
     let previous;
 
     let result = node.body.map((child) => {
         let childResult = '';
 
-        if (context.extraNewLineBetween(previous, child)) {
+        if (utils.extraNewLineBetween(previous, child)) {
             childResult += '\n';
         }
 
-        childResult += recur(child) + context.getLineTerminator(child);
+        childResult += recur(child) + utils.getLineTerminator(child);
         previous = child;
 
         return childResult;

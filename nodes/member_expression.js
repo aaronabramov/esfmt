@@ -14,5 +14,13 @@
  */
 
 export function format(node, context, recur) {
-    return recur(node.object) + '.' + recur(node.property);
+    let result = recur(node.object);
+
+    if (node.computed) {
+        result += '[' + recur(node.property) + ']';
+    } else {
+        result += '.' + recur(node.property);
+    }
+
+    return result;
 }

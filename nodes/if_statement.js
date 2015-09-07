@@ -16,6 +16,9 @@
  *      alternate: null
  *  }
  */
+
+import * as utils from '../utils';
+
 export function format(node, context, recur) {
     let result = 'if (' + recur(node.test) + ') ';
 
@@ -24,7 +27,7 @@ export function format(node, context, recur) {
         context.indentIn();
         result += context.getIndent()
             + recur(node.consequent)
-            + context.getLineTerminator(node.consequent)
+            + utils.getLineTerminator(node.consequent)
             + '\n';
 
         context.indentOut();

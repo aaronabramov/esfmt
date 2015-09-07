@@ -20,6 +20,7 @@ describe('formatting files: ', function() {
         const testName = file.match(/\/(\w+)\/code\.js$/)[1];
 
         it(testName, function() {
+            // console.log(format(code).replace(/\ /g, '~'));
             expect(format(code, CONFIG)).to.equal(expected);
         });
     });
