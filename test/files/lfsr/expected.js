@@ -37,7 +37,7 @@ function LFSR(n, seed) {
     seed || (seed = this._defaultSeed(this.n));
     var mask = parseInt(Array(this.n + 1).join('1'), 2);
 
-    this.register = (seed & mask);
+    this.register = seed & mask;
 }
 
 LFSR.prototype = {
@@ -46,14 +46,14 @@ LFSR.prototype = {
     shift: function() {
         var tapsNum = this.taps.length,
             i,
-            bit = this.register >> (this.n - this.taps[0]);
+            bit = this.register >> this.n - this.taps[0];
 
         for (i = 1; i < tapsNum; i++) {
-            bit = bit ^ (this.register >> (this.n - this.taps[i]));
+            bit = bit ^ this.register >> this.n - this.taps[i];
         }
 
         bit = bit & 1;
-        this.register = (this.register >> 1) | (bit << (this.n - 1));
+        this.register = this.register >> 1 | bit << this.n - 1;
 
         return bit & 1;
     },
@@ -61,7 +61,7 @@ LFSR.prototype = {
         var seq = 0;
 
         for (var i = 0; i < n; i++) {
-            seq = (seq << 1) | this.shift();
+            seq = seq << 1 | this.shift();
         }
 
         return seq;
@@ -87,7 +87,10 @@ LFSR.prototype = {
         return counter;
     },
     _defaultSeed: function(n) {
-        if (!n) throw new Error('n is required');
+        if (!n) {
+            throw new Error('n is required');
+        }
+
         var lfsr = new LFSR(8, 92914);
 
         return lfsr.seq(n);
