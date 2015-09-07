@@ -9,6 +9,7 @@
  */
 
 import * as utils from '../utils';
+import * as newlines from '../utils/newlines';
 
 export function format(node, context, recur) {
     let result = '{';
@@ -23,7 +24,7 @@ export function format(node, context, recur) {
         result += node.body.map((child) => {
             let childResult = '';
 
-            if (previous && utils.extraNewLineBetween(previous, child)) {
+            if (previous && newlines.extraNewLineBetween(previous, child)) {
                 childResult += '\n';
             }
 

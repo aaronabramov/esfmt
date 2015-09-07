@@ -27,5 +27,9 @@ describe('grouping using paratheses', function() {
         expect(format(code)).to.equal('a || (a = 4);');
     });
 
-    specify('grouping logical operators');
+    specify('grouping logical operators', function() {
+        const code = 'if (!n) {  }';
+
+        expect(format(code)).to.equal('if (!n) {}');
+    });
 });

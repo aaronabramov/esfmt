@@ -11,5 +11,10 @@
  *  }
  */
 export function format(node, context, recur) {
-    return node.operator + '(' + recur(node.argument) + ')';
+    if (node.operator === 'void') {
+        return node.operator + '(' + recur(node.argument) + ')';
+    } else {
+        return node.operator + recur(node.argument);
+    }
+
 }

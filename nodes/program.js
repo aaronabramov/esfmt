@@ -7,6 +7,7 @@
  */
 
 import * as utils from '../utils';
+import * as newlines from '../utils/newlines';
 
 export function format(node, context, recur) {
     let previous;
@@ -14,7 +15,7 @@ export function format(node, context, recur) {
     let result = node.body.map((child) => {
         let childResult = '';
 
-        if (utils.extraNewLineBetween(previous, child)) {
+        if (newlines.extraNewLineBetween(previous, child)) {
             childResult += '\n';
         }
 
