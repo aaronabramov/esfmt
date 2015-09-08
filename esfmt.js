@@ -111,7 +111,7 @@ export function format(code, config) {
 
     // console.log('AST: \n', JSON.stringify(ast, null, 2));
 
-    return formatAst(ast, new FormatContext(config));
+    return formatAst(ast, new FormatContext(config, ast));
 };
 
 /**

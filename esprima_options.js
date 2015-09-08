@@ -1,9 +1,9 @@
 export default {
     // Nodes have line and column-based location info
-    // loc: true,
+    loc: true,
 
     // Nodes have an index-based location range (array)
-    range: false,
+    range: true,
 
     // Literals have extra property which stores the verbatim source
     raw: false,
@@ -12,11 +12,11 @@ export default {
     tokens: false,
 
     // An extra array containing all line and block comments
-    comment: false,
+    comment: true,
 
     // attach comments to the closest relevant node as leadingComments and
     // trailingComments
-    attachComment: true,
+    attachComment: false,
 
     //An extra array containing all errors found, attempts to
     //continue parsing when an error is encountered 
