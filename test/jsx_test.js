@@ -59,7 +59,7 @@ describe('formatting of React.js .jsx files', function() {
 </div>;`);
     });
 
-    specify.skip('container and a string', function() {
+    specify('container and a string', function() {
         const code = '<div>abc {123} cde</div>';
 
         expect(format(code)).to.equal(
