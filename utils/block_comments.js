@@ -45,7 +45,7 @@ export default class BlockComments {
         let rightRange = node.range[0];
 
         this.context.comments.forEach((comment) => {
-            if (comment.range[0] > leftRange && comment.range[0] < rightRange) {
+            if (comment.range[0] >= leftRange && comment.range[0] < rightRange) {
                 match.push(comment);
             } else {
                 comments.push(comment);

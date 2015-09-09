@@ -41,12 +41,17 @@ export function  format(node, context, recur) {
 
         childResult += blockComments.printLeading(child, previous, next);
         childResult += context.getIndent() + recur(child);
+
+        if (next) {
+            childResult += ','
+        }
+
         childResult += blockComments.printTrailing(child, previous, next);
 
         result += childResult;
 
         if (next) {
-            result += ',\n';
+            result += '\n';
         }
     }
 

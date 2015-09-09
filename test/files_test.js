@@ -12,7 +12,7 @@ const CONFIG = {
  * and compares them agains `./test/files/** /expected.js` at the same
  * path.
  */
-describe.skip('formatting files: ', function() {
+describe('formatting files: ', function() {
     glob.sync('./test/files/**/code.js').forEach((file) => {
         const expectedFile = file.replace(/code\.js$/, 'expected.js');
         const code = fs.readFileSync(file).toString();
