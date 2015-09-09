@@ -68,7 +68,20 @@ describe('formatting of React.js .jsx files', function() {
 </div>;`);
     });
 
-    specify.skip('formats jsx tags', function() {
+    specify('indented JSX', function() {
+        const code =
+`<div>
+    <App />
+</div>`;
+
+        expect(format(code)).to.equal(
+`<div>
+    <App />
+</div>;`);
+
+    });
+
+    specify('formats jsx tags', function() {
         const code =
 `const a =function() {
     return (
@@ -79,12 +92,15 @@ describe('formatting of React.js .jsx files', function() {
     );
 }`;
 
+        console.log(format(code).replace(/\ /g, '.'));
         expect(format(code)).to.equal(
 `const a = function() {
     return <div className="abc">
-        <span>abc {test}</span>
+        <span>
+            abc {test}
+        </span>
         <Test />
-    </div>
-}`);
+    </div>;
+};`);
     });
 });

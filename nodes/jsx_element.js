@@ -24,16 +24,21 @@
 export function format(node, context, recur) {
     let result = '';
 
+    // console.log(node);
+
     result = recur(node.openingElement);
 
     if (node.closingElement) {
         let i;
+        // Don't print literals that have only whitespace
+        let elements = node.children.filter(notWhitespaceLiteral);
+
 
         context.indentIn();
 
-        for (i = 0; i < node.children.length; i++) {
-            let child = node.children[i];
-            let prev = node.children[i - 1];
+        for (i = 0; i < elements.length; i++) {
+            let child = elements[i];
+            let prev = elements[i - 1];
 
             if (needLinebreak(child, prev)) {
                 result += '\n' + context.getIndent();
@@ -42,12 +47,13 @@ export function format(node, context, recur) {
             result +=  recur(child);
         }
 
-        if (node.children.length) {
+        // the last linebreak
+        if (elements.length) {
             result += '\n';
         }
 
         context.indentOut();
-        result += recur(node.closingElement);
+        result += context.getIndent() + recur(node.closingElement);
     }
 
     return result;
@@ -66,4 +72,27 @@ function needLinebreak(node, prev) {
     if (prev && prev.type === 'JSXElement') {
         return true;
     }
+}
+
+/**
+ * JSX contents are parsed as a bunch of whitespace literals
+ * for example the following structure
+ *  <div>
+ *      <App />
+ *  </div>
+ *
+ * Will have childre elements
+ *  1. "\n    "
+ *  2. <App />
+ *  3. "\n"
+ *
+ * We want to reformat it, so we strip down all whitespaces, so that
+ * we can add them later in the right order with correct indentation.
+ */
+function notWhitespaceLiteral(node) {
+    if (node.type === 'Literal') {
+        return !node.raw.match(/^\s+$/);
+    }
+
+    return true;
 }
