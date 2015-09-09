@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --compilers js:babel/register test/**/*_test.js",
+    "test_dev": "./node_modules/mocha/bin/mocha --compilers js:babel/register test/**/*_test.js",
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec --compilers js:babel/register test/**/*_test.js && cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js",
     "watch_test": "./node_modules/mocha/bin/mocha -w --compilers js:babel/register test/**/*_test.js"
   },
   "author": "",
@@ -18,6 +19,7 @@
   "devDependencies": {
     "babel": "^5.8.23",
     "chai": "^3.2.0",
+    "codecov.io": "^0.1.6",
     "glob": "^5.0.14",
     "mocha": "^2.3.0"
   }
