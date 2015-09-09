@@ -36,5 +36,15 @@ describe('newlines', function() {
 
 module.exports = 5;`);
     });
+
+    specify.skip('newline after function def as the last arg', function() {
+        const code = 'a.b(4, function(a) { return 5}); a.b = 5;';
+
+        expect(format(code)).to.equal(
+`a.b(4, function(a) {
+    return 5;
 });
 
+a.b = 5;`);
+    });
+});
