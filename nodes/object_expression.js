@@ -29,7 +29,7 @@ export function  format(node, context, recur) {
     }
 
     let blockComments = context.blockComments(node);
-    let result = context.getIndent() + '{\n';
+    let result = '{\n';
 
     context.indentIn();
 
