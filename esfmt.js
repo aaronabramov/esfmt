@@ -41,6 +41,9 @@ import * as ThisExpression from './nodes/this_expression';
 import * as ForInStatement from './nodes/for_in_statement';
 import * as DoWhileStatement from './nodes/do_while_statement';
 import * as ThrowStatement from './nodes/throw_statement';
+import * as ExportDefaultDeclaration from './nodes/export_default_declaration';
+import * as ExportNamedDeclaration from './nodes/export_named_declaration';
+import * as ExportSpecifier from './nodes/export_specifier';
 
 
 import esprima from 'espree';
@@ -50,6 +53,9 @@ import defaultConfig from './default_config';
 import FormatContext from './format_context';
 
 const NODE_TYPES = {
+    ExportSpecifier,
+    ExportNamedDeclaration,
+    ExportDefaultDeclaration,
     ThrowStatement,
     DoWhileStatement,
     ForInStatement,
