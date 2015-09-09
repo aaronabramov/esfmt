@@ -20,18 +20,38 @@
  *      }]
  *  }
  */
+
+import * as utils from '../utils';
+
 export function  format(node, context, recur) {
     if (!node.properties.length) {
         return '{}';
     }
 
-    let result = '{\n';
+    let blockComments = context.blockComments(node);
+    let result = context.getIndent() + '{\n';
 
     context.indentIn();
-    result += context.getIndent();
-    result += node.properties.map(recur).join(',\n' + context.getIndent())
+
+    for (let i =0; i < node.properties.length; i++) {
+        let previous = node.properties[i - 1];
+        let child = node.properties[i];
+        let next = node.properties[i + 1];
+        let childResult = '';
+
+        childResult += blockComments.printLeading(child, previous, next);
+        childResult += context.getIndent() + recur(child);
+        childResult += blockComments.printTrailing(child, previous, next);
+
+        result += childResult;
+
+        if (next) {
+            result += ',\n';
+        }
+    }
+
     context.indentOut();
-    result += '\n}';
+    result += '\n' + context.getIndent() + '}';
 
     return result;
 }
