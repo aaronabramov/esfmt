@@ -1,3 +1,5 @@
+/* Copyright 2015, Yahoo Inc. */
+
 import * as ArrayExpression from './nodes/array_expression';
 import * as ArrowFunctionExpression from './nodes/arrow_function_expression';
 import * as AssignmentExpression from './nodes/assignment_expression';
