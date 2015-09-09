@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+require('babel/register')();
+
+var esfmt = require('../esfmt');
+
+var data = '';
+
+process.stdin.on('data', function(chunk) {
+    data += chunk;
+});
+
+process.stdin.on('end', function() {
+    process.stdout.write(esfmt.format(data));
+});
