@@ -25,8 +25,13 @@ export default class BlockComments {
      *
      * Criteria:
      * Any comment that has
-     *  1. comment.range[0] > previousNode.range[1]
+     *  1. comment.range[0] > previousNode.range[0]
+     *      // take the left range of the prev node
+     *      // we assume that its own comments were already extracted
+     *      // @see https://github.com/eslint/espree/issues/41
+     *
      *      AND
+     *
      *  2. comment.range[0] < node.range[0]
      *
      * if it is the first node in the block then
@@ -36,7 +41,7 @@ export default class BlockComments {
         let comments = [];
         let match = [];
 
-        let leftRange = (prev && prev.range[1]) || this.leftRange;
+        let leftRange = (prev && prev.range[0]) || this.leftRange;
         let rightRange = node.range[0];
 
         this.context.comments.forEach((comment) => {
@@ -52,7 +57,8 @@ export default class BlockComments {
         this.context.comments = comments;
 
         return match.map((comment) => {
-            return this.context.getIndent() + '//' + comment.value + '\n';
+            return this.context.getIndent()
+                + this.printComment(comment) + '\n';
         }).join('');
     }
 
@@ -88,13 +94,20 @@ export default class BlockComments {
         let leftRange = node.range[0];
         let rightRange = (next && next.range[0]) || this.rightRange;
 
+
         this.context.comments.forEach((comment) => {
             if (comment.range[0] > leftRange && comment.range[0] < rightRange) {
                 if (comment.loc.start.line === node.loc.end.line) {
-                    sameLine.push(comment);
-                } else {
-                    after.push(comment);
+                    return sameLine.push(comment);
                 }
+
+                if (next) {
+                    // that's a leading comment of the next node
+                    // not trailing comment of this node
+                    return comments.push(comment);
+                }
+
+                after.push(comment);
             } else {
                 comments.push(comment);
             }
@@ -108,18 +121,34 @@ export default class BlockComments {
         };
 
         if (sameLine.length) {
-            result = ' ' + '//' + sameLine.map((c) => {
-                return c.value;
-            }).join();
+            result = ' ' + sameLine.map(this.printComment.bind(this)).join(' ');
         }
 
         after.forEach((comment) => {
-            result += '\n' + this.context.getIndent() + '//' + comment.value;
+            result += '\n' + this.context.getIndent()
+                + this.printComment(comment);
         });
 
         // remove found comments from context
         this.context.comments = comments;
 
         return result;
+    }
+
+    printComment(comment) {
+        switch (comment.type) {
+            case 'Line':
+                return this.printLineComment(comment);
+            case 'Block':
+                return this.printBlockComment(comment);
+        }
+    }
+
+    printLineComment(comment) {
+        return '//' + comment.value;
+    }
+
+    printBlockComment(comment) {
+        return '/*' + comment.value + '*/';
     }
 }
