@@ -92,7 +92,6 @@ describe('formatting of React.js .jsx files', function() {
     );
 }`;
 
-        console.log(format(code).replace(/\ /g, '.'));
         expect(format(code)).to.equal(
 `const a = function() {
     return <div className="abc">
