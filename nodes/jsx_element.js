@@ -24,15 +24,20 @@
 export function format(node, context, recur) {
     let result = '';
 
-    if (node.closingElement) {
-        result += recur(node.openingElement);
-        if (node.children) {
-            result += node.children.map((child) => {
-                return recur(child);
-            }).join('');
+    result = recur(node.openingElement);
 
+    if (node.closingElement) {
+        context.indentIn();
+
+        node.children.forEach((child) => {
+            result += '\n' + context.getIndent() + recur(child);
+        });
+
+        if (node.children.length) {
+            result += '\n';
         }
 
+        context.indentOut();
         result += recur(node.closingElement);
     }
 

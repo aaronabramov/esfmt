@@ -21,7 +21,7 @@ export function format(node, context, recur) {
     };
 
     if (node.selfClosing) {
-        result += '/';
+        result += ' /';
     }
 
     result += '>';
