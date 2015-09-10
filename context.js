@@ -1,6 +1,6 @@
 import BlockComments from './utils/block_comments';
 
-export default class FormatContext {
+export default class Context {
     /**
      * Create a context object for formatting
      *

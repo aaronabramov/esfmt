@@ -50,7 +50,7 @@ import esprima from 'espree';
 import esprimaOptions from './esprima_options';
 
 import defaultConfig from './default_config';
-import FormatContext from './format_context';
+import Context from './context';
 
 const NODE_TYPES = {
     ExportSpecifier,
@@ -119,7 +119,7 @@ export function format(code, config) {
 
     // console.log('AST: \n', JSON.stringify(ast, null, 2));
 
-    let context = new FormatContext(config, ast);
+    let context = new Context(config, ast);
 
     formatAst(ast, context);
 
