@@ -20,7 +20,7 @@
     "chai": "^3.2.0",
     "codecov.io": "^0.1.6",
     "glob": "^5.0.14",
-    "istanbul": "git@github.com:gotwarlost/istanbul.git#source-map",
+    "istanbul": "gotwarlost/istanbul#source-map",
     "mocha": "^2.3.0"
   }
 }
