@@ -19,6 +19,12 @@ const WRAPPERS = {
     '()': {left: '(', right: ')'}
 }
 
+/**
+ * Render the long version of the list
+ *
+ * @example
+ *  [1, 2, 3, 4, 5]
+ */
 export function long(nodes, context, recur, wrap) {
     context.write(WRAPPERS[wrap].left);
 
@@ -33,6 +39,17 @@ export function long(nodes, context, recur, wrap) {
     context.write(WRAPPERS[wrap].right);
 }
 
+/**
+ * Render the short or compact version of the list
+ *
+ * @example
+ *  [
+ *      1,
+ *      2,
+ *      3,
+ *      4
+ *  ]
+ */
 export function short(nodes, context, recur, wrap) {
     context.write(WRAPPERS[wrap].left);
     context.indentIn();
