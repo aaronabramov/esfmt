@@ -37,14 +37,12 @@ export function format(node, context, recur) {
          */
         context.indentIn();
         context.indentIn();
-
         context.write('\n', context.getIndent());
+        context.indentOut();
+        context.indentOut();
 
         rightParents && context.write('(');
         recur(node.right);
         rightParents && context.write(')');
-
-        context.indentOut();
-        context.indentOut();
     }
 }
