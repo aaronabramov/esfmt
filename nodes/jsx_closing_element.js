@@ -9,5 +9,7 @@
  */
 
 export function format(node, context, recur) {
-    return '</' + recur(node.name) + '>';
+    context.write('</');
+    recur(node.name);
+    context.write('>');
 }

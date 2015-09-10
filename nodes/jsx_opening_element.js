@@ -11,20 +11,24 @@
  */
 
 export function format(node, context, recur) {
-    let result = '';
-
-    result += '<' + recur(node.name);
+    context.write('<');
+    recur(node.name);
 
     if (node.attributes.length) {
-        result += ' ';
-        result += node.attributes.map(recur).join(' ');
+        context.write(' ');
+
+        for (let i = 0; i < node.attributes.length; i++) {
+            recur(node.attributes[i]);
+
+            if (node.attributes[i + 1]) {
+                context.write(' ');
+            }
+        }
     };
 
     if (node.selfClosing) {
-        result += ' /';
+        context.write(' /');
     }
 
-    result += '>';
-
-    return result;
+    context.write('>');
 }

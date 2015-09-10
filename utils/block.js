@@ -16,22 +16,19 @@ export function format(node, context, recur) {
         let previous = node.body[i - 1];
         let child = node.body[i];
         let next = node.body[i + 1];
-        let childResult = '';
 
         if (newlines.extraNewLineBetween(previous, child)) {
-            childResult += '\n';
+            context.write('\n');
         }
 
-        childResult += blockComments.printLeading(child, previous, next);
-        childResult += context.getIndent() + recur(child) + utils.getLineTerminator(child);
-        childResult += blockComments.printTrailing(child, previous, next);
-
-        result += childResult;
+        context.write(blockComments.printLeading(child, previous, next));
+        context.write(context.getIndent());
+        recur(child)
+        context.write(utils.getLineTerminator(child));
+        context.write(blockComments.printTrailing(child, previous, next));
 
         if (next) {
-            result += '\n';
+            context.write('\n');
         }
     }
-
-    return result;
 }

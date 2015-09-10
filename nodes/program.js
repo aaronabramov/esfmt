@@ -14,11 +14,9 @@
 import {format as formatBlock} from '../utils/block';
 
 export function format(node, context, recur) {
-    let result = formatBlock(node, context, recur);
+    formatBlock(node, context, recur);
 
     if (context.config.newLineAtTheEnd) {
-        result += '\n';
+        context.write('\n');
     }
-
-    return result;
 }

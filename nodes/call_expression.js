@@ -15,10 +15,16 @@
  *  }
  */
 export function format(node, context, recur) {
-    var result = recur(node.callee)
-    result += '(';
-    result += node.arguments.map(recur).join(', ');
-    result += ')'
+    recur(node.callee)
+    context.write('(');
 
-    return result;
+    for (let i = 0; i < node.arguments.length; i++) {
+        recur(node.arguments[i]);
+
+        if (node.arguments[i + 1]) {
+            context.write(', ');
+        }
+    }
+
+    context.write(')');
 }

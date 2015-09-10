@@ -13,5 +13,8 @@
  */
 
 export function format(node, context, recur) {
-    return 'catch (' + recur(node.param) + ') ' + recur(node.body);
+    context.write('catch (');
+    recur(node.param);
+    context.write(') ');
+    recur(node.body);
 }

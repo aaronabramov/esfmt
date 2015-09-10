@@ -23,6 +23,10 @@
  */
 
 export function format(node, context, recur) {
-    return 'for (' + recur(node.left) + ' in '
-        + recur(node.right) + ') ' + recur(node.body);
+    context.write('for (');
+    recur(node.left);
+    context.write(' in ');
+    recur(node.right);
+    context.write(') ');
+    recur(node.body);
 }

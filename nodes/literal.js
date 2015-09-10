@@ -3,5 +3,5 @@
  */
 
 export function format(node, context, recur) {
-    return node.raw;
+    context.write(node.raw);
 }

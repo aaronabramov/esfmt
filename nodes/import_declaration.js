@@ -20,7 +20,7 @@ export function format(node, context, recur) {
         ImportNamespaceSpecifier: null
     };
 
-    let result = 'import ';
+    context.write('import ');
 
     // There can be one ImportDefaultSpecifier // A, A as B
     // There can be multiple ImportSpecifiers // {a, b as c}
@@ -41,20 +41,31 @@ export function format(node, context, recur) {
     });
 
     if (specs.ImportNamespaceSpecifier) {
-        result += recur(specs.ImportNamespaceSpecifier);
+        recur(specs.ImportNamespaceSpecifier);
     }
 
     if (specs.ImportDefaultSpecifier) {
-        result += recur(specs.ImportDefaultSpecifier);
+        recur(specs.ImportDefaultSpecifier);
 
         if (specs.ImportSpecifier.length) {
-            result += ', ';
+            context.write(', ');
         }
     }
 
     if (specs.ImportSpecifier.length) {
-        result += '{' + specs.ImportSpecifier.map(recur).join(', ') + '}';
+        context.write('{');
+
+        for (let i = 0; i < specs.ImportSpecifier.length; i++) {
+            recur(specs.ImportSpecifier[i]);
+
+            if (specs.ImportSpecifier[i + 1]) {
+                context.write(', ');
+            }
+        }
+
+        context.write('}');
     }
 
-    return result += ' from ' + recur(node.source);
+    context.write(' from ');
+    recur(node.source);
 }

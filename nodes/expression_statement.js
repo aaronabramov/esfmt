@@ -17,5 +17,5 @@
 
 
 export function format(node, context, recur) {
-    return recur(node.expression);
+    recur(node.expression);
 }

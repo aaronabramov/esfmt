@@ -13,6 +13,7 @@ export default class FormatContext {
         this.currentIndentation = 0;
         this.ast = ast;
         this.comments = ast.comments;
+        this.result = '';
     }
 
     indentIn() {
@@ -57,4 +58,18 @@ export default class FormatContext {
             lastCommentRange || 0
         )
     }
+
+    write(str) {
+        if (arguments.length > 1) {
+            str = '';
+
+            for (let i = 0; i < arguments.length; i++) {
+                str += arguments[i];
+            }
+        }
+
+        this.result += str;
+    };
+
+    lock() {}
 }

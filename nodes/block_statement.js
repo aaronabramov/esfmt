@@ -12,16 +12,12 @@ import {format as formatBlock} from '../utils/block';
 
 export function format(node, context, recur) {
     if (!node.body.length) {
-        return '{}';
+        return context.write('{}');
     }
 
-    let result = '{\n';
-
+    context.write('{\n');
     context.indentIn();
-    result += formatBlock(node, context, recur);
+    formatBlock(node, context, recur);
     context.indentOut();
-
-    result += '\n' + context.getIndent() + '}';
-
-    return result;
+    context.write('\n', context.getIndent(), '}');
 }

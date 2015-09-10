@@ -24,5 +24,6 @@
  *  }
  */
 export function format(node, context, recur) {
-    return 'export default ' + recur(node.declaration);
+    context.write('export default ');
+    recur(node.declaration);
 }

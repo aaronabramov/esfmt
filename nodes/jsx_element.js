@@ -22,11 +22,7 @@
  */
 
 export function format(node, context, recur) {
-    let result = '';
-
-    // console.log(node);
-
-    result = recur(node.openingElement);
+    recur(node.openingElement);
 
     if (node.closingElement) {
         let i;
@@ -41,22 +37,21 @@ export function format(node, context, recur) {
             let prev = elements[i - 1];
 
             if (needLinebreak(child, prev)) {
-                result += '\n' + context.getIndent();
+                context.write('\n', context.getIndent());
             }
 
-            result +=  recur(child);
+            recur(child);
         }
 
         // the last linebreak
         if (elements.length) {
-            result += '\n';
+            context.write('\n');
         }
 
         context.indentOut();
-        result += context.getIndent() + recur(node.closingElement);
+        context.write(context.getIndent());
+        recur(node.closingElement);
     }
-
-    return result;
 }
 
 function needLinebreak(node, prev) {

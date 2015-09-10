@@ -31,8 +31,10 @@
  */
 
 export function format(node, context, recur) {
-    return 'do ' + recur(node.body)
-        + ' while ('
-        + recur(node.test) + ')';
+    context.write('do ');
+    recur(node.body)
+    context.write(' while (');
+    recur(node.test);
+    context.write(')');
 
 }

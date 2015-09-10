@@ -22,9 +22,19 @@
  */
 export function format(node, context, recur) {
     if (node.declaration) {
-        return 'export ' + recur(node.declaration);
+        context.write('export ');
+        recur(node.declaration);
     } else {
         // specifiers
-        return 'export {' + node.specifiers.map(recur).join(', ') + '}';
+        context.write('export {');
+
+        for (let i = 0; i < node.specifiers.length; i++) {
+            recur(node.specifiers[i]);
+            if (node.specifiers[i + 1]) {
+                context.write(', ');
+            }
+        }
+
+        context.write('}');
     }
 }

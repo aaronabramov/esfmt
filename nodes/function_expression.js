@@ -18,14 +18,23 @@
  */
 
 export function format(node, context, recur) {
-    let result = 'function';
+    context.write('function');
 
     if (node.id) {
-        result += ' ' + recur(node.id);
+        context.write(' ');
+        recur(node.id);
     }
 
-    result += '(' + node.params.map(recur).join(', ') + ') '
-        + recur(node.body);
+    context.write('(');
 
-    return result;
+    for (let i = 0; i < node.params.length; i++) {
+        recur(node.params[i]);
+
+        if (node.params[i + 1]) {
+            context.write(', ');
+        }
+    }
+
+    context.write(') ');
+    recur(node.body);
 }

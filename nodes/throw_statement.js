@@ -18,5 +18,6 @@
  */
 
 export function format(node, context, recur) {
-    return 'throw ' + recur(node.argument);
+    context.write('throw ');
+    recur(node.argument);
 }

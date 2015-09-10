@@ -24,8 +24,10 @@
 
 export function format(node, context, recur) {
     if (node.local.name === node.imported.name) {
-        return recur(node.local);
+        recur(node.local);
     } else {
-        return recur(node.imported) + ' as ' + recur(node.local);
+        recur(node.imported);
+        context.write(' as ');
+        recur(node.local);
     }
 }

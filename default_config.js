@@ -1,4 +1,5 @@
 export default {
     indentation: 4,
-    newLineAtTheEnd: false
+    newLineAtTheEnd: false,
+    'max-len': 120
 }

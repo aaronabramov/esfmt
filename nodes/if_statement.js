@@ -20,25 +20,25 @@
 import * as utils from '../utils';
 
 export function format(node, context, recur) {
-    let result = 'if (' + recur(node.test) + ') ';
+    context.write('if (');
+    recur(node.test);
+    context.write(') ');
 
     if (node.consequent.type !== 'BlockStatement') {
-        result += '{\n';
+        context.write('{\n');
         context.indentIn();
-        result += context.getIndent()
-            + recur(node.consequent)
-            + utils.getLineTerminator(node.consequent)
-            + '\n';
+        context.write(context.getIndent());
+        recur(node.consequent)
+        context.write(utils.getLineTerminator(node.consequent), '\n');
 
         context.indentOut();
-        result += context.getIndent() + '}';
+        context.write(context.getIndent(), '}');
     } else {
-        result += recur(node.consequent);
+        recur(node.consequent);
     }
 
     if (node.alternate) {
-        result += ' else ' + recur(node.alternate);
+        context.write(' else ');
+        recur(node.alternate);
     }
-
-    return result;
 }

@@ -12,8 +12,10 @@
 
 export function format(node, context, recur) {
     if (node.prefix) {
-        return node.operator + recur(node.argument);
+        context.write(node.operator);
+        recur(node.argument);
     } else {
-        return recur(node.argument) + node.operator;
+        recur(node.argument);
+        context.write(node.operator);
     }
 }

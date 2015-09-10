@@ -15,7 +15,8 @@ const DONT_INDENT = {
 };
 
 export function format(node, context, recur) {
-    let result = node.kind + ' ';
+    context.write(node.kind, ' ');
+
     var indent = true;
 
     /**
@@ -33,11 +34,13 @@ export function format(node, context, recur) {
 
     indent && context.indentIn();
 
-    result += node.declarations
-        .map(recur)
-        .join(',\n' + context.getIndent());
+    for (let i = 0; i < node.declarations.length; i++) {
+        recur(node.declarations[i]);
+
+        if (node.declarations[i + 1]) {
+            context.write(',\n', context.getIndent());
+        }
+    }
 
     indent && context.indentOut();
-
-    return result;
 }

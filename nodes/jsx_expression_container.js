@@ -8,5 +8,7 @@
  *  }
  */
 export function format(node, context, recur) {
-    return '{' + recur(node.expression) + '}';
+    context.write('{');
+    recur(node.expression);
+    context.write('}');
 }

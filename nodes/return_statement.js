@@ -15,11 +15,10 @@
  */
 
 export function format(node, context, recur) {
-    let result = 'return';
+    context.write('return');
 
     if (node.argument) {
-        result += ' ' + recur(node.argument);
+        context.write(' ');
+        recur(node.argument);
     }
-
-    return result;
 }

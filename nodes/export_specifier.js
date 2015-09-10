@@ -25,8 +25,10 @@
 
 export function format(node, context, recur) {
     if (node.exported.name === node.local.name) {
-        return recur(node.exported);
+        recur(node.exported);
     } else {
-        return recur(node.local) + ' as ' + recur(node.exported);
+        recur(node.local);
+        context.write(' as ');
+        recur(node.exported);
     }
 }

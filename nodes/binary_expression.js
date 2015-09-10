@@ -16,17 +16,18 @@
 import * as utils from '../utils';
 
 export function format(node, context, recur) {
-    let left = recur(node.left);
-    let right = recur(node.right);
     let result = '';
 
-    if (utils.needParentheses(node, node.left)) {
-        left = utils.wrapInParantheses(left);
-    }
+    let leftParents = utils.needParentheses(node, node.left);
+    let rightParents = utils.needParentheses(node, node.right);
 
-    if (utils.needParentheses(node, node.right)) {
-        right = utils.wrapInParantheses(right);
-    }
+    leftParents && context.write('(');
+    recur(node.left);
+    leftParents && context.write(')');
 
-    return left + ' ' + node.operator + ' ' + right;
+    context.write(' ', node.operator, ' ');
+
+    rightParents && context.write('(');
+    recur(node.right);
+    rightParents && context.write(')');
 }

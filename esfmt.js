@@ -119,7 +119,11 @@ export function format(code, config) {
 
     // console.log('AST: \n', JSON.stringify(ast, null, 2));
 
-    return formatAst(ast, new FormatContext(config, ast));
+    let context = new FormatContext(config, ast);
+
+    formatAst(ast, context);
+
+    return context.result;
 };
 
 /**
@@ -140,13 +144,12 @@ function formatAst(node, context, recur) {
     // only if it's not defined (first call)
     recur || (recur = (nextNode) => {
         // console.log('next node: ', nextNode);
-        //
-        return formatAst(nextNode, context, recur);
+        formatAst(nextNode, context, recur);
     });
 
     if (!nodeNamespace) {
         throw new Error('unknown node type: ' + node.type);
     }
 
-    return nodeNamespace.format(node, context, recur);
+    nodeNamespace.format(node, context, recur);
 }

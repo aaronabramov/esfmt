@@ -23,5 +23,15 @@
  *  }
  */
 export function format(node, context, recur) {
-    return '[' + node.elements.map(recur).join(', ') + ']';
+    context.write('[');
+
+    for (let i = 0; i < node.elements.length; i++) {
+        recur(node.elements[i]);
+
+        if (node.elements[i + 1]) {
+            context.write(', ');
+        }
+    }
+
+    context.write(']');
 }

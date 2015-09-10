@@ -9,5 +9,5 @@
  */
 
 export function format(node, context, recur) {
-    return recur(node.local);
+    recur(node.local);
 }

@@ -40,12 +40,12 @@
  */
 
 export function format(node, context, recur) {
-    return 'for ('
-        + recur(node.init)
-        + '; '
-        + recur(node.test)
-        + '; '
-        + recur(node.update)
-        + ') '
-        + recur(node.body);
+    context.write('for (');
+    recur(node.init);
+    context.write('; ');
+    recur(node.test);
+    context.write('; ');
+    recur(node.update);
+    context.write(') ');
+    recur(node.body);
 }

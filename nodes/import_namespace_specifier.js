@@ -9,5 +9,6 @@
  */
 
 export function format(node, context, recur) {
-    return '* as ' + recur(node.local);
+    context.write('* as ');
+    recur(node.local);
 }

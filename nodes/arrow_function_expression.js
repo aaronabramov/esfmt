@@ -20,15 +20,21 @@
  *  }
  */
 export function format(node, context, recur) {
-    let result = '';
 
     if (node.id) {
-        result += node.id;
+        context.write(node.id);
     }
 
-    result += '(' + node.params.map(recur).join(', ') + ') => ';
+    context.write('(')
 
-    result += recur(node.body);
+    for (let i = 0; i < node.params.length; i++) {
+        recur(node.params[i]);
 
-    return result;
+        if (node.params[i + 1]) {
+            context.write(', ');
+        }
+    }
+
+    context.write(') => ');
+    recur(node.body);
 }

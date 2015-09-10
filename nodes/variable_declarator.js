@@ -14,11 +14,10 @@
  */
 
 export function format(node, context, recur) {
-    let result = recur(node.id);
+    recur(node.id);
 
     if (node.init) {
-        result += ' = ' + recur(node.init);
+        context.write(' = ');
+        recur(node.init);
     }
-
-    return result;
 }

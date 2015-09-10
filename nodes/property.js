@@ -18,5 +18,7 @@
  */
 
 export function format(node, context, recur) {
-    return recur(node.key) + ': ' + recur(node.value);
+    recur(node.key);
+    context.write(': ');
+    recur(node.value);
 }

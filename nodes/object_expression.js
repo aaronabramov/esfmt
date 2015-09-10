@@ -25,11 +25,11 @@ import * as utils from '../utils';
 
 export function  format(node, context, recur) {
     if (!node.properties.length) {
-        return '{}';
+        return context.write('{}');
     }
 
     let blockComments = context.blockComments(node);
-    let result = '{\n';
+    context.write('{\n');
 
     context.indentIn();
 
@@ -37,26 +37,22 @@ export function  format(node, context, recur) {
         let previous = node.properties[i - 1];
         let child = node.properties[i];
         let next = node.properties[i + 1];
-        let childResult = '';
 
-        childResult += blockComments.printLeading(child, previous, next);
-        childResult += context.getIndent() + recur(child);
+        context.write(blockComments.printLeading(child, previous, next));
+        context.write(context.getIndent());
+        recur(child);
 
         if (next) {
-            childResult += ','
+            context.write(',');
         }
 
-        childResult += blockComments.printTrailing(child, previous, next);
-
-        result += childResult;
+        context.write(blockComments.printTrailing(child, previous, next));
 
         if (next) {
-            result += '\n';
+            context.write('\n');
         }
     }
 
     context.indentOut();
-    result += '\n' + context.getIndent() + '}';
-
-    return result;
+    context.write('\n', context.getIndent(), '}');
 }

@@ -24,8 +24,18 @@
  */
 
 export function format(node, context, recur) {
-    return 'function ' + recur(node.id) + '('
-        + node.params.map(recur).join(', ')
-        + ') '
-        + recur(node.body);
+    context.write('function ');
+    recur(node.id);
+    context.write('(');
+
+    for (let i = 0; i < node.params.length; i++) {
+        recur(node.params[i]);
+
+        if (node.params[i + 1]) {
+            context.write(', ');
+        }
+    }
+
+    context.write(') ');
+    recur(node.body);
 }
