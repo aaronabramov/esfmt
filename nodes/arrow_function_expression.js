@@ -19,22 +19,23 @@
  *      expression: false
  *  }
  */
-export function format(node, context, recur) {
 
+import {long, short} from '../utils/list';
+
+export function format(node, context, recur) {
     if (node.id) {
         context.write(node.id);
     }
 
-    context.write('(')
+    let rollback = context.transaction();
 
-    for (let i = 0; i < node.params.length; i++) {
-        recur(node.params[i]);
+    long(node.params, context, recur, '()');
 
-        if (node.params[i + 1]) {
-            context.write(', ');
-        }
+    if (context.overflown()) {
+        rollback();
+        short(node.params, context, recur, '()');
     }
 
-    context.write(') => ');
+    context.write(' => ');
     recur(node.body);
 }

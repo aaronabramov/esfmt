@@ -13,6 +13,8 @@
  *  }
  */
 
+import {long, short} from '../utils/list';
+
 export function format(node, context, recur) {
     let specs = {
         ImportDefaultSpecifier: null,
@@ -53,17 +55,14 @@ export function format(node, context, recur) {
     }
 
     if (specs.ImportSpecifier.length) {
-        context.write('{');
+        let rollback = context.transaction();
 
-        for (let i = 0; i < specs.ImportSpecifier.length; i++) {
-            recur(specs.ImportSpecifier[i]);
+        long(specs.ImportSpecifier, context, recur, '{}');
 
-            if (specs.ImportSpecifier[i + 1]) {
-                context.write(', ');
-            }
+        if (context.overflown()) {
+            rollback();
+            short(specs.ImportSpecifier, context, recur, '{}');
         }
-
-        context.write('}');
     }
 
     context.write(' from ');

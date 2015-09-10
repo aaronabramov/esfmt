@@ -6,7 +6,7 @@ let format20 = (code) => {
 }
 
 
-describe.skip('array', function() {
+describe('array', function() {
     specify('one line array', function() {
         const code = '[1, \'2\', abc, null, undefined]';
 
@@ -16,6 +16,7 @@ describe.skip('array', function() {
     specify('multiline array', function() {
         const code = '[123456, 123456, 123456, 123456, 123456]';
 
+        expect(format(code)).to.equal('[123456, 123456, 123456, 123456, 123456];');
         expect(format20(code)).to.equal(
 `[
     123456,

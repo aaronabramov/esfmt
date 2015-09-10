@@ -20,21 +20,25 @@
  *      range: [0, 34],
  *  }
  */
+
+import {long, short} from '../utils/list';
+
 export function format(node, context, recur) {
     if (node.declaration) {
         context.write('export ');
         recur(node.declaration);
     } else {
+        let rollback = context.transaction();
+
         // specifiers
-        context.write('export {');
+        context.write('export ');
 
-        for (let i = 0; i < node.specifiers.length; i++) {
-            recur(node.specifiers[i]);
-            if (node.specifiers[i + 1]) {
-                context.write(', ');
-            }
+        long(node.specifiers, context, recur, '{}');
+
+        if (context.overflown()) {
+            rollback();
+
+            short(node.specifiers, context, recur, '{}');
         }
-
-        context.write('}');
     }
 }

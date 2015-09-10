@@ -22,16 +22,16 @@
  *      }]
  *  }
  */
+
+import {long, short} from '../utils/list';
+
 export function format(node, context, recur) {
-    context.write('[');
+    let rollback = context.transaction();
 
-    for (let i = 0; i < node.elements.length; i++) {
-        recur(node.elements[i]);
+    long(node.elements, context, recur, '[]');
 
-        if (node.elements[i + 1]) {
-            context.write(', ');
-        }
-    }
-
-    context.write(']');
+    if (context.overflown()) {
+        rollback();
+        short(node.elements, context, recur, '[]');
+    };
 }

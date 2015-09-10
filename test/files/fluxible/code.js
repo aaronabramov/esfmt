@@ -46,9 +46,7 @@ var warnedOnce = false;
  */
 FluxContext.prototype.createElement = function createElement(props) {
     if (!warnedOnce && process.env.NODE_ENV !== 'production') {
-        console.warn('`context.createElement(props)` has been moved out of ' +
-            'Fluxible to fluxible-addons-react. This can be called using ' +
-            '`require(\'fluxible-addons-react\').createElementWithContext(context, props)`');
+        console.warn('`context.createElement(props)` has been moved out of ');
         warnedOnce = true;
     }
     return createElementWithContext(this, props);
@@ -143,13 +141,9 @@ FluxContext.prototype.executeAction = function executeAction(action, payload, do
     var Promise = FluxContext.Promise;
     if (process.env.NODE_ENV !== 'production') {
         if (this._dispatcher && this._dispatcher.currentAction) {
-            var currentActionDisplayName = this._dispatcher.currentAction.displayName ||
-                this._dispatcher.currentAction.name;
+            var currentActionDisplayName = this._dispatcher.currentAction.displayName;
 
-            console.warn('Warning: executeAction for `' + displayName + '` was called, but `' +
-                currentActionDisplayName + '` is currently being dispatched. This could mean ' +
-                'there are cascading updates, which should be avoided. `' + displayName +
-                '` will only start after `' + currentActionDisplayName + '` is complete.');
+            console.warn('Warning: executeAction for `' + displayName);
         }
     }
 
@@ -240,9 +234,7 @@ FluxContext.prototype.getComponentContext = function getComponentContext() {
         executeAction: function componentExecuteAction(action, payload, done) {
             if (done) {
                 if ('production' !== process.env.NODE_ENV) {
-                    console.warn('When calling executeAction from a component,' +
-                        'a callback isn\'t allowed. See our docs for more info:' +
-                        'http://fluxible.io/api/components.html#component-context');
+                    console.warn('When calling executeAction from a component');
                 }
             }
             self.executeAction(action, payload)

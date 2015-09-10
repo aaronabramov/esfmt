@@ -9,19 +9,18 @@
  *  }
  */
 
+import {long, short} from '../utils/list';
+
 export function format(node, context, recur) {
     context.write('new ');
     recur(node.callee);
-    context.write('(');
 
-    for (let i = 0; i < node.arguments.length; i++) {
-        recur(node.arguments[i]);
+    let rollback = context.transaction();
 
-        if (node.arguments[i + 1]) {
-            context.write(', ');
-        }
+    long(node.arguments, context, recur, '()');
 
-    }
-
-    context.write(')');
+    if (context.overflown()) {
+        rollback();
+        short(node.arguments, context, recur, '()');
+    };
 }

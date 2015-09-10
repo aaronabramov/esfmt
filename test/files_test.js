@@ -1,7 +1,14 @@
 import glob from 'glob';
 import fs from 'fs';
+import path from 'path';
 import {format} from '../';
 import {expect} from 'chai';
+
+const TMP_DIR = path.resolve(process.cwd(), './tmp');
+
+if (!fs.existsSync(TMP_DIR)) {
+    fs.mkdirSync(TMP_DIR);
+}
 
 const CONFIG = {
     newLineAtTheEnd: true
@@ -25,7 +32,11 @@ describe('formatting files: ', function() {
 
         it(testName, function() {
             // console.log(format(code).replace(/\ /g, '~'));
-            expect(format(code, CONFIG)).to.equal(expected);
+            let formatted = format(code, CONFIG);
+
+            fs.writeFileSync(path.resolve(TMP_DIR, testName + '.js'), formatted);
+
+            expect(formatted).to.equal(expected);
         });
     });
 });
