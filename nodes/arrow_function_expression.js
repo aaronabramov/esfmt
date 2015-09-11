@@ -19,7 +19,6 @@
  *      expression: false
  *  }
  */
-
 import {long, short} from '../utils/list';
 
 export function format(node, context, recur) {
@@ -30,7 +29,6 @@ export function format(node, context, recur) {
     let rollback = context.transaction();
 
     long(node.params, context, recur, '()');
-
     if (context.overflown()) {
         rollback();
         short(node.params, context, recur, '()');
@@ -38,4 +36,4 @@ export function format(node, context, recur) {
 
     context.write(' => ');
     recur(node.body);
-}
+};

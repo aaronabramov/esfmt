@@ -12,10 +12,8 @@
  *      }
  *  }
  */
-
-
 import * as binary from '../utils/binary';
 
 export function format(node, context, recur) {
     binary.format(node, context, recur);
-}
+};

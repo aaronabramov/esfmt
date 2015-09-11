@@ -26,11 +26,9 @@
  *      }
  *  }
  */
-
 export function format(node, context, recur) {
     context.write('try ');
     recur(node.block);
-
     if (node.handler) {
         context.write(' ');
         recur(node.handler);
@@ -40,4 +38,4 @@ export function format(node, context, recur) {
         context.write(' finally ');
         recur(node.finalizer);
     }
-}
+};

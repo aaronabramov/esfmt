@@ -9,14 +9,12 @@
  *      kind: 'var'
  *  }
  */
-
 const DONT_INDENT = {
     FunctionDeclaration: true
 };
 
 export function format(node, context, recur) {
     context.write(node.kind, ' ');
-
     var indent = true;
 
     /**
@@ -29,18 +27,15 @@ export function format(node, context, recur) {
      */
     if (node.declarations.length === 1) {
         indent = !!DONT_INDENT[node.declarations[0].type];
-
     }
 
     indent && context.indentIn();
-
     for (let i = 0; i < node.declarations.length; i++) {
         recur(node.declarations[i]);
-
         if (node.declarations[i + 1]) {
             context.write(',\n', context.getIndent());
         }
     }
 
     indent && context.indentOut();
-}
+};

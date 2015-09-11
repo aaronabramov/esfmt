@@ -12,10 +12,8 @@
  *      }
  *  }
  */
-
 export function format(node, context, recur) {
     recur(node.object);
-
     if (node.computed) {
         context.write('[');
         recur(node.property);
@@ -24,4 +22,4 @@ export function format(node, context, recur) {
         context.write('.');
         recur(node.property);
     }
-}
+};

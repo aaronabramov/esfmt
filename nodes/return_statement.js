@@ -13,12 +13,10 @@
  *    }
  *    }
  */
-
 export function format(node, context, recur) {
     context.write('return');
-
     if (node.argument) {
         context.write(' ');
         recur(node.argument);
     }
-}
+};

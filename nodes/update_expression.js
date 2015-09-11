@@ -9,7 +9,6 @@
  *      prefix: false
  *  }
  */
-
 export function format(node, context, recur) {
     if (node.prefix) {
         context.write(node.operator);
@@ -18,4 +17,4 @@ export function format(node, context, recur) {
         recur(node.argument);
         context.write(node.operator);
     }
-}
+};
