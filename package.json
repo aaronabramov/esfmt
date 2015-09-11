@@ -2,7 +2,7 @@
   "name": "esfmt",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "package/esfmt.js",
   "scripts": {
     "test_dev": "./node_modules/mocha/bin/mocha --compilers js:babel/register test/**/*_test.js",
     "test": "./node_modules/mocha/bin/_mocha test/setup.js test/**/*_test.js && cat ./coverage/coverage-final.json | ./node_modules/codecov.io/bin/codecov.io.js"

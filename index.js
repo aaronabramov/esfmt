@@ -1,3 +1,3 @@
 require('babel/register')();
 
-module.exports = require('./esfmt');
+module.exports = require('./src/esfmt');
