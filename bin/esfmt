@@ -1,6 +1,9 @@
 #!/usr/bin/env node
+
 require('babel/polyfill');
-var esfmt = require('../package/esfmt');
+
+var path = require('path');
+var esfmt = require(path.resolve(__dirname, '../package/esfmt'));
 
 var data = '';
 
