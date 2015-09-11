@@ -17,6 +17,10 @@ export function format(node, context, recur) {
         let child = node.body[i];
         let next = node.body[i + 1];
 
+        if (child.type === 'EmptyStatement') {
+            continue;
+        }
+
         if (newlines.extraNewLineBetween(previous, child)) {
             context.write('\n');
         }

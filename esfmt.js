@@ -44,6 +44,7 @@ import * as ThrowStatement from './nodes/throw_statement';
 import * as ExportDefaultDeclaration from './nodes/export_default_declaration';
 import * as ExportNamedDeclaration from './nodes/export_named_declaration';
 import * as ExportSpecifier from './nodes/export_specifier';
+import * as EmptyStatement from './nodes/empty_statement';
 
 
 import esprima from 'espree';
@@ -53,6 +54,7 @@ import defaultConfig from './default_config';
 import Context from './context';
 
 const NODE_TYPES = {
+    EmptyStatement,
     ExportSpecifier,
     ExportNamedDeclaration,
     ExportDefaultDeclaration,
