@@ -1,4 +1,4 @@
-import {format} from '../';
+import {format} from '../src/esfmt';
 import {expect} from 'chai';
 
 describe('newlines', function() {

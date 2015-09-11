@@ -1,7 +1,7 @@
 import glob from 'glob';
 import fs from 'fs';
 import path from 'path';
-import {format} from '../';
+import {format} from '../src/esfmt';
 import {expect} from 'chai';
 
 const TMP_DIR = path.resolve(process.cwd(), './tmp');

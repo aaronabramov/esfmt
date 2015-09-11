@@ -1,5 +1,4 @@
-
-import {format} from '../esfmt';
+import {format} from '../src/esfmt';
 import {expect} from 'chai';
 
 let format20 = (code) => {

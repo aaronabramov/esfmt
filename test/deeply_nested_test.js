@@ -1,4 +1,4 @@
-import {format} from '../esfmt';
+import {format} from '../src/esfmt';
 import {expect} from 'chai';
 
 describe('formatting of deeply nested code', function() {
