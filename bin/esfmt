@@ -1,8 +1,6 @@
 #!/usr/bin/env node
-
-require('babel/register')();
-
-var esfmt = require('../esfmt');
+require('babel/polyfill');
+var esfmt = require('../package/esfmt');
 
 var data = '';
 
