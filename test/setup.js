@@ -1,3 +1,5 @@
+require("babel/polyfill");
+
 var fs = require('fs');
 var babel = require('babel');
 var istanbul = require('istanbul');
@@ -30,7 +32,6 @@ after(function() {
     reporter.add('lcov');
 
     reporter.write(collector, true, function() {
-        console.log(arguments);
         console.log('DONE');
     });
 });
