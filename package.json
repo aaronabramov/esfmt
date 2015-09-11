@@ -5,8 +5,15 @@
         "email": "dmitrii@rheia.us",
         "url": "http://dmitriiabramov.com/"
     },
-    "version": "0.0.1",
-    "description": "",
+    "version": "0.0.2",
+    "description": "Javascript formatter library",
+    "keywords": [
+        "pretty print",
+        "format",
+        "beautifier",
+        "beautify",
+        "esfmt"
+    ],
     "main": "package/esfmt.js",
     "files": [
         "./package/**"
@@ -22,7 +29,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "espree": "^2.2.4"
+        "espree": "2.2.4"
     },
     "devDependencies": {
         "babel": "^5.8.23",
