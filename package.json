@@ -5,7 +5,7 @@
         "email": "dmitrii@rheia.us",
         "url": "http://dmitriiabramov.com/"
     },
-    "version": "0.0.5",
+    "version": "0.0.7",
     "description": "Javascript formatter library",
     "keywords": [
         "pretty print",
@@ -16,12 +16,10 @@
     ],
     "main": "package/esfmt.js",
     "files": [
-        "./package/**",
-        "./bin/esfmt"
+        "package/",
+        "bin/"
     ],
-    "bin": {
-        "esfmt": "./bin/esfmt"
-    },
+    "bin": "./bin/esfmt",
     "repository": {
         "type": "git",
         "url": "dmitriiabramov/esfmt"

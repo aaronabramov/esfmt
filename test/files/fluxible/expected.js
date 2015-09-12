@@ -3,6 +3,7 @@
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
 'use strict';
+
 var debug = require('debug')('Fluxible:Context');
 var isPromise = require('is-promise');
 var PromiseLib = global && global.Promise || require('es6-promise').Promise;
@@ -10,6 +11,7 @@ var React = require('react');
 var createElementWithContext = require('fluxible-addons-react/createElementWithContext');
 
 require('setimmediate');
+
 /**
  * A request or browser-session context
  * @class FluxibleContext
@@ -30,6 +32,7 @@ function FluxContext(app) {
 
 // Provied a way to override Promise only for FluxContext
 FluxContext.Promise = PromiseLib;
+
 var warnedOnce = false;
 
 /**
@@ -138,6 +141,7 @@ FluxContext.prototype.executeAction = function executeAction(action, payload, do
     var self = this;
 
     payload = undefined !== payload ? payload : {};
+
     var displayName = action.displayName || action.name;
     var Promise = FluxContext.Promise;
 
@@ -325,6 +329,7 @@ FluxContext.prototype.rehydrate = function rehydrate(obj) {
     var Promise = FluxContext.Promise;
 
     obj.plugins = obj.plugins || {};
+
     var pluginTasks = self._plugins.filter(function(plugin) {
         return 'function' === typeof plugin.rehydrate && obj.plugins[plugin.name];
     }).map(function(plugin) {

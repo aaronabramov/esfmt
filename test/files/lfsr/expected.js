@@ -77,6 +77,7 @@ function LFSR(n, seed) {
     this.n = n || this.DEFAULT_LENGTH;
     this.taps = TAPS[this.n];
     seed || (seed = this._defaultSeed(this.n));
+
     // Get last n bit from the seed if it's longer
     var mask = parseInt(Array(this.n + 1).join('1'), 2);
 

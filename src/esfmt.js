@@ -109,6 +109,7 @@ const NODE_TYPES = {
  */
 export function format(code, config) {
     let ast;
+    config = config || {};
 
     try {
         ast = esprima.parse(code, esprimaOptions);
@@ -117,7 +118,15 @@ export function format(code, config) {
         throw e;
     }
 
-    config = Object.assign({}, defaultConfig, config);
+    config = JSON.parse(JSON.stringify(config));
+
+    for (let key in defaultConfig) {
+        if (defaultConfig.hasOwnProperty(key)) {
+            if (!config[key]) {
+                config[key] = defaultConfig[key];
+            }
+        }
+    }
 
     // console.log('AST: \n', JSON.stringify(ast, null, 2));
 

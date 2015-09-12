@@ -1,4 +1,4 @@
-const ALWAYS_NEED_EXTRA_NEWLINE_AFTER = {
+const NEED_EXTRA_NEWLINE_AFTER = {
     BlockStatement: true,
     VariableDeclaration: true,
     FunctionExpression: true,
@@ -6,6 +6,13 @@ const ALWAYS_NEED_EXTRA_NEWLINE_AFTER = {
     IfStatement: true,
     ForStatement: true,
     ObjectExpression: true
+};
+
+const NEED_NEWLINE_BEFORE = {
+    ifStatement: true,
+    ForStatement: true,
+    VariableDeclaration: true,
+    FunctionDeclaration: true
 };
 
 /**
@@ -53,8 +60,11 @@ export function extraNewLineBetween(previous, current) {
         return false;
     }
 
+    if (NEED_NEWLINE_BEFORE[current.type]) {
+        return true;
+    }
 
-    if (ALWAYS_NEED_EXTRA_NEWLINE_AFTER[previous.type]) {
+    if (NEED_EXTRA_NEWLINE_AFTER[previous.type]) {
         return true;
     }
 
@@ -86,7 +96,7 @@ export function extraNewLineBetween(previous, current) {
  */
 function newLineAfterCompositeExpressions(previous) {
     if (['BinaryExpression', 'AssignmentExpression'].includes(previous.type)) {
-        if (ALWAYS_NEED_EXTRA_NEWLINE_AFTER[previous.right.type]) {
+        if (NEED_EXTRA_NEWLINE_AFTER[previous.right.type]) {
             return true;
         }
     }
@@ -96,7 +106,7 @@ function newLineAfterCompositeExpressions(previous) {
 
         switch (expression.type) {
             case 'AssignmentExpression':
-                return ALWAYS_NEED_EXTRA_NEWLINE_AFTER[expression.right.type];
+                return NEED_EXTRA_NEWLINE_AFTER[expression.right.type];
                 break;
         }
     }

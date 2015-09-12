@@ -14,6 +14,7 @@ export function format(node, context, recur) {
     recur(node.name);
     if (node.attributes.length) {
         context.write(' ');
+
         for (let i = 0; i < node.attributes.length; i++) {
             recur(node.attributes[i]);
             if (node.attributes[i + 1]) {
