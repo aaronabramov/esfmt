@@ -1,9 +1,30 @@
 #!/usr/bin/env node
 
-require('babel/polyfill');
-
+var args = process.argv.slice(2);
 var path = require('path');
 var esfmt = require(path.resolve(__dirname, '../package/esfmt'));
+var pkg = require(path.resolve(__dirname, '../package.json'));
+
+if (~args.indexOf('--help')) {
+    process.stdout.write([
+        'Usage:',
+        '   esfmt [flags] [files ...]',
+        '',
+        'Options:',
+        '   -w          | overwrite contents of the files with formatted version',
+        '   --help      | print this text',
+        '   --version   | print esfmt version',
+        '',
+        'Without an explicit path, esfmt will process stdin and print results to stdout'
+    ].join('\n') + '\n');
+
+    process.exit(0);
+}
+
+if (~args.indexOf('--version')) {
+    process.stdout.write(pkg.version + '\n');
+    process.exit(0);
+}
 
 var data = '';
 

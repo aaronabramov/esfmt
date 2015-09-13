@@ -1,46 +1,42 @@
 {
-    "name": "esfmt",
-    "author": {
-        "name": "Dmitrii Abramov",
-        "email": "dmitrii@rheia.us",
-        "url": "http://dmitriiabramov.com/"
-    },
-    "version": "0.0.7",
-    "description": "Javascript formatter library",
-    "keywords": [
-        "pretty print",
-        "format",
-        "beautifier",
-        "beautify",
-        "esfmt"
-    ],
-    "main": "package/esfmt.js",
-    "files": [
-        "package/",
-        "bin/"
-    ],
-    "bin": "./bin/esfmt",
-    "repository": {
-        "type": "git",
-        "url": "dmitriiabramov/esfmt"
-    },
-    "scripts": {
-        "test_dev": "./node_modules/mocha/bin/mocha --compilers js:babel/register test/**/*_test.js",
-        "test": "./node_modules/mocha/bin/_mocha test/setup.js test/**/*_test.js && cat ./coverage/coverage-final.json | ./node_modules/codecov.io/bin/codecov.io.js"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "espree": "2.2.4"
-    },
-    "devDependencies": {
-        "babel": "^5.8.23",
-        "chai": "^3.2.0",
-        "codecov.io": "^0.1.6",
-        "glob": "^5.0.14",
-        "gulp": "^3.9.0",
-        "gulp-babel": "^5.2.1",
-        "istanbul": "gotwarlost/istanbul#source-map",
-        "mocha": "^2.3.0"
-    }
+  "name": "esfmt",
+  "author": "",
+  "version": "0.0.7",
+  "description": "Javascript formatter library",
+  "keywords": [
+    "pretty print",
+    "format",
+    "beautifier",
+    "beautify",
+    "esfmt"
+  ],
+  "main": "package/esfmt.js",
+  "files": [
+    "package/",
+    "bin/"
+  ],
+  "bin": "./bin/esfmt",
+  "repository": {
+    "type": "git",
+    "url": "dmitriiabramov/esfmt"
+  },
+  "scripts": {
+    "test_dev": "./node_modules/mocha/bin/mocha --compilers js:babel/register test/**/*_test.js",
+    "test": "./node_modules/mocha/bin/_mocha test/setup.js test/**/*_test.js && cat ./coverage/coverage-final.json | ./node_modules/codecov.io/bin/codecov.io.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "espree": "2.2.4",
+    "meow": "^3.3.0"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "chai": "^3.2.0",
+    "codecov.io": "^0.1.6",
+    "glob": "^5.0.14",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
+    "istanbul": "gotwarlost/istanbul#source-map",
+    "mocha": "^2.3.0"
+  }
 }
