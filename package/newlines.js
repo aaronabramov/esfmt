@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', {
     value: true
 });
 exports.extraNewLineBetween = extraNewLineBetween;
-var ALWAYS_NEED_EXTRA_NEWLINE_AFTER = {
+var NEED_EXTRA_NEWLINE_AFTER = {
     BlockStatement: true,
     VariableDeclaration: true,
     FunctionExpression: true,
@@ -12,6 +12,13 @@ var ALWAYS_NEED_EXTRA_NEWLINE_AFTER = {
     IfStatement: true,
     ForStatement: true,
     ObjectExpression: true
+};
+
+var NEED_NEWLINE_BEFORE = {
+    ifStatement: true,
+    ForStatement: true,
+    VariableDeclaration: true,
+    FunctionDeclaration: true
 };
 
 /**
@@ -59,7 +66,11 @@ function extraNewLineBetween(previous, current) {
         return false;
     }
 
-    if (ALWAYS_NEED_EXTRA_NEWLINE_AFTER[previous.type]) {
+    if (NEED_NEWLINE_BEFORE[current.type]) {
+        return true;
+    }
+
+    if (NEED_EXTRA_NEWLINE_AFTER[previous.type]) {
         return true;
     }
 
@@ -90,7 +101,7 @@ function extraNewLineBetween(previous, current) {
  */
 function newLineAfterCompositeExpressions(previous) {
     if (['BinaryExpression', 'AssignmentExpression'].includes(previous.type)) {
-        if (ALWAYS_NEED_EXTRA_NEWLINE_AFTER[previous.right.type]) {
+        if (NEED_EXTRA_NEWLINE_AFTER[previous.right.type]) {
             return true;
         }
     }
@@ -100,7 +111,7 @@ function newLineAfterCompositeExpressions(previous) {
 
         switch (expression.type) {
             case 'AssignmentExpression':
-                return ALWAYS_NEED_EXTRA_NEWLINE_AFTER[expression.right.type];
+                return NEED_EXTRA_NEWLINE_AFTER[expression.right.type];
                 break;
         }
     }

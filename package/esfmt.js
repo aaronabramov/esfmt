@@ -262,6 +262,7 @@ var NODE_TYPES = {
 
 function format(code, config) {
     var ast = undefined;
+    config = config || {};
 
     try {
         ast = _espree2['default'].parse(code, _esprima_options2['default']);
@@ -270,7 +271,15 @@ function format(code, config) {
         throw e;
     }
 
-    config = Object.assign({}, _default_config2['default'], config);
+    config = JSON.parse(JSON.stringify(config));
+
+    for (var key in _default_config2['default']) {
+        if (_default_config2['default'].hasOwnProperty(key)) {
+            if (!config[key]) {
+                config[key] = _default_config2['default'][key];
+            }
+        }
+    }
 
     // console.log('AST: \n', JSON.stringify(ast, null, 2));
 
