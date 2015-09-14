@@ -4,6 +4,7 @@ const DONT_NEED_SEMICOLON_AFTER = {
     FunctionDeclaration: true,
     IfStatement: true,
     TryStatement: true,
+    ClassDeclaration: true
 };
 
 /**

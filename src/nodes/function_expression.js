@@ -19,8 +19,20 @@
 
 import {long, short} from '../list';
 
-export function format(node, context, recur) {
-    context.write('function');
+/**
+ * @param {Boolean} noFunctionKeyword if set to true, then `function` will not be printed.
+ *  in class definitions the `constructor` is defined in the class itself, and the function
+ *  declaration is expected to be just `() {}`
+ *
+ *      class A {
+ *          constructor() {
+ *          }
+ *      }
+ */
+export function format(node, context, recur, {noFunctionKeyword} = {}) {
+    if (!noFunctionKeyword) {
+        context.write('function');
+    }
 
     if (node.id) {
         context.write(' ');

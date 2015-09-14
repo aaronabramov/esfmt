@@ -45,6 +45,9 @@ import * as ExportDefaultDeclaration from './nodes/export_default_declaration';
 import * as ExportNamedDeclaration from './nodes/export_named_declaration';
 import * as ExportSpecifier from './nodes/export_specifier';
 import * as EmptyStatement from './nodes/empty_statement';
+import * as ClassDeclaration from './nodes/class_declaration';
+import * as ClassBody from './nodes/class_body';
+import * as MethodDefinition from './nodes/method_definition';
 
 
 import esprima from 'espree';
@@ -54,6 +57,9 @@ import defaultConfig from './default_config';
 import Context from './context';
 
 const NODE_TYPES = {
+    MethodDefinition,
+    ClassBody,
+    ClassDeclaration,
     EmptyStatement,
     ExportSpecifier,
     ExportNamedDeclaration,
@@ -144,7 +150,7 @@ export function format(code, config) {
  * @param {Object} node esprima node
  * @param {Object} context formatting context object (state)
  */
-function formatAst(node, context, recur) {
+function formatAst(node, context, recur, options) {
     if (!node) {
         throw new Error('`node` argument is required. value: ' + JSON.stringify(node));
     }
@@ -153,14 +159,14 @@ function formatAst(node, context, recur) {
 
     // recur function that will hold context and itself in a closule.
     // only if it's not defined (first call)
-    recur || (recur = (nextNode) => {
+    recur || (recur = (nextNode, nextOptions) => {
         // console.log('next node: ', nextNode);
-        formatAst(nextNode, context, recur);
+        formatAst(nextNode, context, recur, nextOptions);
     });
 
     if (!nodeNamespace) {
         throw new Error('unknown node type: ' + node.type);
     }
 
-    nodeNamespace.format(node, context, recur);
+    nodeNamespace.format(node, context, recur, options);
 }
