@@ -48,6 +48,9 @@ import * as EmptyStatement from './nodes/empty_statement';
 import * as ClassDeclaration from './nodes/class_declaration';
 import * as ClassBody from './nodes/class_body';
 import * as MethodDefinition from './nodes/method_definition';
+import * as RestElement from './nodes/rest_element';
+import * as Super from './nodes/super';
+import * as SpreadElement from './nodes/spread_element';
 
 
 import esprima from 'espree';
@@ -57,6 +60,9 @@ import defaultConfig from './default_config';
 import Context from './context';
 
 const NODE_TYPES = {
+    SpreadElement,
+    Super,
+    RestElement,
     MethodDefinition,
     ClassBody,
     ClassDeclaration,

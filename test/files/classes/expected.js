@@ -1,5 +1,6 @@
 class ABC extends React.Component {
-    constructor(a) {
+    constructor(...args) {
+        super(...args);
         this.a = a;
     }
 
