@@ -19,16 +19,16 @@ const CONFIG = {
  * and compares them agains `./test/files/** /expected.js` at the same
  * path.
  */
-describe('formatting files: ', function() {
+describe.only('formatting files: ', function() {
     glob.sync('./test/files/**/code.js').forEach((file) => {
         const expectedFile = file.replace(/code\.js$/, 'expected.js');
         const code = fs.readFileSync(file).toString();
         const expected = fs.readFileSync(expectedFile).toString();
         const testName = file.match(/\/(\w+)\/code\.js$/)[1];
 
-        // if(testName !== 'classes') {
-        //     return;
-        // }
+        if(testName !== 'switch') {
+            return;
+        }
 
         it(testName, function() {
             // console.log(format(code).replace(/\ /g, '~'));

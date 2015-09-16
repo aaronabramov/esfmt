@@ -51,6 +51,9 @@ import * as MethodDefinition from './nodes/method_definition';
 import * as RestElement from './nodes/rest_element';
 import * as Super from './nodes/super';
 import * as SpreadElement from './nodes/spread_element';
+import * as SwitchStatement from './nodes/switch_statement';
+import * as SwitchCase from './nodes/switch_case';
+import * as BreakStatement from './nodes/break_statement';
 
 
 import esprima from 'espree';
@@ -62,6 +65,9 @@ import Context from './context';
 import '../polyfills/includes';
 
 const NODE_TYPES = {
+    BreakStatement,
+    SwitchCase,
+    SwitchStatement,
     SpreadElement,
     Super,
     RestElement,
