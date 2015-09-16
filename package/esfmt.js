@@ -215,6 +215,18 @@ var _nodesSpread_element = require('./nodes/spread_element');
 
 var SpreadElement = _interopRequireWildcard(_nodesSpread_element);
 
+var _nodesSwitch_statement = require('./nodes/switch_statement');
+
+var SwitchStatement = _interopRequireWildcard(_nodesSwitch_statement);
+
+var _nodesSwitch_case = require('./nodes/switch_case');
+
+var SwitchCase = _interopRequireWildcard(_nodesSwitch_case);
+
+var _nodesBreak_statement = require('./nodes/break_statement');
+
+var BreakStatement = _interopRequireWildcard(_nodesBreak_statement);
+
 var _espree = require('espree');
 
 var _espree2 = _interopRequireDefault(_espree);
@@ -231,9 +243,16 @@ var _context = require('./context');
 
 var _context2 = _interopRequireDefault(_context);
 
+var _invariant = require('./invariant');
+
+var _invariant2 = _interopRequireDefault(_invariant);
+
 require('../polyfills/includes');
 
 var NODE_TYPES = {
+    BreakStatement: BreakStatement,
+    SwitchCase: SwitchCase,
+    SwitchStatement: SwitchStatement,
     SpreadElement: SpreadElement,
     Super: Super,
     RestElement: RestElement,
@@ -332,9 +351,8 @@ function format(code, config) {
  * @param {Object} context formatting context object (state)
  */
 function formatAst(node, context, recur, options) {
-    if (!node) {
-        throw new Error('`node` argument is required. value: ' + JSON.stringify(node));
-    }
+    (0, _invariant2['default'])(node, '\'node\' argument is required. value: ' + JSON.stringify(node));
+
     // find the node's namespace based on its type
     var nodeNamespace = NODE_TYPES[node.type];
 
@@ -345,9 +363,7 @@ function formatAst(node, context, recur, options) {
         formatAst(nextNode, context, recur, nextOptions);
     });
 
-    if (!nodeNamespace) {
-        throw new Error('unknown node type: ' + node.type);
-    }
+    (0, _invariant2['default'])(nodeNamespace, 'unknown node type: ' + node.type);
 
     nodeNamespace.format(node, context, recur, options);
 }
