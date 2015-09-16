@@ -14,7 +14,7 @@ require.extensions['.js'] = function(module, filename) {
 
     if (!filename.match(/(node_modules)/)) {
         src = babel.transform(src, {sourceMaps: 'inline', filename: filename}).code;
-        if (!filename.match(/.*_test\.js$/)) {
+        if (!filename.match(/(.*_test\.js$|polyfills)/)) {
             src = instrumenter.instrumentSync(src, filename);
         }
     }

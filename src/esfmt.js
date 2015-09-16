@@ -61,6 +61,7 @@ import esprimaOptions from './esprima_options';
 
 import defaultConfig from './default_config';
 import Context from './context';
+import invariant from './invariant';
 
 import '../polyfills/includes';
 
@@ -165,9 +166,11 @@ export function format(code, config) {
  * @param {Object} context formatting context object (state)
  */
 function formatAst(node, context, recur, options) {
-    if (!node) {
-        throw new Error('`node` argument is required. value: ' + JSON.stringify(node));
-    }
+    invariant(
+        node,
+        `'node' argument is required. value: ${JSON.stringify(node)}`
+    );
+
     // find the node's namespace based on its type
     const nodeNamespace = NODE_TYPES[node.type];
 
@@ -178,9 +181,7 @@ function formatAst(node, context, recur, options) {
         formatAst(nextNode, context, recur, nextOptions);
     });
 
-    if (!nodeNamespace) {
-        throw new Error('unknown node type: ' + node.type);
-    }
+    invariant(nodeNamespace, `unknown node type: ${node.type}`);
 
     nodeNamespace.format(node, context, recur, options);
 }
