@@ -41,3 +41,23 @@ if ((a + b) * 4) {
     };
 }
 ```
+
+#### TODO
+- comments in
+    - class definitions
+    - arguments (lists)
+
+- nodes
+    - string templates
+    - array pattern (parenthesis)
+
+- linebreaks after
+    - multiline statements
+    - where a linebreak was in the original code
+
+- semicolons
+    - not after exorting a function
+
+- linewrapping
+    - only check overflow after a certain ponit (not the beginning of the file)
+    - oneline objects, arrays
