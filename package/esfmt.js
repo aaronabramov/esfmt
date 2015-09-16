@@ -191,6 +191,30 @@ var _nodesEmpty_statement = require('./nodes/empty_statement');
 
 var EmptyStatement = _interopRequireWildcard(_nodesEmpty_statement);
 
+var _nodesClass_declaration = require('./nodes/class_declaration');
+
+var ClassDeclaration = _interopRequireWildcard(_nodesClass_declaration);
+
+var _nodesClass_body = require('./nodes/class_body');
+
+var ClassBody = _interopRequireWildcard(_nodesClass_body);
+
+var _nodesMethod_definition = require('./nodes/method_definition');
+
+var MethodDefinition = _interopRequireWildcard(_nodesMethod_definition);
+
+var _nodesRest_element = require('./nodes/rest_element');
+
+var RestElement = _interopRequireWildcard(_nodesRest_element);
+
+var _nodesSuper = require('./nodes/super');
+
+var Super = _interopRequireWildcard(_nodesSuper);
+
+var _nodesSpread_element = require('./nodes/spread_element');
+
+var SpreadElement = _interopRequireWildcard(_nodesSpread_element);
+
 var _espree = require('espree');
 
 var _espree2 = _interopRequireDefault(_espree);
@@ -207,7 +231,15 @@ var _context = require('./context');
 
 var _context2 = _interopRequireDefault(_context);
 
+require('../polyfills/includes');
+
 var NODE_TYPES = {
+    SpreadElement: SpreadElement,
+    Super: Super,
+    RestElement: RestElement,
+    MethodDefinition: MethodDefinition,
+    ClassBody: ClassBody,
+    ClassDeclaration: ClassDeclaration,
     EmptyStatement: EmptyStatement,
     ExportSpecifier: ExportSpecifier,
     ExportNamedDeclaration: ExportNamedDeclaration,
@@ -299,7 +331,7 @@ function format(code, config) {
  * @param {Object} node esprima node
  * @param {Object} context formatting context object (state)
  */
-function formatAst(node, context, recur) {
+function formatAst(node, context, recur, options) {
     if (!node) {
         throw new Error('`node` argument is required. value: ' + JSON.stringify(node));
     }
@@ -308,14 +340,14 @@ function formatAst(node, context, recur) {
 
     // recur function that will hold context and itself in a closule.
     // only if it's not defined (first call)
-    recur || (recur = function (nextNode) {
+    recur || (recur = function (nextNode, nextOptions) {
         // console.log('next node: ', nextNode);
-        formatAst(nextNode, context, recur);
+        formatAst(nextNode, context, recur, nextOptions);
     });
 
     if (!nodeNamespace) {
         throw new Error('unknown node type: ' + node.type);
     }
 
-    nodeNamespace.format(node, context, recur);
+    nodeNamespace.format(node, context, recur, options);
 }

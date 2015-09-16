@@ -59,6 +59,8 @@ import esprimaOptions from './esprima_options';
 import defaultConfig from './default_config';
 import Context from './context';
 
+import '../polyfills/includes';
+
 const NODE_TYPES = {
     SpreadElement,
     Super,

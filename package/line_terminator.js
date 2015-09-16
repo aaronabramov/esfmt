@@ -9,7 +9,8 @@ var DONT_NEED_SEMICOLON_AFTER = {
     ForStatement: true,
     FunctionDeclaration: true,
     IfStatement: true,
-    TryStatement: true
+    TryStatement: true,
+    ClassDeclaration: true
 };
 
 /**

@@ -26,8 +26,25 @@ exports.format = format;
 
 var _list = require('../list');
 
+/**
+ * @param {Boolean} noFunctionKeyword if set to true, then `function` will not be printed.
+ *  in class definitions the `constructor` is defined in the class itself, and the function
+ *  declaration is expected to be just `() {}`
+ *
+ *      class A {
+ *          constructor() {
+ *          }
+ *      }
+ */
+
 function format(node, context, recur) {
-    context.write('function');
+    var _ref = arguments.length <= 3 || arguments[3] === undefined ? {} : arguments[3];
+
+    var noFunctionKeyword = _ref.noFunctionKeyword;
+
+    if (!noFunctionKeyword) {
+        context.write('function');
+    }
 
     if (node.id) {
         context.write(' ');
