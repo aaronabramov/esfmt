@@ -13,7 +13,8 @@
   "main": "package/esfmt.js",
   "files": [
     "package/",
-    "bin/"
+    "bin/",
+    "polyfills/"
   ],
   "bin": "./bin/esfmt",
   "repository": {
