@@ -19,7 +19,7 @@ export default {
     attachComment: false,
 
     //An extra array containing all errors found, attempts to
-    //continue parsing when an error is encountered 
+    //continue parsing when an error is encountered
     tolerant: false,
 
     ecmaFeatures: {

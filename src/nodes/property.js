@@ -17,7 +17,16 @@
  *  }
  */
 export function format(node, context, recur) {
+    if (node.computed) {
+        context.write('[');
+    }
+
     recur(node.key);
+
+    if (node.computed) {
+        context.write(']');
+    }
+
     context.write(': ');
     recur(node.value);
 }
