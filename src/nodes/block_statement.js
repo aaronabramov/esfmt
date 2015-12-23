@@ -19,4 +19,4 @@ export function format(node, context, recur) {
     formatBlock(node, context, recur);
     context.indentOut();
     context.write('\n', context.getIndent(), '}');
-};
+}

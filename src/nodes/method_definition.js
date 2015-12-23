@@ -22,8 +22,6 @@
  *  }
  */
 
-import {long, short} from '../list';
-
 export function format(node, context, recur) {
     if (node.static) {
         context.write('static ');
@@ -39,4 +37,4 @@ export function format(node, context, recur) {
 
     recur(node.key);
     recur(node.value, {noFunctionKeyword: true});
-};
+}

@@ -22,7 +22,7 @@ let PRECEDENCE = {};
     ['||'],
     [ '=', '+=', '-=', '**=', '*=', '/=', '%=', '<<=', '>>=', '>>>=', '&=', '^=', '|=']
 ].forEach((ops, index) => {
-    ops.forEach((op) => PRECEDENCE[op] = index + 1) // + 1 to avoid evaluating 0 to false
+    ops.forEach((op) => PRECEDENCE[op] = index + 1); // + 1 to avoid evaluating 0 to false
 });
 
 /**
@@ -34,7 +34,7 @@ const MAY_NEED_PARENTHESES = {
     BinaryExpression: true,
     AssignmentExpression: true,
     LogicalExpression: true
-}
+};
 
 /**
  * Some expressions may have expression inside them, and the precedence

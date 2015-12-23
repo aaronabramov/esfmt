@@ -17,7 +17,7 @@ const WRAPPERS = {
     '[]': {left: '[', right: ']'},
     '{}': {left: '{', right: '}'},
     '()': {left: '(', right: ')'}
-}
+};
 
 /**
  * Render the long version of the list

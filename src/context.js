@@ -56,7 +56,7 @@ export default class Context {
         return Math.max(
             this.ast.range[1],
             lastCommentRange || 0
-        )
+        );
     }
 
     write(str) {
@@ -69,7 +69,7 @@ export default class Context {
         }
 
         this.result += str;
-    };
+    }
 
     /**
      * Lock the result at the current position, later the rollback can be called
@@ -94,7 +94,7 @@ export default class Context {
 
         return function rollback() {
             _this.result = current;
-        }
+        };
     }
 
     /**

@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 require('babel/polyfill');
 
 var fs = require('fs');
@@ -32,6 +34,6 @@ after(function() {
     reporter.add('lcov');
 
     reporter.write(collector, true, function() {
-        console.log('DONE');
+        console.log('DONE'); // eslint-disable-line no-console
     });
 });

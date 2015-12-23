@@ -9,7 +9,6 @@ import * as newlines from './newlines';
  * @param {Function} recur
  */
 export function format(node, context, recur) {
-    let result = '';
     let blockComments = context.blockComments(node);
 
     for (let i =0; i < node.body.length; i++) {
@@ -27,7 +26,7 @@ export function format(node, context, recur) {
 
         context.write(blockComments.printLeading(child, previous, next));
         context.write(context.getIndent());
-        recur(child)
+        recur(child);
         context.write(utils.getLineTerminator(child));
         context.write(blockComments.printTrailing(child, previous, next));
 

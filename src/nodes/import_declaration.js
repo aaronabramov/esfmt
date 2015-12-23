@@ -30,15 +30,15 @@ export function format(node, context, recur) {
     // ImportNamespace Specifer can only be used alone // * as C
     node.specifiers.forEach((spec) => {
         switch (spec.type) {
-            case 'ImportSpecifier':
-                specs.ImportSpecifier.push(spec); // {a} or {b as c}
-                break;
-            case 'ImportDefaultSpecifier':
-                specs.ImportDefaultSpecifier = spec; // import A from 'a';
-                break;
-            case 'ImportNamespaceSpecifier':
-                specs.ImportNamespaceSpecifier = spec; // import * as e from 'a'
-                break;
+        case 'ImportSpecifier':
+            specs.ImportSpecifier.push(spec); // {a} or {b as c}
+            break;
+        case 'ImportDefaultSpecifier':
+            specs.ImportDefaultSpecifier = spec; // import A from 'a';
+            break;
+        case 'ImportNamespaceSpecifier':
+            specs.ImportNamespaceSpecifier = spec; // import * as e from 'a'
+            break;
         }
     });
 

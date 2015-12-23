@@ -16,4 +16,4 @@
  *
  *  Empty statement is a result of unnecessary ;
  */
-export function format(node, context, recur) {};
+export function format() {}

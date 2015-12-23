@@ -135,7 +135,7 @@ export function format(code, config) {
     try {
         ast = esprima.parse(code, esprimaOptions);
     } catch(e) {
-        console.error('Failed parsing javascript');
+        console.error('Failed parsing javascript'); // eslint-disable-line no-console
         throw e;
     }
 
@@ -156,7 +156,7 @@ export function format(code, config) {
     formatAst(ast, context);
 
     return context.result;
-};
+}
 
 /**
  * Multifunction for formatting an AST node (recursively)

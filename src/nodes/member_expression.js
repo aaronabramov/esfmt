@@ -22,4 +22,4 @@ export function format(node, context, recur) {
         context.write('.');
         recur(node.property);
     }
-};
+}

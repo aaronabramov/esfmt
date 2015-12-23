@@ -37,7 +37,7 @@ export default class BlockComments {
      * if it is the first node in the block then
      *  3. block.range[0] < comment.range[0]
      */
-    printLeading(node, prev, next) {
+    printLeading(node, prev) {
         let comments = [];
         let match = [];
 
@@ -118,7 +118,7 @@ export default class BlockComments {
             return comment.type === 'Line';
         }).length > 1) {
             throw new Error('there can be only one line comment on the line');
-        };
+        }
 
         if (sameLine.length) {
             result = ' ' + sameLine.map(this.printComment.bind(this)).join(' ');
@@ -137,10 +137,10 @@ export default class BlockComments {
 
     printComment(comment) {
         switch (comment.type) {
-            case 'Line':
-                return this.printLineComment(comment);
-            case 'Block':
-                return this.printBlockComment(comment);
+        case 'Line':
+            return this.printLineComment(comment);
+        case 'Block':
+            return this.printBlockComment(comment);
         }
     }
 

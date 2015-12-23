@@ -16,4 +16,4 @@ import * as binary from '../binary';
 
 export function format(node, context, recur) {
     binary.format(node, context, recur);
-};
+}

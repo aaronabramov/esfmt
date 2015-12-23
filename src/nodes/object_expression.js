@@ -20,8 +20,6 @@
  *      }]
  *  }
  */
-import * as utils from '../parentheses';
-
 export function format(node, context, recur) {
     if (!node.properties.length) {
         return context.write('{}');
@@ -51,4 +49,4 @@ export function format(node, context, recur) {
 
     context.indentOut();
     context.write('\n', context.getIndent(), '}');
-};
+}

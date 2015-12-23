@@ -24,7 +24,7 @@ export function format(node, context, recur) {
                 context.write(' ');
             }
         }
-    };
+    }
 
     if (node.selfClosing) {
         context.write(' /');

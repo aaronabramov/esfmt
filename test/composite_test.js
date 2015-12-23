@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 import {format} from '../src/esfmt';
 import {expect} from 'chai';
 
@@ -29,4 +31,3 @@ describe('formatting composite code pieces', function() {
         expect(format(code)).to.equal('a(1 + 2 + null + 0x1);');
     });
 });
-

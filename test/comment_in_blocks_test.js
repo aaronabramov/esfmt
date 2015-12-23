@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 import {format} from '../src/esfmt';
 import {expect} from 'chai';
 
@@ -76,7 +78,7 @@ b = 1; // aa
      */
 }`;
 
-    expect(format(code)).to.equal(
+        expect(format(code)).to.equal(
 `function abc() {
     /**
      * 1 piece of doc
@@ -119,7 +121,7 @@ b = 1; // aa
     // the last comment
 }`;
 
-    expect(format(code)).to.equal(
+        expect(format(code)).to.equal(
 `function abc() {
     /**
      * 1 piece of doc

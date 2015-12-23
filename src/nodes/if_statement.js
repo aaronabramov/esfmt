@@ -28,7 +28,7 @@ export function format(node, context, recur) {
         context.write('{\n');
         context.indentIn();
         context.write(context.getIndent());
-        recur(node.consequent)
+        recur(node.consequent);
         context.write(utils.getLineTerminator(node.consequent), '\n');
 
         context.indentOut();

@@ -18,7 +18,7 @@
 import {long, short} from '../list';
 
 export function format(node, context, recur) {
-    recur(node.callee)
+    recur(node.callee);
 
     let rollback = context.transaction();
 

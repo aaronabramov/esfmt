@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 import invariant from '../src/invariant';
 import {expect} from 'chai';
 

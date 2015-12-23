@@ -12,4 +12,4 @@ export function format(node, context, recur) {
     if (context.config.newLineAtTheEnd) {
         context.write('\n');
     }
-};
+}

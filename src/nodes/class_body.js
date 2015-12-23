@@ -40,4 +40,4 @@ export function format(node, context, recur) {
 
     context.indentOut();
     context.write('\n', context.getIndent(), '}');
-};
+}

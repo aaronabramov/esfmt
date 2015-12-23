@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 import {format} from '../src/esfmt';
 import {expect} from 'chai';
 

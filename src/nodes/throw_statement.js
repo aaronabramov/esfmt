@@ -19,4 +19,4 @@
 export function format(node, context, recur) {
     context.write('throw ');
     recur(node.argument);
-};
+}

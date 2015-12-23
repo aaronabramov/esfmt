@@ -20,4 +20,4 @@ export function format(node, context, recur) {
     recur(node.key);
     context.write(': ');
     recur(node.value);
-};
+}

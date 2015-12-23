@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 import {format} from '../src/esfmt';
 import {expect} from 'chai';
 
@@ -26,4 +28,3 @@ describe('unary operators', function() {
         expect(format(code)).to.equal('typeof a;');
     });
 });
-

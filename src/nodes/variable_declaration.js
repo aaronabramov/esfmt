@@ -38,4 +38,4 @@ export function format(node, context, recur) {
     }
 
     indent && context.indentOut();
-};
+}

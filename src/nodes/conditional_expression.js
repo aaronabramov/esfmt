@@ -27,9 +27,9 @@
  */
 
 export function format(node, context, recur) {
-    recur(node.test)
+    recur(node.test);
     context.write(' ? ');
-    recur(node.consequent)
+    recur(node.consequent);
     context.write(' : ');
     recur(node.alternate);
 }

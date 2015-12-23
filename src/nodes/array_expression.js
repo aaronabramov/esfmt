@@ -33,5 +33,5 @@ export function format(node, context, recur) {
     if (context.overflown()) {
         rollback();
         short(node.elements, context, recur, '[]');
-    };
+    }
 }

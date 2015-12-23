@@ -105,10 +105,8 @@ function newLineAfterCompositeExpressions(previous) {
         let expression = previous.expression;
 
         switch (expression.type) {
-            case 'AssignmentExpression':
-                return NEED_EXTRA_NEWLINE_AFTER[expression.right.type];
-                break;
+        case 'AssignmentExpression':
+            return NEED_EXTRA_NEWLINE_AFTER[expression.right.type];
         }
     }
 }
-

@@ -36,7 +36,7 @@ export function format(node, context, recur) {
     if (context.overflown()) {
         rollback();
         short(node.params, context, recur, '()');
-    };
+    }
 
     context.write(' ');
     recur(node.body);

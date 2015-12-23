@@ -1,9 +1,11 @@
+/* eslint-env mocha */
+
 import {format} from '../src/esfmt';
 import {expect} from 'chai';
 
 let format20 = (code) => {
     return format(code, {'max-len': 20});
-}
+};
 
 
 describe('array', function() {

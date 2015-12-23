@@ -3,6 +3,6 @@
  *      type: 'Super',
  *  }
  */
-export function format(node, context, recur) {
+export function format(node, context) {
     context.write('super');
 }

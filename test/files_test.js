@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 import glob from 'glob';
 import fs from 'fs';
 import path from 'path';
@@ -12,7 +14,7 @@ if (!fs.existsSync(TMP_DIR)) {
 
 const CONFIG = {
     newLineAtTheEnd: true
-}
+};
 
 /**
  * This test files requires all files under `./test/files/** /code.js`
