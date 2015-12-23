@@ -22,9 +22,9 @@
 import {long, short} from '../list';
 
 export function format(node, context, recur) {
-    if (node.id) {
-        context.write(node.id);
-    }
+    // if (node.id) {
+    //     context.write(node.id);
+    // }
 
     let rollback = context.transaction();
 

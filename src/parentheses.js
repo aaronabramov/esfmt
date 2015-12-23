@@ -1,3 +1,5 @@
+import invariant from './invariant';
+
 /**
  * Map of operators to their precendenge numeric value (starting from 1),
  * the lower the index, the higher the precedence
@@ -78,20 +80,9 @@ export function needParentheses(node, child) {
  * @param {String} op2
  */
 function hasPrecedence(op1, op2) {
-    if (!PRECEDENCE[op1] || !PRECEDENCE[op2]) {
-        throw new Error([
-            'Missing precedence number for ',
-            JSON.stringify(op1), ' or ', JSON.stringify(op2),
-            '. See `let PRECEDENCE`'
-        ].join(''));
-    }
+    invariant(PRECEDENCE[op1] && PRECEDENCE[op2], `Missing precedence number for
+            ${JSON.stringify(op1)} or ${JSON.stringify(op2)}.
+            See ${JSON.stringify(PRECEDENCE)}`);
 
     return PRECEDENCE[op1] < PRECEDENCE[op2];
-}
-
-/**
- * '12 + 3' => '(12 + 3)'
- */
-export function wrapInParantheses(str) {
-    return '(' + str + ')';
 }

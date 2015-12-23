@@ -28,10 +28,11 @@ export function format(node, context, recur) {
         context.write('export ');
         recur(node.declaration);
     } else {
-        let rollback = context.transaction();
 
         // specifiers
         context.write('export ');
+
+        let rollback = context.transaction();
 
         long(node.specifiers, context, recur, '{}');
 

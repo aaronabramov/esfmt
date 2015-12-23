@@ -23,9 +23,9 @@ describe('formatting of React.js .jsx files', function() {
     });
 
     specify('<div a="b"></div>', function() {
-        const code = '<div a="b"></div>';
+        const code = '<div a="b" b="c"></div>';
 
-        expect(format(code)).to.equal('<div a="b"></div>;');
+        expect(format(code)).to.equal('<div a="b" b="c"></div>;');
     });
 
     specify('nested elements', function() {

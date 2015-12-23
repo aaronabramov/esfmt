@@ -49,4 +49,16 @@ module.exports = 5;`);
 
 a.b = 5;`);
     });
+
+    specify('newline after binary expr', function() {
+        const code = 'a + function(a) { return 5}; a.b = 5;';
+
+        expect(format(code)).to.equal(
+`a + function(a) {
+    return 5;
+};
+
+a.b = 5;`);
+
+    });
 });

@@ -1,3 +1,5 @@
+import invariant from './invariant';
+
 export default class BlockComments {
     constructor(context, blockNode) {
         this.context = context;
@@ -113,12 +115,10 @@ export default class BlockComments {
             }
         });
 
-        // sanity check
-        if (sameLine.filter((comment) => {
-            return comment.type === 'Line';
-        }).length > 1) {
-            throw new Error('there can be only one line comment on the line');
-        }
+        invariant(
+            sameLine.filter(c => c.type === 'Line').length <= 1,
+            'there can be only one line comment on the line'
+        );
 
         if (sameLine.length) {
             result = ' ' + sameLine.map(this.printComment.bind(this)).join(' ');

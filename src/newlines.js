@@ -95,17 +95,12 @@ export function extraNewLineBetween(previous, current) {
  *
  */
 function newLineAfterCompositeExpressions(previous) {
-    if (['BinaryExpression', 'AssignmentExpression'].includes(previous.type)) {
-        if (NEED_EXTRA_NEWLINE_AFTER[previous.right.type]) {
-            return true;
-        }
-    }
-
     if (previous.type === 'ExpressionStatement') {
         let expression = previous.expression;
 
         switch (expression.type) {
         case 'AssignmentExpression':
+        case 'BinaryExpression':
             return NEED_EXTRA_NEWLINE_AFTER[expression.right.type];
         }
     }

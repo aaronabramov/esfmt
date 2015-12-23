@@ -18,4 +18,6 @@ class ABC extends React.Component {
 
     myMethod() {
     }
-}
+};;;
+
+class a {}
