@@ -50,7 +50,7 @@ if ((a + b) * 4) {
 - nodes
     - string templates
     - array pattern (parenthesis)
-    - computed keys
+    - ~~computed keys~~
 
 - linebreaks after
     - multiline statements
