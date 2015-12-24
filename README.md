@@ -48,8 +48,8 @@ if ((a + b) * 4) {
     - arguments (lists)
 
 - nodes
-    - string templates
-    - array pattern (parenthesis)
+    - ~~string templates~~
+    - array pattern (parentheses)
     - ~~computed keys~~
 
 - linebreaks after
