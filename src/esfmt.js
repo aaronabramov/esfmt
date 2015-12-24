@@ -29,6 +29,8 @@ import * as Program from './nodes/program';
 import * as Property from './nodes/property';
 import * as ReturnStatement from './nodes/return_statement';
 import * as TryStatement from './nodes/try_statement';
+import * as TemplateLiteral from './nodes/template_literal';
+import * as TemplateElement from './nodes/template_element';
 import * as UnaryExpression from './nodes/unary_expression';
 import * as UpdateExpression from './nodes/update_expression';
 import * as VariableDeclaration from './nodes/variable_declaration';
@@ -119,7 +121,9 @@ const NODE_TYPES = {
     UpdateExpression,
     VariableDeclaration,
     VariableDeclarator,
-    ImportDefaultSpecifier
+    ImportDefaultSpecifier,
+    TemplateLiteral,
+    TemplateElement
 };
 
 
