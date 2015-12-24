@@ -27,10 +27,8 @@ export function format(node, context, recur) {
     let j = 0;
 
     while(i < node.quasis.length || j < node.expressions.length) {
-        if (node.quasis[i]) {
-            recur(node.quasis[i]);
-            i += 1;
-        }
+        recur(node.quasis[i]);
+        i += 1;
 
         if (node.expressions[j]) {
             context.write('${');

@@ -145,13 +145,7 @@ export function format(code, config) {
 
     config = JSON.parse(JSON.stringify(config));
 
-    for (let key in defaultConfig) {
-        if (defaultConfig.hasOwnProperty(key)) {
-            if (!config[key]) {
-                config[key] = defaultConfig[key];
-            }
-        }
-    }
+    config = Object.assign({}, defaultConfig, config);
 
     // console.log('AST: \n', JSON.stringify(ast, null, 2));
 
