@@ -1,6 +1,7 @@
 /* Copyright 2015, Yahoo Inc. */
 
 import * as ArrayExpression from './nodes/array_expression';
+import * as ArrayPattern from './nodes/array_pattern';
 import * as ArrowFunctionExpression from './nodes/arrow_function_expression';
 import * as AssignmentExpression from './nodes/assignment_expression';
 import * as BinaryExpression from './nodes/binary_expression';
@@ -69,6 +70,7 @@ import '../polyfills/includes';
 
 const NODE_TYPES = {
     ArrayExpression,
+    ArrayPattern,
     ArrowFunctionExpression,
     AssignmentExpression,
     BinaryExpression,
