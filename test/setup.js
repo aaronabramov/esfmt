@@ -1,7 +1,5 @@
 /* eslint-env mocha */
 
-require('babel/polyfill');
-
 var fs = require('fs');
 var babel = require('babel');
 var istanbul = require('istanbul');
