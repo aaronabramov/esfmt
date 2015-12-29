@@ -13,16 +13,9 @@
  *          name: 'b'
  *      }]
  *  }
- */
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;var _list = require(
 
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.format = format;
-
-var _list = require('../list');
+'../list');
 
 function format(node, context, recur) {
     recur(node.callee);
@@ -31,8 +24,7 @@ function format(node, context, recur) {
 
     (0, _list.long)(node.arguments, context, recur, '()');
 
+
     if (context.overflown()) {
         rollback();
-        (0, _list.short)(node.arguments, context, recur, '()');
-    }
-}
+        (0, _list.short)(node.arguments, context, recur, '()');}}

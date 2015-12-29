@@ -11,20 +11,13 @@
  * 4. module export
  *      export {a as m, b, c};
  * etc.
- */
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.long = long;exports.short = short;
 
-'use strict';
+var WRAPPERS = { 
+    '[]': { left: '[', right: ']' }, 
+    '{}': { left: '{', right: '}' }, 
+    '()': { left: '(', right: ')' } };
 
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.long = long;
-exports.short = short;
-var WRAPPERS = {
-    '[]': { left: '[', right: ']' },
-    '{}': { left: '{', right: '}' },
-    '()': { left: '(', right: ')' }
-};
 
 /**
  * Render the long version of the list
@@ -32,7 +25,6 @@ var WRAPPERS = {
  * @example
  *  [1, 2, 3, 4, 5]
  */
-
 function long(nodes, context, recur, wrap) {
     context.write(WRAPPERS[wrap].left);
 
@@ -40,12 +32,12 @@ function long(nodes, context, recur, wrap) {
         recur(nodes[i]);
 
         if (nodes[i + 1]) {
-            context.write(', ');
-        }
-    }
+            context.write(', ');}}
 
-    context.write(WRAPPERS[wrap].right);
-}
+
+
+    context.write(WRAPPERS[wrap].right);}
+
 
 /**
  * Render the short or compact version of the list
@@ -58,7 +50,6 @@ function long(nodes, context, recur, wrap) {
  *      4
  *  ]
  */
-
 function short(nodes, context, recur, wrap) {
     context.write(WRAPPERS[wrap].left);
     context.indentIn();
@@ -69,10 +60,9 @@ function short(nodes, context, recur, wrap) {
         recur(nodes[i]);
 
         if (nodes[i + 1]) {
-            context.write(',\n');
-        }
-    }
+            context.write(',\n');}}
+
+
 
     context.indentOut();
-    context.write('\n', context.getIndent(), WRAPPERS[wrap].right);
-}
+    context.write('\n', context.getIndent(), WRAPPERS[wrap].right);}

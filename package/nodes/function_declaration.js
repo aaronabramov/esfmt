@@ -21,16 +21,9 @@
  *      generator: false,
  *      expression: false
  *  }
- */
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;var _list = require(
 
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.format = format;
-
-var _list = require('../list');
+'../list');
 
 function format(node, context, recur) {
     context.write('function ');
@@ -42,9 +35,8 @@ function format(node, context, recur) {
 
     if (context.overflown()) {
         rollback();
-        (0, _list.short)(node.params, context, recur, '()');
-    };
+        (0, _list.short)(node.params, context, recur, '()');}
+
 
     context.write(' ');
-    recur(node.body);
-}
+    recur(node.body);}

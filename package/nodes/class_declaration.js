@@ -45,14 +45,7 @@
  *         }
  *     },
  * }
- */
-
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.format = format;
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;
 
 function format(node, context, recur) {
     context.write('class ');
@@ -60,11 +53,8 @@ function format(node, context, recur) {
 
     if (node.superClass) {
         context.write(' extends ');
-        recur(node.superClass);
-    }
+        recur(node.superClass);}
+
 
     context.write(' ');
-    recur(node.body);
-}
-
-;
+    recur(node.body);}

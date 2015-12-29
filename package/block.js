@@ -1,19 +1,5 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.format = format;
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
-
-var _line_terminator = require('./line_terminator');
-
-var utils = _interopRequireWildcard(_line_terminator);
-
-var _newlines = require('./newlines');
-
-var newlines = _interopRequireWildcard(_newlines);
+'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];}}newObj['default'] = obj;return newObj;}}var _line_terminator = require('./line_terminator');var utils = _interopRequireWildcard(_line_terminator);var _newlines = require(
+'./newlines');var newlines = _interopRequireWildcard(_newlines);
 
 /**
  * Shared block formatting function
@@ -22,9 +8,7 @@ var newlines = _interopRequireWildcard(_newlines);
  * @param {Object} context
  * @param {Function} recur
  */
-
 function format(node, context, recur) {
-    var result = '';
     var blockComments = context.blockComments(node);
 
     for (var i = 0; i < node.body.length; i++) {
@@ -33,12 +17,12 @@ function format(node, context, recur) {
         var next = node.body[i + 1];
 
         if (child.type === 'EmptyStatement') {
-            continue;
-        }
+            continue;}
+
 
         if (newlines.extraNewLineBetween(previous, child)) {
-            context.write('\n');
-        }
+            context.write('\n');}
+
 
         context.write(blockComments.printLeading(child, previous, next));
         context.write(context.getIndent());
@@ -47,7 +31,4 @@ function format(node, context, recur) {
         context.write(blockComments.printTrailing(child, previous, next));
 
         if (next) {
-            context.write('\n');
-        }
-    }
-}
+            context.write('\n');}}}

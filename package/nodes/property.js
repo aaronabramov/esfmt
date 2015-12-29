@@ -15,18 +15,17 @@
  *      shorthand: false,
  *      computed: false
  *  }
- */
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-exports.format = format;
-
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;
 function format(node, context, recur) {
-  recur(node.key);
-  context.write(': ');
-  recur(node.value);
-}
+    if (node.computed) {
+        context.write('[');}
 
-;
+
+    recur(node.key);
+
+    if (node.computed) {
+        context.write(']');}
+
+
+    context.write(': ');
+    recur(node.value);}

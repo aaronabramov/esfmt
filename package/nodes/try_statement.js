@@ -25,26 +25,15 @@
  *          ]
  *      }
  *  }
- */
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.format = format;
-
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;
 function format(node, context, recur) {
     context.write('try ');
     recur(node.block);
     if (node.handler) {
         context.write(' ');
-        recur(node.handler);
-    }
+        recur(node.handler);}
+
 
     if (node.finalizer) {
         context.write(' finally ');
-        recur(node.finalizer);
-    }
-}
-
-;
+        recur(node.finalizer);}}

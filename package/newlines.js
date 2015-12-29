@@ -1,25 +1,19 @@
-'use strict';
+'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.extraNewLineBetween = extraNewLineBetween;var NEED_EXTRA_NEWLINE_AFTER = { 
+    BlockStatement: true, 
+    VariableDeclaration: true, 
+    FunctionExpression: true, 
+    FunctionDeclaration: true, 
+    IfStatement: true, 
+    ForStatement: true, 
+    ObjectExpression: true };
 
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.extraNewLineBetween = extraNewLineBetween;
-var NEED_EXTRA_NEWLINE_AFTER = {
-    BlockStatement: true,
-    VariableDeclaration: true,
-    FunctionExpression: true,
-    FunctionDeclaration: true,
-    IfStatement: true,
-    ForStatement: true,
-    ObjectExpression: true
-};
 
-var NEED_NEWLINE_BEFORE = {
-    ifStatement: true,
-    ForStatement: true,
-    VariableDeclaration: true,
-    FunctionDeclaration: true
-};
+var NEED_NEWLINE_BEFORE = { 
+    ifStatement: true, 
+    ForStatement: true, 
+    VariableDeclaration: true, 
+    FunctionDeclaration: true };
+
 
 /**
  * Some elements of the body of the block (Programm, BlockStatement)
@@ -43,47 +37,48 @@ var NEED_NEWLINE_BEFORE = {
  * @param {Object} previous node
  * @param {Object} current node
  */
-
 function extraNewLineBetween(previous, current) {
     // no new line before the first element of the block
     if (!previous) {
-        return false;
-    }
+        return false;}
+
 
     /**
      * always have newline before return, unless it's the only statement
      */
     if (previous && current.type === 'ReturnStatement') {
-        return true;
-    }
+        return true;}
+
 
     // group var declarations together
     // Example
     //  var a = 5;
     //  var b = 5;
     //  var l;
-    if (previous.type === 'VariableDeclaration' && current.type === 'VariableDeclaration') {
-        return false;
-    }
+    if (previous.type === 'VariableDeclaration' && 
+    current.type === 'VariableDeclaration') {
+        return false;}
+
 
     if (NEED_NEWLINE_BEFORE[current.type]) {
-        return true;
-    }
+        return true;}
+
 
     if (NEED_EXTRA_NEWLINE_AFTER[previous.type]) {
-        return true;
-    }
+        return true;}
 
-    if (previous.type === 'ImportDeclaration' && current.type !== 'ImportDeclaration') {
-        return true;
-    }
+
+    if (previous.type === 'ImportDeclaration' && 
+    current.type !== 'ImportDeclaration') {
+        return true;}
+
 
     if (newLineAfterCompositeExpressions(previous)) {
-        return true;
-    }
+        return true;}
 
-    return false;
-}
+
+    return false;}
+
 
 /**
  * Returns true if newline is needed after the composite expression
@@ -100,19 +95,10 @@ function extraNewLineBetween(previous, current) {
  *
  */
 function newLineAfterCompositeExpressions(previous) {
-    if (['BinaryExpression', 'AssignmentExpression'].includes(previous.type)) {
-        if (NEED_EXTRA_NEWLINE_AFTER[previous.right.type]) {
-            return true;
-        }
-    }
-
     if (previous.type === 'ExpressionStatement') {
         var expression = previous.expression;
 
         switch (expression.type) {
             case 'AssignmentExpression':
-                return NEED_EXTRA_NEWLINE_AFTER[expression.right.type];
-                break;
-        }
-    }
-}
+            case 'BinaryExpression':
+                return NEED_EXTRA_NEWLINE_AFTER[expression.right.type];}}}

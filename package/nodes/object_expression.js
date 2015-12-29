@@ -19,24 +19,11 @@
  *          computed: false
  *      }]
  *  }
- */
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.format = format;
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
-
-var _parentheses = require('../parentheses');
-
-var utils = _interopRequireWildcard(_parentheses);
-
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;
 function format(node, context, recur) {
     if (!node.properties.length) {
-        return context.write('{}');
-    }
+        return context.write('{}');}
+
 
     var blockComments = context.blockComments(node);
 
@@ -51,17 +38,14 @@ function format(node, context, recur) {
         context.write(context.getIndent());
         recur(child);
         if (next) {
-            context.write(',');
-        }
+            context.write(',');}
+
 
         context.write(blockComments.printTrailing(child, previous, next));
         if (next) {
-            context.write('\n');
-        }
-    }
+            context.write('\n');}}
+
+
 
     context.indentOut();
-    context.write('\n', context.getIndent(), '}');
-}
-
-;
+    context.write('\n', context.getIndent(), '}');}

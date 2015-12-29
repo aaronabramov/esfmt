@@ -11,23 +11,16 @@
  *          raw: '\'a\''
  *      }
  *  }
- */
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;var _list = require(
 
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.format = format;
-
-var _list = require('../list');
+'../list');
 
 function format(node, context, recur) {
-    var specs = {
-        ImportDefaultSpecifier: null,
-        ImportSpecifier: [],
-        ImportNamespaceSpecifier: null
-    };
+    var specs = { 
+        ImportDefaultSpecifier: null, 
+        ImportSpecifier: [], 
+        ImportNamespaceSpecifier: null };
+
 
     context.write('import ');
 
@@ -45,21 +38,21 @@ function format(node, context, recur) {
                 break;
             case 'ImportNamespaceSpecifier':
                 specs.ImportNamespaceSpecifier = spec; // import * as e from 'a'
-                break;
-        }
-    });
+                break;}});
+
+
 
     if (specs.ImportNamespaceSpecifier) {
-        recur(specs.ImportNamespaceSpecifier);
-    }
+        recur(specs.ImportNamespaceSpecifier);}
+
 
     if (specs.ImportDefaultSpecifier) {
         recur(specs.ImportDefaultSpecifier);
 
         if (specs.ImportSpecifier.length) {
-            context.write(', ');
-        }
-    }
+            context.write(', ');}}
+
+
 
     if (specs.ImportSpecifier.length) {
         var rollback = context.transaction();
@@ -68,10 +61,9 @@ function format(node, context, recur) {
 
         if (context.overflown()) {
             rollback();
-            (0, _list.short)(specs.ImportSpecifier, context, recur, '{}');
-        }
-    }
+            (0, _list.short)(specs.ImportSpecifier, context, recur, '{}');}}
+
+
 
     context.write(' from ');
-    recur(node.source);
-}
+    recur(node.source);}

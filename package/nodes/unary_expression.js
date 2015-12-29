@@ -9,26 +9,15 @@
  *      },
  *      prefix: true
  *  }
- */
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.format = format;
-
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;
 function format(node, context, recur) {
     if (node.operator === 'void') {
         context.write(node.operator, '(');
         recur(node.argument);
-        context.write(')');
-    } else if (node.operator === 'typeof') {
+        context.write(')');} else 
+    if (node.operator === 'typeof') {
         context.write(node.operator, ' ');
-        recur(node.argument);
-    } else {
+        recur(node.argument);} else 
+    {
         context.write(node.operator);
-        recur(node.argument);
-    }
-}
-
-;
+        recur(node.argument);}}

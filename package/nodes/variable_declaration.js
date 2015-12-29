@@ -8,16 +8,10 @@
  *      }],
  *      kind: 'var'
  *  }
- */
-'use strict';
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;
+var DONT_INDENT = { 
+    FunctionDeclaration: true };
 
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.format = format;
-var DONT_INDENT = {
-    FunctionDeclaration: true
-};
 
 function format(node, context, recur) {
     context.write(node.kind, ' ');
@@ -32,18 +26,15 @@ function format(node, context, recur) {
      *  };
      */
     if (node.declarations.length === 1) {
-        indent = !!DONT_INDENT[node.declarations[0].type];
-    }
+        indent = !!DONT_INDENT[node.declarations[0].type];}
+
 
     indent && context.indentIn();
     for (var i = 0; i < node.declarations.length; i++) {
         recur(node.declarations[i]);
         if (node.declarations[i + 1]) {
-            context.write(',\n', context.getIndent());
-        }
-    }
+            context.write(',\n', context.getIndent());}}
 
-    indent && context.indentOut();
-}
 
-;
+
+    indent && context.indentOut();}

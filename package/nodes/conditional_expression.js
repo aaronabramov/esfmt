@@ -24,19 +24,11 @@
  *          raw: 'true'
  *      }
  *  }
- */
-
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-exports.format = format;
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;
 
 function format(node, context, recur) {
   recur(node.test);
   context.write(' ? ');
   recur(node.consequent);
   context.write(' : ');
-  recur(node.alternate);
-}
+  recur(node.alternate);}

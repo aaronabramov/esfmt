@@ -19,14 +19,7 @@
  *      },
  *      children: []
  *  }
- */
-
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.format = format;
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;
 
 function format(node, context, recur) {
     recur(node.openingElement);
@@ -36,6 +29,7 @@ function format(node, context, recur) {
         // Don't print literals that have only whitespace
         var elements = node.children.filter(notWhitespaceLiteral);
 
+
         context.indentIn();
 
         for (i = 0; i < elements.length; i++) {
@@ -43,37 +37,37 @@ function format(node, context, recur) {
             var prev = elements[i - 1];
 
             if (needLinebreak(child, prev)) {
-                context.write('\n', context.getIndent());
-            }
+                context.write('\n', context.getIndent());}
 
-            recur(child);
-        }
+
+            recur(child);}
+
 
         // the last linebreak
         if (elements.length) {
-            context.write('\n');
-        }
+            context.write('\n');}
+
 
         context.indentOut();
         context.write(context.getIndent());
-        recur(node.closingElement);
-    }
-}
+        recur(node.closingElement);}}
+
+
 
 function needLinebreak(node, prev) {
     // if it's the first child
     if (!prev) {
-        return true;
-    }
+        return true;}
+
 
     // if the previous was a jsx tag. Example:
     //
     // <br />
     // 'abc'
     if (prev && prev.type === 'JSXElement') {
-        return true;
-    }
-}
+        return true;}}
+
+
 
 /**
  * JSX contents are parsed as a bunch of whitespace literals
@@ -92,8 +86,7 @@ function needLinebreak(node, prev) {
  */
 function notWhitespaceLiteral(node) {
     if (node.type === 'Literal') {
-        return !node.raw.match(/^\s+$/);
-    }
+        return !node.raw.match(/^\s+$/);}
 
-    return true;
-}
+
+    return true;}

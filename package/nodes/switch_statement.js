@@ -19,14 +19,7 @@
  *          consequent: [Object]
  *      }]
  *  }
- */
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.format = format;
-
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;
 function format(node, context, recur) {
     context.write('switch (');
     recur(node.discriminant);
@@ -35,8 +28,7 @@ function format(node, context, recur) {
 
     for (var i = 0; i < node.cases.length; i++) {
         context.write('\n', context.getIndent());
-        recur(node.cases[i]);
-    }
+        recur(node.cases[i]);}
+
     context.indentOut();
-    context.write('\n', context.getIndent(), '}');
-}
+    context.write('\n', context.getIndent(), '}');}

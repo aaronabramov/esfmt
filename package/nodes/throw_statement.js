@@ -15,17 +15,7 @@
  *      },
  *      range: [3545, 3578]
  *  }
- */
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-exports.format = format;
-
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;
 function format(node, context, recur) {
   context.write('throw ');
-  recur(node.argument);
-}
-
-;
+  recur(node.argument);}

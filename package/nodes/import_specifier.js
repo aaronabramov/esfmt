@@ -20,21 +20,12 @@
  *          name: 'c'
  *      }
  *  }
- */
-
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.format = format;
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;
 
 function format(node, context, recur) {
     if (node.local.name === node.imported.name) {
-        recur(node.local);
-    } else {
+        recur(node.local);} else 
+    {
         recur(node.imported);
         context.write(' as ');
-        recur(node.local);
-    }
-}
+        recur(node.local);}}

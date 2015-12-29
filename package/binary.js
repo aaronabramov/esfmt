@@ -5,24 +5,14 @@
  *
  *  1. a + b + c
  *  2. a && b || c
- */
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];}}newObj['default'] = obj;return newObj;}}var _parentheses = require(
 
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.format = format;
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
-
-var _parentheses = require('./parentheses');
-
-var utils = _interopRequireWildcard(_parentheses);
+'./parentheses');var utils = _interopRequireWildcard(_parentheses);
 
 function format(node, context, recur) {
     var leftParents = utils.needParentheses(node, node.left);
     var rightParents = utils.needParentheses(node, node.right);
+
 
     leftParents && context.write('(');
     recur(node.left);
@@ -53,6 +43,4 @@ function format(node, context, recur) {
 
         rightParents && context.write('(');
         recur(node.right);
-        rightParents && context.write(')');
-    }
-}
+        rightParents && context.write(')');}}

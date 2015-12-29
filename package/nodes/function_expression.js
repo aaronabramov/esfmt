@@ -15,16 +15,9 @@
  *      generator: false,
  *      expression: false
  *  }
- */
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;var _list = require(
 
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.format = format;
-
-var _list = require('../list');
+'../list');
 
 /**
  * @param {Boolean} noFunctionKeyword if set to true, then `function` will not be printed.
@@ -36,20 +29,15 @@ var _list = require('../list');
  *          }
  *      }
  */
-
-function format(node, context, recur) {
-    var _ref = arguments.length <= 3 || arguments[3] === undefined ? {} : arguments[3];
-
-    var noFunctionKeyword = _ref.noFunctionKeyword;
-
+function format(node, context, recur) {var _ref = arguments.length <= 3 || arguments[3] === undefined ? {} : arguments[3];var noFunctionKeyword = _ref.noFunctionKeyword;
     if (!noFunctionKeyword) {
-        context.write('function');
-    }
+        context.write('function');}
+
 
     if (node.id) {
         context.write(' ');
-        recur(node.id);
-    }
+        recur(node.id);}
+
 
     var rollback = context.transaction();
 
@@ -57,9 +45,8 @@ function format(node, context, recur) {
 
     if (context.overflown()) {
         rollback();
-        (0, _list.short)(node.params, context, recur, '()');
-    };
+        (0, _list.short)(node.params, context, recur, '()');}
+
 
     context.write(' ');
-    recur(node.body);
-}
+    recur(node.body);}

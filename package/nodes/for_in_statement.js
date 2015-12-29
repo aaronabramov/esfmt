@@ -20,14 +20,7 @@
  *      },
  *      each: false
  *  }
- */
-
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-exports.format = format;
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;
 
 function format(node, context, recur) {
   context.write('for (');
@@ -35,5 +28,4 @@ function format(node, context, recur) {
   context.write(' in ');
   recur(node.right);
   context.write(') ');
-  recur(node.body);
-}
+  recur(node.body);}

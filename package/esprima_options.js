@@ -1,107 +1,99 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports["default"] = {
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports["default"] = { 
     // Nodes have line and column-based location info
-    loc: true,
+    loc: true, 
 
     // Nodes have an index-based location range (array)
-    range: true,
+    range: true, 
 
     // Literals have extra property which stores the verbatim source
-    raw: false,
+    raw: false, 
 
     // An extra array containing all found tokens
-    tokens: false,
+    tokens: false, 
 
     // An extra array containing all line and block comments
-    comment: true,
+    comment: true, 
 
     // attach comments to the closest relevant node as leadingComments and
     // trailingComments
-    attachComment: false,
+    attachComment: false, 
 
     //An extra array containing all errors found, attempts to
     //continue parsing when an error is encountered
-    tolerant: false,
+    tolerant: false, 
 
-    ecmaFeatures: {
+    ecmaFeatures: { 
         // enable parsing of arrow functions
-        arrowFunctions: true,
+        arrowFunctions: true, 
 
         // enable parsing of let/const
-        blockBindings: true,
+        blockBindings: true, 
 
         // enable parsing of destructured arrays and objects
-        destructuring: true,
+        destructuring: true, 
 
         // enable parsing of regular expression y flag
-        regexYFlag: true,
+        regexYFlag: true, 
 
         // enable parsing of regular expression u flag
-        regexUFlag: true,
+        regexUFlag: true, 
 
         // enable parsing of template strings
-        templateStrings: true,
+        templateStrings: true, 
 
         // enable parsing of binary literals
-        binaryLiterals: true,
+        binaryLiterals: true, 
 
         // enable parsing of ES6 octal literals
-        octalLiterals: true,
+        octalLiterals: true, 
 
         // enable parsing unicode code point escape sequences
-        unicodeCodePointEscapes: true,
+        unicodeCodePointEscapes: true, 
 
         // enable parsing of default parameters
-        defaultParams: true,
+        defaultParams: true, 
 
         // enable parsing of rest parameters
-        restParams: true,
+        restParams: true, 
 
         // enable parsing of for-of statement
-        forOf: true,
+        forOf: true, 
 
         // enable parsing computed object literal properties
-        objectLiteralComputedProperties: true,
+        objectLiteralComputedProperties: true, 
 
         // enable parsing of shorthand object literal methods
-        objectLiteralShorthandMethods: true,
+        objectLiteralShorthandMethods: true, 
 
         // enable parsing of shorthand object literal properties
-        objectLiteralShorthandProperties: true,
+        objectLiteralShorthandProperties: true, 
 
         // Allow duplicate object literal properties (except '__proto__')
-        objectLiteralDuplicateProperties: true,
+        objectLiteralDuplicateProperties: true, 
 
         // enable parsing of generators/yield
-        generators: true,
+        generators: true, 
 
         // enable parsing spread operator
-        spread: true,
+        spread: true, 
 
         // enable super in functions
-        superInFunctions: true,
+        superInFunctions: true, 
 
         // enable parsing classes
-        classes: true,
+        classes: true, 
 
         // enable parsing of new.target
-        newTarget: false,
+        newTarget: false, 
 
         // enable parsing of modules
-        modules: true,
+        modules: true, 
 
         // enable React JSX parsing
-        jsx: true,
+        jsx: true, 
 
         // enable return in global scope
-        globalReturn: true,
+        globalReturn: true, 
 
         // allow experimental object rest/spread
-        experimentalObjectRestSpread: true
-    }
-};
-module.exports = exports["default"];
+        experimentalObjectRestSpread: true } };module.exports = exports["default"];

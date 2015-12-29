@@ -21,16 +21,9 @@
  *          name: 'undefined'
  *      }]
  *  }
- */
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;var _list = require(
 
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.format = format;
-
-var _list = require('../list');
+'../list');
 
 function format(node, context, recur) {
     var rollback = context.transaction();
@@ -39,6 +32,4 @@ function format(node, context, recur) {
 
     if (context.overflown()) {
         rollback();
-        (0, _list.short)(node.elements, context, recur, '[]');
-    };
-}
+        (0, _list.short)(node.elements, context, recur, '[]');}}

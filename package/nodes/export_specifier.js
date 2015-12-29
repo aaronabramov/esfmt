@@ -21,21 +21,12 @@
  *      },
  *      range: [8, 9],
  *  }
- */
-
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.format = format;
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;
 
 function format(node, context, recur) {
     if (node.exported.name === node.local.name) {
-        recur(node.exported);
-    } else {
+        recur(node.exported);} else 
+    {
         recur(node.local);
         context.write(' as ');
-        recur(node.exported);
-    }
-}
+        recur(node.exported);}}

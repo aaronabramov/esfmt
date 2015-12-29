@@ -8,14 +8,7 @@
  *      selfClosing: false,
  *      attributes: [{ type: 'JSXAttribute', name: [Object], value: [Object] }]
  *  }
- */
-
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-exports.format = format;
+ */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;
 
 function format(node, context, recur) {
     context.write('<');
@@ -28,14 +21,13 @@ function format(node, context, recur) {
             recur(node.attributes[i]);
 
             if (node.attributes[i + 1]) {
-                context.write(' ');
-            }
-        }
-    };
+                context.write(' ');}}}
+
+
+
 
     if (node.selfClosing) {
-        context.write(' /');
-    }
+        context.write(' /');}
 
-    context.write('>');
-}
+
+    context.write('>');}

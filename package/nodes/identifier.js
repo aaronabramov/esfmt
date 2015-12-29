@@ -1,14 +1,6 @@
 /**
  * { type: 'Identifier', name: 'a' }
- */
+ */"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.format = format;
 
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.format = format;
-
-function format(node, context, recur) {
-  context.write(node.name);
-}
+function format(node, context) {
+  context.write(node.name);}
