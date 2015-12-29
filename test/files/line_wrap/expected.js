@@ -48,3 +48,10 @@ a = function(
 ) {
     a;
 };
+
+let a = [
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,
+    bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb,
+    cccccccccccccccccccccccc,
+    ddddddddddddddddddddddddddd
+] = b;

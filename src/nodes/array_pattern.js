@@ -26,8 +26,15 @@
  *  }
  */
 
-import {long} from '../list';
+import {long, short} from '../list';
 
 export function format(node, context, recur) {
+    let rollback = context.transaction();
+
     long(node.elements, context, recur, '[]');
+
+    if (context.overflown()) {
+        rollback();
+        short(node.elements, context, recur, '[]');
+    }
 }
