@@ -5,7 +5,7 @@
  *
  *  1. a + b + c
  *  2. a && b || c
- */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];}}newObj['default'] = obj;return newObj;}}var _parentheses = require(
+ */'use strict';var _interopRequireWildcard = require('babel-runtime/helpers/interop-require-wildcard')['default'];Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;var _parentheses = require(
 
 './parentheses');var utils = _interopRequireWildcard(_parentheses);
 

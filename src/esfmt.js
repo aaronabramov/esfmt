@@ -66,7 +66,7 @@ import defaultConfig from './default_config';
 import Context from './context';
 import invariant from './invariant';
 
-import '../polyfills/includes';
+import 'babel-polyfill';
 
 const NODE_TYPES = {
     ArrayExpression,

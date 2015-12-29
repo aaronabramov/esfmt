@@ -1,4 +1,4 @@
-'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.needParentheses = needParentheses;function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { 'default': obj };}var _invariant = require('./invariant');var _invariant2 = _interopRequireDefault(_invariant);
+'use strict';var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];Object.defineProperty(exports, '__esModule', { value: true });exports.needParentheses = needParentheses;var _invariant = require('./invariant');var _invariant2 = _interopRequireDefault(_invariant);
 
 /**
  * Map of operators to their precendenge numeric value (starting from 1),

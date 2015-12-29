@@ -1,4 +1,4 @@
-/* Copyright 2015, Yahoo Inc. */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { 'default': obj };}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];}}newObj['default'] = obj;return newObj;}}var _nodesArray_expression = require(
+/* Copyright 2015, Yahoo Inc. */'use strict';var _Object$assign = require('babel-runtime/core-js/object/assign')['default'];var _interopRequireWildcard = require('babel-runtime/helpers/interop-require-wildcard')['default'];var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;var _nodesArray_expression = require(
 
 './nodes/array_expression');var ArrayExpression = _interopRequireWildcard(_nodesArray_expression);var _nodesArray_pattern = require(
 './nodes/array_pattern');var ArrayPattern = _interopRequireWildcard(_nodesArray_pattern);var _nodesArrow_function_expression = require(
@@ -66,7 +66,7 @@
 './context');var _context2 = _interopRequireDefault(_context);var _invariant = require(
 './invariant');var _invariant2 = _interopRequireDefault(_invariant);require(
 
-'../polyfills/includes');
+'babel-polyfill');
 
 var NODE_TYPES = { 
     ArrayExpression: ArrayExpression, 
@@ -147,7 +147,7 @@ function format(code, config) {
 
     config = JSON.parse(JSON.stringify(config));
 
-    config = Object.assign({}, _default_config2['default'], config);
+    config = _Object$assign({}, _default_config2['default'], config);
 
     // console.log('AST: \n', JSON.stringify(ast, null, 2));
 
