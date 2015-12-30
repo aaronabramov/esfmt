@@ -271,3 +271,48 @@ try {} finally {
 function a() {};;;;
 // output:
 function a() {}
+
+// input: literals
+[1, 2];
+true;
+false;
+0;
+0x123;
+0x00001;
+0xF1A7;
+0b11;
+0b0001;
+-0b10;
+3.14;
+-.134;
+-4.9E+12;
+.1e-23;
+'abc';
+"abc";
+undefined;
+null;
+NaN;
+Infinity;
+-Infinity;
+// output:
+[1, 2];
+true;
+false;
+0;
+0x123;
+0x00001;
+0xF1A7;
+0b11;
+0b0001;
+-0b10;
+3.14;
+-.134;
+-4.9E+12;
+.1e-23;
+'abc';
+"abc";
+undefined;
+null;
+NaN;
+Infinity;
+-Infinity;
