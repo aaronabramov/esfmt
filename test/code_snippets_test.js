@@ -81,8 +81,14 @@ describe('code snippets', function() {
             code = code.replace(/^\n+/, '').replace(/\n*$/, '');
             expected = expected.replace(/^\n+/, '').replace(/\n*$/, '');
 
+            let mochaDescription = `${filename}: ${description}`;
 
-            fn(`${filename}: ${description}, config: ${JSON.stringify(config)}`, function() {
+            if (Object.keys(config).length) {
+                mochaDescription += ` config: ${JSON.stringify(config)}`;
+            }
+
+
+            fn(mochaDescription, function() {
                 let formatted = format(code, config);
 
                 formatted = formatted.replace(/\n*$/, '');
