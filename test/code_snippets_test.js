@@ -17,6 +17,7 @@ describe('code snippets', function() {
     glob.sync((path.resolve(SNIPPETS_DIR, '*.js'))).forEach(file => {
         const TEST_DEF_REGEX = /^\/\/[\s]+input\:[\s]*/gm;
         let content = fs.readFileSync(file).toString();
+        let filename = path.basename(file, '.js');
 
         content = content.replace('/* eslint-disable */', '');
         let tests = content.split(TEST_DEF_REGEX);
@@ -77,12 +78,16 @@ describe('code snippets', function() {
             let [code, expected] = rest.split(/\n\/\/[\s]+output\:\n/gm);
 
             // get rid of all newlines before and after the code
-            code = code.replace(/^\n+/gm, '').replace(/\n+$/gm, '');
-            expected = expected.replace(/^\n+/gm, '').replace(/\n+$/gm, '');
+            code = code.replace(/^\n+/, '').replace(/\n*$/, '');
+            expected = expected.replace(/^\n+/, '').replace(/\n*$/, '');
 
 
-            fn(`${description}, config: ${JSON.stringify(config)}`, function() {
-                expect(format(code, config || {})).to.equal(expected);
+            fn(`${filename}: ${description}, config: ${JSON.stringify(config)}`, function() {
+                let formatted = format(code, config);
+
+                formatted = formatted.replace(/\n*$/, '');
+
+                expect(formatted).to.equal(expected);
             });
         });
     });

@@ -16,4 +16,6 @@
  *
  *  Empty statement is a result of unnecessary ;
  */
-export function format() {}
+export function format() {
+    throw new Error('abc');
+}

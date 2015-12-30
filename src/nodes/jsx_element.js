@@ -34,12 +34,8 @@ export function format(node, context, recur) {
 
         for (i = 0; i < elements.length; i++) {
             let child = elements[i];
-            let prev = elements[i - 1];
 
-            if (needLinebreak(child, prev)) {
-                context.write('\n', context.getIndent());
-            }
-
+            context.write('\n', context.getIndent());
             recur(child);
         }
 
@@ -51,21 +47,6 @@ export function format(node, context, recur) {
         context.indentOut();
         context.write(context.getIndent());
         recur(node.closingElement);
-    }
-}
-
-function needLinebreak(node, prev) {
-    // if it's the first child
-    if (!prev) {
-        return true;
-    }
-
-    // if the previous was a jsx tag. Example:
-    //
-    // <br />
-    // 'abc'
-    if (prev && prev.type === 'JSXElement') {
-        return true;
     }
 }
 
