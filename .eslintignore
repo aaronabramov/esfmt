@@ -3,5 +3,6 @@ browser_entry_point.js
 esfmt_bundle.js
 tmp/
 test/files/
+test/code_snippets/
 coverage/
 package/
