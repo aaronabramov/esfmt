@@ -50,3 +50,13 @@ for (let i in b) {
 for (let i in b) {
     console.log(i);
 }
+
+// input: infinite (empty) for
+// skip
+for (;;) {
+    a++;
+}
+// output:
+for (;;) {
+    a++;
+}
