@@ -132,3 +132,25 @@ let a = () => {
 
     return (x += 10, x);
 };
+
+// input: arithmetic
+a + b;
+a - b;
+a * b;
+a / b;
+a % b;
+// output:
+a + b;
+a - b;
+a * b;
+a / b;
+a % b;
+
+// input: rest
+function abc(a, ...b) {
+    return b;
+}
+// output:
+function abc(a, ...b) {
+    return b;
+}
