@@ -113,34 +113,6 @@ var a,
 const a = 5;
 let b;
 
-// input: loops
-// skip
-for (let i = 0; i < b; i++) {
-    break;
-}
-
-do {
-    a++;
-    continue;
-} while (true);
-
-while (false) {
-    break;
-}
-// output:
-for (let i = 0; i < b; i++) {
-    break;
-}
-
-do {
-    a++;
-    continue;
-} while (true);
-
-while (false) {
-    break;
-}
-
 // input: grouping (paratheses)
 (1 + 2) / 3;
 1 / (2 + 3);
@@ -207,60 +179,6 @@ a.b.c.d(function(f) {
         };
     };
 }, 100));
-
-// input: if else statement
-if (a) {
-    b;
-}
-
-if (a) b = c;
-
-if (a) {
-    return 5;
-} else if (5) {
-    return 8;
-} else {
-    1;
-}
-// output:
-if (a) {
-    b;
-}
-
-if (a) {
-    b = c;
-}
-
-if (a) {
-    return 5;
-} else if (5) {
-    return 8;
-} else {
-    1;
-}
-
-// input: try catch statement
-try {
-    c;
-} catch (error) {
-    throw error;
-}
-
-try {
-
-} finally {
-    b;
-}
-
-// output:
-try {
-    c;
-} catch (error) {
-    throw error;
-}
-try {} finally {
-    b;
-}
 
 // input: array
 [1, 'b', null, undefined, NaN, Infinity, 0, -1];
