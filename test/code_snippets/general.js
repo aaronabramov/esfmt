@@ -32,42 +32,6 @@ a
 ${b}
 `;
 
-// input: property access
-a['a'];
-a[a];
-a[b()];
-a[b[c[0]]];
-'abc'[1];
-// output:
-a['a'];
-a[a];
-a[b()];
-a[b[c[0]]];
-'abc'[1];
-
-// input: object declaration
-let a = {
-    b: function() {
-        return c;
-    },
-    c: a.b.c.d.e.f,
-    d: 1,
-    e: 'abc',
-    f: this,
-    [a]: undefined
-};
-// output:
-let a = {
-    b: function() {
-        return c;
-    },
-    c: a.b.c.d.e.f,
-    d: 1,
-    e: 'abc',
-    f: this,
-    [a]: undefined
-};
-
 // input: variable declarations
 var a;
 var a = 5;
