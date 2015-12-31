@@ -13,33 +13,6 @@ function a() {
    return 5;
 }
 
-// input: unary operators
-void(0);
-i++;
-i--;
-++i;
---i;
-typeof i;
-// output:
-void(0);
-i++;
-i--;
-++i;
---i;
-typeof i;
-
-// input: binary operators
-a || b;
-b | c | d;
-a | b ^ c & d;
-a && b || c;
-
-// output:
-a || b;
-b | c | d;
-a | b ^ c & d;
-a && b || c;
-
 // input: strings
 'abc';
 `abc`;

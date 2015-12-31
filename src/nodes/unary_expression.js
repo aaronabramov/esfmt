@@ -15,7 +15,7 @@ export function format(node, context, recur) {
         context.write(node.operator, '(');
         recur(node.argument);
         context.write(')');
-    } else if (node.operator === 'typeof') {
+    } else if (node.operator === 'typeof' || node.operator === 'delete') {
         context.write(node.operator, ' ');
         recur(node.argument);
     } else {
