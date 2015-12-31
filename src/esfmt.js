@@ -9,6 +9,7 @@ import * as BlockStatement from './nodes/block_statement';
 import * as BreakStatement from './nodes/break_statement';
 import * as CallExpression from './nodes/call_expression';
 import * as CatchClause from './nodes/catch_clause';
+import * as ContinueStatement from './nodes/continue_statement';
 import * as ClassBody from './nodes/class_body';
 import * as ClassDeclaration from './nodes/class_declaration';
 import * as ConditionalExpression from './nodes/conditional_expression';
@@ -78,6 +79,7 @@ const NODE_TYPES = {
     BreakStatement,
     CallExpression,
     CatchClause,
+    ContinueStatement,
     ClassBody,
     ClassDeclaration,
     ConditionalExpression,

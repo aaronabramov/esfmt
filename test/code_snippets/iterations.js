@@ -10,7 +10,6 @@ for (let i = 0; i < b; i++) {
 }
 
 // input: do...while
-// skip
 do {
     a++;
     continue;
