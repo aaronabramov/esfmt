@@ -42,23 +42,60 @@ if ((a + b) * 4) {
 }
 ```
 
+#### Testing
+Most of the testing is done by formatting code snippets and matching resulting output with expected string value.
+
+Code snippet files are located at `test/code_snippets/*.js`
+
+The DSL has the following format
+
+```js
+// input: test case description (e.g. variable declaration)
+let a        =         5;
+// output:
+let a = 5;
+```
+
+this will produce a test case that will look like this:
+```
+code snippets
+    ✓ code_snippets_filename: test case description (e.g. variable declaration)
+```
+
+if any specific test needs to be whitelisted (mocha it.only) or blacklisted (mocha it.skip) skip or only line can be added after the test description
+```js
+// input: arrays
+// skip
+[1, 'a', null];
+// output:
+[1, 'a', null];
+```
+
+or
+
+```js
+// input: arrays
+// only
+[1, 'a', null];
+// output:
+[1, 'a', null];
+```
+
+in addition to that, if any specific configuration values need to be used for the test, they can be passed using a config line `// config: {"settingName": "value"}`
+
+Note that the values should be provided in JSON format (meaning double quotes around the keys)
+```js
+// input: arrays
+// only
+// config: {"max-len": 5}
+[1, 'a', null];
+// output:
+[1, 'a', null];
+```
+
+
 #### TODO
+- CLI
 - comments in
     - class definitions
     - arguments (lists)
-
-- nodes
-    - ~~string templates~~
-    - array pattern (parentheses)
-    - ~~computed keys~~
-
-- linebreaks after
-    - multiline statements
-    - where a linebreak was in the original code
-
-- semicolons
-    - not after exporting a function
-
-- linewrapping
-    - only check overflow after a certain ponit (not the beginning of the file)
-    - oneline objects, arrays
