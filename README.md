@@ -42,6 +42,8 @@ if ((a + b) * 4) {
 }
 ```
 
+## Development
+
 #### Testing
 Most of the testing is done by formatting code snippets and matching resulting output with expected string value.
 
