@@ -101,37 +101,6 @@ a || (a = 4);
 if (!n) {}
 a * (b + c);
 
-// input: functions
-fn(a, 5);
-function abc(a, b) {
-    return b;
-}
-
-let a = function() {
-    return c;
-};
-
-let b = () => {
-    return;
-};
-
-new A();
-// output:
-fn(a, 5);
-
-function abc(a, b) {
-    return b;
-}
-
-let a = function() {
-    return c;
-};
-let b = () => {
-    return;
-};
-
-new A();
-
 // input: deeply nested blocks
 a.b.c.d(function(f) {
     return void(0);
