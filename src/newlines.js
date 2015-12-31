@@ -5,7 +5,8 @@ const NEED_EXTRA_NEWLINE_AFTER = {
     FunctionDeclaration: true,
     IfStatement: true,
     ForStatement: true,
-    ObjectExpression: true
+    ObjectExpression: true,
+    ClassDeclaration: true
 };
 
 const NEED_NEWLINE_BEFORE = {
