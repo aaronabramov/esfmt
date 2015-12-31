@@ -212,6 +212,7 @@ null;
 NaN;
 Infinity;
 -Infinity;
+/^abc[\s\w]+(a|b|c).?a+$/gmi;
 // output:
 [1, 2];
 true;
@@ -234,3 +235,4 @@ null;
 NaN;
 Infinity;
 -Infinity;
+/^abc[\s\w]+(a|b|c).?a+$/gmi;
