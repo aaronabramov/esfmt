@@ -154,3 +154,33 @@ function abc(a, ...b) {
 function abc(a, ...b) {
     return b;
 }
+
+// input: debugger
+// skip
+debugger;
+// output:
+debugger;
+
+// input: label
+// skip
+loop1:
+for (i = 0; i < 3; i++) {
+   loop2:
+   for (j = 0; j < 3; j++) {
+      if (i === 1 && j === 1) {
+         continue loop1;
+      }
+      console.log("i = " + i + ", j = " + j);
+   }
+}
+// output:
+loop1:
+for (i = 0; i < 3; i++) {
+   loop2:
+   for (j = 0; j < 3; j++) {
+      if (i === 1 && j === 1) {
+         continue loop1;
+      }
+      console.log("i = " + i + ", j = " + j);
+   }
+}
