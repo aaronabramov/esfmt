@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/dmitriiabramov/esfmt.svg?branch=master)](https://travis-ci.org/dmitriiabramov/esfmt)
 [![codecov.io](http://codecov.io/github/dmitriiabramov/esfmt/coverage.svg?branch=master)](http://codecov.io/github/dmitriiabramov/esfmt?branch=master)
+[![npm version](https://badge.fury.io/js/esfmt.svg)](https://badge.fury.io/js/esfmt)
 
 
 esfmt formats (beautifies, pretty-prints) javascript (es6, jsx) code.
