@@ -162,7 +162,6 @@ function abc(a, ...b) {
 }
 
 // input: debugger
-// skip
 debugger;
 // output:
 debugger;
