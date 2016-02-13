@@ -33,7 +33,6 @@ ${b}
 `;
 
 // input: tagged strings
-// skip
 tag`abc${b}a${d}`;
 // output:
 tag`abc${b}a${d}`;

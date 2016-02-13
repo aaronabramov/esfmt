@@ -9,10 +9,10 @@ import * as BlockStatement from './nodes/block_statement';
 import * as BreakStatement from './nodes/break_statement';
 import * as CallExpression from './nodes/call_expression';
 import * as CatchClause from './nodes/catch_clause';
-import * as ContinueStatement from './nodes/continue_statement';
 import * as ClassBody from './nodes/class_body';
 import * as ClassDeclaration from './nodes/class_declaration';
 import * as ConditionalExpression from './nodes/conditional_expression';
+import * as ContinueStatement from './nodes/continue_statement';
 import * as DoWhileStatement from './nodes/do_while_statement';
 import * as EmptyStatement from './nodes/empty_statement';
 import * as ExportDefaultDeclaration from './nodes/export_default_declaration';
@@ -49,6 +49,7 @@ import * as SpreadElement from './nodes/spread_element';
 import * as Super from './nodes/super';
 import * as SwitchCase from './nodes/switch_case';
 import * as SwitchStatement from './nodes/switch_statement';
+import * as TaggedTemplateExpression from './nodes/tagged_template_expression';
 import * as TemplateElement from './nodes/template_element';
 import * as TemplateLiteral from './nodes/template_literal';
 import * as ThisExpression from './nodes/this_expression';
@@ -79,10 +80,10 @@ const NODE_TYPES = {
     BreakStatement,
     CallExpression,
     CatchClause,
-    ContinueStatement,
     ClassBody,
     ClassDeclaration,
     ConditionalExpression,
+    ContinueStatement,
     DoWhileStatement,
     EmptyStatement,
     ExportDefaultDeclaration,
@@ -119,6 +120,7 @@ const NODE_TYPES = {
     Super,
     SwitchCase,
     SwitchStatement,
+    TaggedTemplateExpression,
     TemplateElement,
     TemplateLiteral,
     ThisExpression,
