@@ -13,6 +13,7 @@ import * as ClassBody from './nodes/class_body';
 import * as ClassDeclaration from './nodes/class_declaration';
 import * as ConditionalExpression from './nodes/conditional_expression';
 import * as ContinueStatement from './nodes/continue_statement';
+import * as DebuggerStatement from './nodes/debugger_statement';
 import * as DoWhileStatement from './nodes/do_while_statement';
 import * as EmptyStatement from './nodes/empty_statement';
 import * as ExportDefaultDeclaration from './nodes/export_default_declaration';
@@ -84,6 +85,7 @@ const NODE_TYPES = {
     ClassDeclaration,
     ConditionalExpression,
     ContinueStatement,
+    DebuggerStatement,
     DoWhileStatement,
     EmptyStatement,
     ExportDefaultDeclaration,
