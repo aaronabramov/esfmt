@@ -1,7 +1,6 @@
 /* eslint-disable */
 
 // input: new.target
-// skip
 function a() {
     console.log(new.target);
 }
