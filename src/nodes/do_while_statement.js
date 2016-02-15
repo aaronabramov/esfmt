@@ -36,5 +36,4 @@ export function format(node, context, recur) {
     context.write(' while (');
     recur(node.test);
     context.write(')');
-
 }
