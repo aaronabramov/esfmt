@@ -21,6 +21,7 @@ import * as ExportNamedDeclaration from './nodes/export_named_declaration';
 import * as ExportSpecifier from './nodes/export_specifier';
 import * as ExpressionStatement from './nodes/expression_statement';
 import * as ForInStatement from './nodes/for_in_statement';
+import * as ForOfStatement from './nodes/for_of_statement';
 import * as ForStatement from './nodes/for_statement';
 import * as FunctionDeclaration from './nodes/function_declaration';
 import * as FunctionExpression from './nodes/function_expression';
@@ -93,6 +94,7 @@ const NODE_TYPES = {
     ExportSpecifier,
     ExpressionStatement,
     ForInStatement,
+    ForOfStatement,
     ForStatement,
     FunctionDeclaration,
     FunctionExpression,

@@ -32,7 +32,6 @@ while (false) {
 }
 
 // input: for...of
-// skip
 for (let i of b) {
     console.log(i);
 }
