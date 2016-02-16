@@ -6,7 +6,8 @@ const DONT_NEED_SEMICOLON_AFTER = {
     FunctionDeclaration: true,
     IfStatement: true,
     SwitchStatement: true,
-    TryStatement: true
+    TryStatement: true,
+    WhileStatement: true
 };
 
 /**

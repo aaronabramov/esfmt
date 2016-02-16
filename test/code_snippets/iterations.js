@@ -22,7 +22,6 @@ do {
 
 
 // input: while
-// skip
 while (false) {
     break;
 }
