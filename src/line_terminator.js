@@ -1,11 +1,12 @@
 const DONT_NEED_SEMICOLON_AFTER = {
+    ClassDeclaration: true,
     ForInStatement: true,
+    ForOfStatement: true,
     ForStatement: true,
     FunctionDeclaration: true,
     IfStatement: true,
-    TryStatement: true,
-    ClassDeclaration: true,
-    SwitchStatement: true
+    SwitchStatement: true,
+    TryStatement: true
 };
 
 /**
