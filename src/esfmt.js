@@ -39,6 +39,7 @@ import * as JSXOpeningElement from './nodes/jsx_opening_element';
 import * as Literal from './nodes/literal';
 import * as LogicalExpression from './nodes/logical_expression';
 import * as MemberExpression from './nodes/member_expression';
+import * as MetaProperty from './nodes/meta_property';
 import * as MethodDefinition from './nodes/method_definition';
 import * as NewExpression from './nodes/new_expression';
 import * as ObjectExpression from './nodes/object_expression';
@@ -111,6 +112,7 @@ const NODE_TYPES = {
     Literal,
     LogicalExpression,
     MemberExpression,
+    MetaProperty,
     MethodDefinition,
     NewExpression,
     ObjectExpression,
