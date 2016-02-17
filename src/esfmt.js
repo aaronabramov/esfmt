@@ -48,6 +48,7 @@ import * as Program from './nodes/program';
 import * as Property from './nodes/property';
 import * as RestElement from './nodes/rest_element';
 import * as ReturnStatement from './nodes/return_statement';
+import * as SequenceExpression from './nodes/sequence_expression';
 import * as SpreadElement from './nodes/spread_element';
 import * as Super from './nodes/super';
 import * as SwitchCase from './nodes/switch_case';
@@ -123,6 +124,7 @@ const NODE_TYPES = {
     Property,
     RestElement,
     ReturnStatement,
+    SequenceExpression,
     SpreadElement,
     Super,
     SwitchCase,

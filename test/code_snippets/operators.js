@@ -126,15 +126,14 @@ let {a: b} = c;
 let {a: b} = c;
 
 // input: comma operator
-// skip
 let a = () => {
-    let x = 0
+    let x = 0;
 
     return (x += 10, x);
 };
 // output:
 let a = () => {
-    let x = 0
+    let x = 0;
 
     return (x += 10, x);
 };
