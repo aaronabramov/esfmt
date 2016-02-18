@@ -25,10 +25,9 @@ function a(b = 5, c = null) {}
 function b(c = 5, a = c) {}
 
 // input: destructured default
-// skip
-function a([a, b] = [1, 2]) {};
+function a([a, b] = [1, 2]) {}
 // output:
-function a([a, b] = [1, 2]) {};
+function a([a, b] = [1, 2]) {}
 
 // input: destructured arguments
 // skip
