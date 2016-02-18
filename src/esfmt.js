@@ -4,6 +4,7 @@ import * as ArrayExpression from './nodes/array_expression';
 import * as ArrayPattern from './nodes/array_pattern';
 import * as ArrowFunctionExpression from './nodes/arrow_function_expression';
 import * as AssignmentExpression from './nodes/assignment_expression';
+import * as AssignmentPattern from './nodes/assignment_pattern';
 import * as BinaryExpression from './nodes/binary_expression';
 import * as BlockStatement from './nodes/block_statement';
 import * as BreakStatement from './nodes/break_statement';
@@ -80,6 +81,7 @@ const NODE_TYPES = {
     ArrayPattern,
     ArrowFunctionExpression,
     AssignmentExpression,
+    AssignmentPattern,
     BinaryExpression,
     BlockStatement,
     BreakStatement,
