@@ -5,6 +5,7 @@ const DONT_NEED_SEMICOLON_AFTER = {
     ForStatement: true,
     FunctionDeclaration: true,
     IfStatement: true,
+    LabeledStatement: true,
     SwitchStatement: true,
     TryStatement: true,
     WhileStatement: true
