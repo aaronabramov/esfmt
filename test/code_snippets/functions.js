@@ -11,10 +11,9 @@ let a = function() {};
 let a = () => {};
 
 // input: generator function
-// skip
-function* a () {}
+function* a() {}
 // output:
-function* a () {}
+function* a() {}
 
 // input: default parameters
 // skip
