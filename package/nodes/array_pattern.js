@@ -29,4 +29,10 @@
 '../list');
 
 function format(node, context, recur) {
-  (0, _list.long)(node.elements, context, recur, '[]');}
+    var rollback = context.transaction();
+
+    (0, _list.long)(node.elements, context, recur, '[]');
+
+    if (context.overflown()) {
+        rollback();
+        (0, _list.short)(node.elements, context, recur, '[]');}}

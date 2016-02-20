@@ -5,7 +5,8 @@
     FunctionDeclaration: true, 
     IfStatement: true, 
     ForStatement: true, 
-    ObjectExpression: true };
+    ObjectExpression: true, 
+    ClassDeclaration: true };
 
 
 var NEED_NEWLINE_BEFORE = { 

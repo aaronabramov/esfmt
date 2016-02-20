@@ -84,7 +84,7 @@
         classes: true, 
 
         // enable parsing of new.target
-        newTarget: false, 
+        newTarget: true, 
 
         // enable parsing of modules
         modules: true, 
