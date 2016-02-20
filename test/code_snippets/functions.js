@@ -16,11 +16,12 @@ function* a() {}
 function* a() {}
 
 // input: default parameters
-// skip
 function a(b = 5, c = null) {}
+
 function b(c = 5, a = c) {}
 // output:
 function a(b = 5, c = null) {}
+
 function b(c = 5, a = c) {}
 
 // input: destructured default
