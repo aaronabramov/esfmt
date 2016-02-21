@@ -3,7 +3,8 @@
 './nodes/array_expression');var ArrayExpression = _interopRequireWildcard(_nodesArray_expression);var _nodesArray_pattern = require(
 './nodes/array_pattern');var ArrayPattern = _interopRequireWildcard(_nodesArray_pattern);var _nodesArrow_function_expression = require(
 './nodes/arrow_function_expression');var ArrowFunctionExpression = _interopRequireWildcard(_nodesArrow_function_expression);var _nodesAssignment_expression = require(
-'./nodes/assignment_expression');var AssignmentExpression = _interopRequireWildcard(_nodesAssignment_expression);var _nodesBinary_expression = require(
+'./nodes/assignment_expression');var AssignmentExpression = _interopRequireWildcard(_nodesAssignment_expression);var _nodesAssignment_pattern = require(
+'./nodes/assignment_pattern');var AssignmentPattern = _interopRequireWildcard(_nodesAssignment_pattern);var _nodesBinary_expression = require(
 './nodes/binary_expression');var BinaryExpression = _interopRequireWildcard(_nodesBinary_expression);var _nodesBlock_statement = require(
 './nodes/block_statement');var BlockStatement = _interopRequireWildcard(_nodesBlock_statement);var _nodesBreak_statement = require(
 './nodes/break_statement');var BreakStatement = _interopRequireWildcard(_nodesBreak_statement);var _nodesCall_expression = require(
@@ -11,14 +12,17 @@
 './nodes/catch_clause');var CatchClause = _interopRequireWildcard(_nodesCatch_clause);var _nodesClass_body = require(
 './nodes/class_body');var ClassBody = _interopRequireWildcard(_nodesClass_body);var _nodesClass_declaration = require(
 './nodes/class_declaration');var ClassDeclaration = _interopRequireWildcard(_nodesClass_declaration);var _nodesConditional_expression = require(
-'./nodes/conditional_expression');var ConditionalExpression = _interopRequireWildcard(_nodesConditional_expression);var _nodesDo_while_statement = require(
+'./nodes/conditional_expression');var ConditionalExpression = _interopRequireWildcard(_nodesConditional_expression);var _nodesContinue_statement = require(
+'./nodes/continue_statement');var ContinueStatement = _interopRequireWildcard(_nodesContinue_statement);var _nodesDebugger_statement = require(
+'./nodes/debugger_statement');var DebuggerStatement = _interopRequireWildcard(_nodesDebugger_statement);var _nodesDo_while_statement = require(
 './nodes/do_while_statement');var DoWhileStatement = _interopRequireWildcard(_nodesDo_while_statement);var _nodesEmpty_statement = require(
 './nodes/empty_statement');var EmptyStatement = _interopRequireWildcard(_nodesEmpty_statement);var _nodesExport_default_declaration = require(
 './nodes/export_default_declaration');var ExportDefaultDeclaration = _interopRequireWildcard(_nodesExport_default_declaration);var _nodesExport_named_declaration = require(
 './nodes/export_named_declaration');var ExportNamedDeclaration = _interopRequireWildcard(_nodesExport_named_declaration);var _nodesExport_specifier = require(
 './nodes/export_specifier');var ExportSpecifier = _interopRequireWildcard(_nodesExport_specifier);var _nodesExpression_statement = require(
 './nodes/expression_statement');var ExpressionStatement = _interopRequireWildcard(_nodesExpression_statement);var _nodesFor_in_statement = require(
-'./nodes/for_in_statement');var ForInStatement = _interopRequireWildcard(_nodesFor_in_statement);var _nodesFor_statement = require(
+'./nodes/for_in_statement');var ForInStatement = _interopRequireWildcard(_nodesFor_in_statement);var _nodesFor_of_statement = require(
+'./nodes/for_of_statement');var ForOfStatement = _interopRequireWildcard(_nodesFor_of_statement);var _nodesFor_statement = require(
 './nodes/for_statement');var ForStatement = _interopRequireWildcard(_nodesFor_statement);var _nodesFunction_declaration = require(
 './nodes/function_declaration');var FunctionDeclaration = _interopRequireWildcard(_nodesFunction_declaration);var _nodesFunction_expression = require(
 './nodes/function_expression');var FunctionExpression = _interopRequireWildcard(_nodesFunction_expression);var _nodesIdentifier = require(
@@ -36,18 +40,21 @@
 './nodes/jsx_opening_element');var JSXOpeningElement = _interopRequireWildcard(_nodesJsx_opening_element);var _nodesLiteral = require(
 './nodes/literal');var Literal = _interopRequireWildcard(_nodesLiteral);var _nodesLogical_expression = require(
 './nodes/logical_expression');var LogicalExpression = _interopRequireWildcard(_nodesLogical_expression);var _nodesMember_expression = require(
-'./nodes/member_expression');var MemberExpression = _interopRequireWildcard(_nodesMember_expression);var _nodesMethod_definition = require(
+'./nodes/member_expression');var MemberExpression = _interopRequireWildcard(_nodesMember_expression);var _nodesMeta_property = require(
+'./nodes/meta_property');var MetaProperty = _interopRequireWildcard(_nodesMeta_property);var _nodesMethod_definition = require(
 './nodes/method_definition');var MethodDefinition = _interopRequireWildcard(_nodesMethod_definition);var _nodesNew_expression = require(
 './nodes/new_expression');var NewExpression = _interopRequireWildcard(_nodesNew_expression);var _nodesObject_expression = require(
 './nodes/object_expression');var ObjectExpression = _interopRequireWildcard(_nodesObject_expression);var _nodesProgram = require(
 './nodes/program');var Program = _interopRequireWildcard(_nodesProgram);var _nodesProperty = require(
 './nodes/property');var Property = _interopRequireWildcard(_nodesProperty);var _nodesRest_element = require(
 './nodes/rest_element');var RestElement = _interopRequireWildcard(_nodesRest_element);var _nodesReturn_statement = require(
-'./nodes/return_statement');var ReturnStatement = _interopRequireWildcard(_nodesReturn_statement);var _nodesSpread_element = require(
+'./nodes/return_statement');var ReturnStatement = _interopRequireWildcard(_nodesReturn_statement);var _nodesSequence_expression = require(
+'./nodes/sequence_expression');var SequenceExpression = _interopRequireWildcard(_nodesSequence_expression);var _nodesSpread_element = require(
 './nodes/spread_element');var SpreadElement = _interopRequireWildcard(_nodesSpread_element);var _nodesSuper = require(
 './nodes/super');var Super = _interopRequireWildcard(_nodesSuper);var _nodesSwitch_case = require(
 './nodes/switch_case');var SwitchCase = _interopRequireWildcard(_nodesSwitch_case);var _nodesSwitch_statement = require(
-'./nodes/switch_statement');var SwitchStatement = _interopRequireWildcard(_nodesSwitch_statement);var _nodesTemplate_element = require(
+'./nodes/switch_statement');var SwitchStatement = _interopRequireWildcard(_nodesSwitch_statement);var _nodesTagged_template_expression = require(
+'./nodes/tagged_template_expression');var TaggedTemplateExpression = _interopRequireWildcard(_nodesTagged_template_expression);var _nodesTemplate_element = require(
 './nodes/template_element');var TemplateElement = _interopRequireWildcard(_nodesTemplate_element);var _nodesTemplate_literal = require(
 './nodes/template_literal');var TemplateLiteral = _interopRequireWildcard(_nodesTemplate_literal);var _nodesThis_expression = require(
 './nodes/this_expression');var ThisExpression = _interopRequireWildcard(_nodesThis_expression);var _nodesThrow_statement = require(
@@ -56,7 +63,8 @@
 './nodes/unary_expression');var UnaryExpression = _interopRequireWildcard(_nodesUnary_expression);var _nodesUpdate_expression = require(
 './nodes/update_expression');var UpdateExpression = _interopRequireWildcard(_nodesUpdate_expression);var _nodesVariable_declaration = require(
 './nodes/variable_declaration');var VariableDeclaration = _interopRequireWildcard(_nodesVariable_declaration);var _nodesVariable_declarator = require(
-'./nodes/variable_declarator');var VariableDeclarator = _interopRequireWildcard(_nodesVariable_declarator);var _espree = require(
+'./nodes/variable_declarator');var VariableDeclarator = _interopRequireWildcard(_nodesVariable_declarator);var _nodesWhile_statement = require(
+'./nodes/while_statement');var WhileStatement = _interopRequireWildcard(_nodesWhile_statement);var _espree = require(
 
 
 'espree');var _espree2 = _interopRequireDefault(_espree);var _esprima_options = require(
@@ -73,6 +81,7 @@ var NODE_TYPES = {
     ArrayPattern: ArrayPattern, 
     ArrowFunctionExpression: ArrowFunctionExpression, 
     AssignmentExpression: AssignmentExpression, 
+    AssignmentPattern: AssignmentPattern, 
     BinaryExpression: BinaryExpression, 
     BlockStatement: BlockStatement, 
     BreakStatement: BreakStatement, 
@@ -81,6 +90,8 @@ var NODE_TYPES = {
     ClassBody: ClassBody, 
     ClassDeclaration: ClassDeclaration, 
     ConditionalExpression: ConditionalExpression, 
+    ContinueStatement: ContinueStatement, 
+    DebuggerStatement: DebuggerStatement, 
     DoWhileStatement: DoWhileStatement, 
     EmptyStatement: EmptyStatement, 
     ExportDefaultDeclaration: ExportDefaultDeclaration, 
@@ -88,6 +99,7 @@ var NODE_TYPES = {
     ExportSpecifier: ExportSpecifier, 
     ExpressionStatement: ExpressionStatement, 
     ForInStatement: ForInStatement, 
+    ForOfStatement: ForOfStatement, 
     ForStatement: ForStatement, 
     FunctionDeclaration: FunctionDeclaration, 
     FunctionExpression: FunctionExpression, 
@@ -106,6 +118,7 @@ var NODE_TYPES = {
     Literal: Literal, 
     LogicalExpression: LogicalExpression, 
     MemberExpression: MemberExpression, 
+    MetaProperty: MetaProperty, 
     MethodDefinition: MethodDefinition, 
     NewExpression: NewExpression, 
     ObjectExpression: ObjectExpression, 
@@ -113,10 +126,12 @@ var NODE_TYPES = {
     Property: Property, 
     RestElement: RestElement, 
     ReturnStatement: ReturnStatement, 
+    SequenceExpression: SequenceExpression, 
     SpreadElement: SpreadElement, 
     Super: Super, 
     SwitchCase: SwitchCase, 
     SwitchStatement: SwitchStatement, 
+    TaggedTemplateExpression: TaggedTemplateExpression, 
     TemplateElement: TemplateElement, 
     TemplateLiteral: TemplateLiteral, 
     ThisExpression: ThisExpression, 
@@ -125,7 +140,8 @@ var NODE_TYPES = {
     UnaryExpression: UnaryExpression, 
     UpdateExpression: UpdateExpression, 
     VariableDeclaration: VariableDeclaration, 
-    VariableDeclarator: VariableDeclarator };
+    VariableDeclarator: VariableDeclarator, 
+    WhileStatement: WhileStatement };
 
 
 

@@ -26,7 +26,14 @@
 '../list');
 
 function format(node, context, recur) {
-    context.write('function ');
+    context.write('function');
+
+    if (node.generator) {
+        context.write('*');}
+
+
+    context.write(' ');
+
     recur(node.id);
 
     var rollback = context.transaction();
