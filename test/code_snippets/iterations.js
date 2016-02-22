@@ -49,7 +49,6 @@ for (let i in b) {
 }
 
 // input: infinite (empty) for
-// skip
 for (;;) {
     a++;
 }

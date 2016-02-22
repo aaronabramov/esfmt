@@ -41,11 +41,25 @@
 
 export function format(node, context, recur) {
     context.write('for (');
-    recur(node.init);
-    context.write('; ');
-    recur(node.test);
-    context.write('; ');
-    recur(node.update);
+
+    if (node.init) {
+        recur(node.init);
+    }
+
+    context.write(';');
+
+    if (node.test) {
+        context.write(' ');
+        recur(node.test);
+    }
+
+    context.write(';');
+
+    if (node.update) {
+        context.write(' ');
+        recur(node.update);
+    }
+
     context.write(') ');
     recur(node.body);
 }
