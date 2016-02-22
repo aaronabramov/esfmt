@@ -1,21 +1,18 @@
 /* eslint-disable */
 
 // input: definition
-// skip
-const g = function*() {
+const g = function* () {
     yield 1;
     yield 2;
-}
-
+};
 let gg = g();
 
 console.log(g.next().value);
 // output:
-const g = function*() {
+const g = function* () {
     yield 1;
     yield 2;
-}
-
+};
 let gg = g();
 
 console.log(g.next().value);

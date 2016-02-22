@@ -65,6 +65,7 @@ import * as UpdateExpression from './nodes/update_expression';
 import * as VariableDeclaration from './nodes/variable_declaration';
 import * as VariableDeclarator from './nodes/variable_declarator';
 import * as WhileStatement from './nodes/while_statement';
+import * as YieldExpression from './nodes/yield_expression';
 
 
 import esprima from 'espree';
@@ -141,7 +142,8 @@ const NODE_TYPES = {
     UpdateExpression,
     VariableDeclaration,
     VariableDeclarator,
-    WhileStatement
+    WhileStatement,
+    YieldExpression
 };
 
 

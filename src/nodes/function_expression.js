@@ -34,6 +34,10 @@ export function format(node, context, recur, {noFunctionKeyword} = {}) {
         context.write('function');
     }
 
+    if (node.generator) {
+        context.write('* ');
+    }
+
     if (node.id) {
         context.write(' ');
         recur(node.id);
