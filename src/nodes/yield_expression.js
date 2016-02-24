@@ -21,6 +21,12 @@
  */
 
 export function format(node, context, recur) {
-    context.write('yield ');
+    context.write('yield');
+
+    if (node.delegate) {
+        context.write('*');
+    }
+
+    context.write(' ');
     recur(node.argument);
 }
