@@ -18,7 +18,6 @@ let gg = g();
 console.log(g.next().value);
 
 // input: deletating yield
-// skip
 function* g2() {
     yield 1;
     yield* g();
