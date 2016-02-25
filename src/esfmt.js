@@ -38,6 +38,7 @@ import * as JSXElement from './nodes/jsx_element';
 import * as JSXExpressionContainer from './nodes/jsx_expression_container';
 import * as JSXIdentifier from './nodes/jsx_identifier';
 import * as JSXOpeningElement from './nodes/jsx_opening_element';
+import * as LabeledStatement from './nodes/labeled_statement';
 import * as Literal from './nodes/literal';
 import * as LogicalExpression from './nodes/logical_expression';
 import * as MemberExpression from './nodes/member_expression';
@@ -116,6 +117,7 @@ const NODE_TYPES = {
     JSXExpressionContainer,
     JSXIdentifier,
     JSXOpeningElement,
+    LabeledStatement,
     Literal,
     LogicalExpression,
     MemberExpression,
