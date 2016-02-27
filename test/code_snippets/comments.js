@@ -187,7 +187,6 @@ const a = {
 // b
 
 // input: in variable declaration blocks
-// skip
 // aaaa
 let a = 5, // acb
     // aaa
