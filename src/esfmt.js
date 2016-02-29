@@ -17,6 +17,7 @@ import * as ContinueStatement from './nodes/continue_statement';
 import * as DebuggerStatement from './nodes/debugger_statement';
 import * as DoWhileStatement from './nodes/do_while_statement';
 import * as EmptyStatement from './nodes/empty_statement';
+import * as ExperimentalSpreadProperty from './nodes/experimental_spread_property';
 import * as ExportDefaultDeclaration from './nodes/export_default_declaration';
 import * as ExportNamedDeclaration from './nodes/export_named_declaration';
 import * as ExportSpecifier from './nodes/export_specifier';
@@ -96,6 +97,7 @@ const NODE_TYPES = {
     DebuggerStatement,
     DoWhileStatement,
     EmptyStatement,
+    ExperimentalSpreadProperty,
     ExportDefaultDeclaration,
     ExportNamedDeclaration,
     ExportSpecifier,
