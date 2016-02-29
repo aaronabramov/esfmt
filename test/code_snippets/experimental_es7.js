@@ -10,12 +10,22 @@ function a() {
 }
 
 // input: spread operator
+let a = {
+    ...b,
+    c
+};
+
 [...Array(5)];
 
 function b(...c) {}
 
 a(...props);
 // output:
+let a = {
+    ...b,
+    c
+};
+
 [...Array(5)];
 
 function b(...c) {}

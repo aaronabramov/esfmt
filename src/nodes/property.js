@@ -27,6 +27,8 @@ export function format(node, context, recur) {
         context.write(']');
     }
 
-    context.write(': ');
-    recur(node.value);
+    if (!node.shorthand) {
+        context.write(': ');
+        recur(node.value);
+    }
 }

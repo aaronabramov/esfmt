@@ -38,10 +38,17 @@ let a = {
 };
 
 // input: destructuring
-// skip
-let a = {b, c, d};
+let a = {
+    b,
+    c,
+    d
+};
 // output:
-let a = {b, c, d};
+let a = {
+    b,
+    c,
+    d
+};
 
 // input: one line objects
 // skip
