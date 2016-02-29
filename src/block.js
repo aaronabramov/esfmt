@@ -13,22 +13,22 @@ export function format(node, context, recur) {
 
     for (let i =0; i < node.body.length; i++) {
         let previous = node.body[i - 1];
-        let child = node.body[i];
+        let current = node.body[i];
         let next = node.body[i + 1];
 
-        if (child.type === 'EmptyStatement') {
+        if (current.type === 'EmptyStatement') {
             continue;
         }
 
-        if (newlines.extraNewLineBetween(previous, child)) {
+        if (newlines.extraNewLineBetween(previous, current)) {
             context.write('\n');
         }
 
-        context.write(blockComments.printLeading(child, previous, next));
+        context.write(blockComments.printLeading(current, previous));
         context.write(context.getIndent());
-        recur(child);
-        context.write(utils.getLineTerminator(child));
-        context.write(blockComments.printTrailing(child, previous, next));
+        recur(current);
+        context.write(utils.getLineTerminator(current));
+        context.write(blockComments.printTrailing(current, previous, next));
 
         if (next) {
             context.write('\n');

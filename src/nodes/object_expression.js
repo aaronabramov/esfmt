@@ -31,17 +31,17 @@ export function format(node, context, recur) {
     context.indentIn();
     for (let i = 0; i < node.properties.length; i++) {
         let previous = node.properties[i - 1];
-        let child = node.properties[i];
+        let current = node.properties[i];
         let next = node.properties[i + 1];
 
-        context.write(blockComments.printLeading(child, previous, next));
+        context.write(blockComments.printLeading(current, previous));
         context.write(context.getIndent());
-        recur(child);
+        recur(current);
         if (next) {
             context.write(',');
         }
 
-        context.write(blockComments.printTrailing(child, previous, next));
+        context.write(blockComments.printTrailing(current, previous, next));
         if (next) {
             context.write('\n');
         }
