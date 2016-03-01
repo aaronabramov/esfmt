@@ -41,7 +41,6 @@ a.map(b => b.a);
 a.map((b) => b.a);
 
 // input: self invoked anonymous function
-// skip
 (function() {})(null);
 // output:
 (function() {})(null);
