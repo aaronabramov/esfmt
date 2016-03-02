@@ -47,6 +47,7 @@ import * as MetaProperty from './nodes/meta_property';
 import * as MethodDefinition from './nodes/method_definition';
 import * as NewExpression from './nodes/new_expression';
 import * as ObjectExpression from './nodes/object_expression';
+import * as ObjectPattern from './nodes/object_pattern';
 import * as Program from './nodes/program';
 import * as Property from './nodes/property';
 import * as RestElement from './nodes/rest_element';
@@ -127,6 +128,7 @@ const NODE_TYPES = {
     MethodDefinition,
     NewExpression,
     ObjectExpression,
+    ObjectPattern,
     Program,
     Property,
     RestElement,
