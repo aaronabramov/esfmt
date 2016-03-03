@@ -114,10 +114,15 @@ let [a, b] = [c, d];
 let [a, b] = [c, d];
 
 // input: object destructuring assignemnt
-// skip
-let {a, b} = {a: 1, b: 2};
+let {a, b} = {
+    a: 1,
+    b: 2
+};
 // output:
-let {a, b} = {a: 1, b: 2};
+let {a, b} = {
+    a: 1,
+    b: 2
+};
 
 // input: object destructuring with renaming
 let {a: b} = c;
