@@ -30,7 +30,6 @@ function a([a, b] = [1, 2]) {}
 function a([a, b] = [1, 2]) {}
 
 // input: destructured arguments
-// skip
 function a({b, c}, [a, f, e]) {}
 // output:
 function a({b, c}, [a, f, e]) {}
