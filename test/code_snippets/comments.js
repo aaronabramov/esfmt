@@ -165,13 +165,18 @@ let a = {
 // b
 
 // input: trailing comment on the first line
-// skip
 const a = { // abc
     b
+};
+const b = { /* a */ /* b */ // c
+    a
 };
 // output:
 const a = { // abc
     b
+};
+const b = { /* a */ /* b */ // c
+    a
 };
 
 // input: trailing comment on the last line without ';'

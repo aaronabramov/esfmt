@@ -1,5 +1,14 @@
 import invariant from './invariant';
 
+/**
+ * The purpose of this class is to capture all comments for a given block and provide
+ * an API for printing the comments for this block or its children.
+ * It also makes sure that no comments get lost in parsing.
+ * Even if something gets lost and is not printed for its corresponding child, all leftovers will
+ * be printed at the end of the block.
+ *
+ * This class uses a lot of iteration and can be optimized for performance in future
+ */
 export default class BlockComments {
     constructor(context, blockNode) {
         this.context = context;
@@ -13,6 +22,33 @@ export default class BlockComments {
             this.leftRange = blockNode.range[0];
             this.rightRange = blockNode.range[1];
         }
+    }
+
+    /**
+     * First line comments are trailing comments for the opening curly
+     * @example
+     *      class A { // i'm the first line comment
+     *          constructor() {}
+     *      }
+     *
+     *      const a = { // me too!
+     *          a: 5
+     *      }
+     */
+    printFirstLine() {
+        let comments = [];
+
+        // update context.comment to exclude the matching first line comments
+        this.context.comments = this.context.comments.filter((comment) => {
+            if (comment.loc.start.line === this.blockNode.loc.start.line) {
+                comments.push(comment);
+                return false;
+            }
+
+            return true;
+        });
+
+        return comments.map(this.printComment.bind(this)).join(' ');
     }
 
     /**
