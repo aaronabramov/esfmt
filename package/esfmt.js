@@ -16,7 +16,8 @@
 './nodes/continue_statement');var ContinueStatement = _interopRequireWildcard(_nodesContinue_statement);var _nodesDebugger_statement = require(
 './nodes/debugger_statement');var DebuggerStatement = _interopRequireWildcard(_nodesDebugger_statement);var _nodesDo_while_statement = require(
 './nodes/do_while_statement');var DoWhileStatement = _interopRequireWildcard(_nodesDo_while_statement);var _nodesEmpty_statement = require(
-'./nodes/empty_statement');var EmptyStatement = _interopRequireWildcard(_nodesEmpty_statement);var _nodesExport_default_declaration = require(
+'./nodes/empty_statement');var EmptyStatement = _interopRequireWildcard(_nodesEmpty_statement);var _nodesExperimental_spread_property = require(
+'./nodes/experimental_spread_property');var ExperimentalSpreadProperty = _interopRequireWildcard(_nodesExperimental_spread_property);var _nodesExport_default_declaration = require(
 './nodes/export_default_declaration');var ExportDefaultDeclaration = _interopRequireWildcard(_nodesExport_default_declaration);var _nodesExport_named_declaration = require(
 './nodes/export_named_declaration');var ExportNamedDeclaration = _interopRequireWildcard(_nodesExport_named_declaration);var _nodesExport_specifier = require(
 './nodes/export_specifier');var ExportSpecifier = _interopRequireWildcard(_nodesExport_specifier);var _nodesExpression_statement = require(
@@ -37,14 +38,16 @@
 './nodes/jsx_element');var JSXElement = _interopRequireWildcard(_nodesJsx_element);var _nodesJsx_expression_container = require(
 './nodes/jsx_expression_container');var JSXExpressionContainer = _interopRequireWildcard(_nodesJsx_expression_container);var _nodesJsx_identifier = require(
 './nodes/jsx_identifier');var JSXIdentifier = _interopRequireWildcard(_nodesJsx_identifier);var _nodesJsx_opening_element = require(
-'./nodes/jsx_opening_element');var JSXOpeningElement = _interopRequireWildcard(_nodesJsx_opening_element);var _nodesLiteral = require(
+'./nodes/jsx_opening_element');var JSXOpeningElement = _interopRequireWildcard(_nodesJsx_opening_element);var _nodesLabeled_statement = require(
+'./nodes/labeled_statement');var LabeledStatement = _interopRequireWildcard(_nodesLabeled_statement);var _nodesLiteral = require(
 './nodes/literal');var Literal = _interopRequireWildcard(_nodesLiteral);var _nodesLogical_expression = require(
 './nodes/logical_expression');var LogicalExpression = _interopRequireWildcard(_nodesLogical_expression);var _nodesMember_expression = require(
 './nodes/member_expression');var MemberExpression = _interopRequireWildcard(_nodesMember_expression);var _nodesMeta_property = require(
 './nodes/meta_property');var MetaProperty = _interopRequireWildcard(_nodesMeta_property);var _nodesMethod_definition = require(
 './nodes/method_definition');var MethodDefinition = _interopRequireWildcard(_nodesMethod_definition);var _nodesNew_expression = require(
 './nodes/new_expression');var NewExpression = _interopRequireWildcard(_nodesNew_expression);var _nodesObject_expression = require(
-'./nodes/object_expression');var ObjectExpression = _interopRequireWildcard(_nodesObject_expression);var _nodesProgram = require(
+'./nodes/object_expression');var ObjectExpression = _interopRequireWildcard(_nodesObject_expression);var _nodesObject_pattern = require(
+'./nodes/object_pattern');var ObjectPattern = _interopRequireWildcard(_nodesObject_pattern);var _nodesProgram = require(
 './nodes/program');var Program = _interopRequireWildcard(_nodesProgram);var _nodesProperty = require(
 './nodes/property');var Property = _interopRequireWildcard(_nodesProperty);var _nodesRest_element = require(
 './nodes/rest_element');var RestElement = _interopRequireWildcard(_nodesRest_element);var _nodesReturn_statement = require(
@@ -64,7 +67,8 @@
 './nodes/update_expression');var UpdateExpression = _interopRequireWildcard(_nodesUpdate_expression);var _nodesVariable_declaration = require(
 './nodes/variable_declaration');var VariableDeclaration = _interopRequireWildcard(_nodesVariable_declaration);var _nodesVariable_declarator = require(
 './nodes/variable_declarator');var VariableDeclarator = _interopRequireWildcard(_nodesVariable_declarator);var _nodesWhile_statement = require(
-'./nodes/while_statement');var WhileStatement = _interopRequireWildcard(_nodesWhile_statement);var _espree = require(
+'./nodes/while_statement');var WhileStatement = _interopRequireWildcard(_nodesWhile_statement);var _nodesYield_expression = require(
+'./nodes/yield_expression');var YieldExpression = _interopRequireWildcard(_nodesYield_expression);var _espree = require(
 
 
 'espree');var _espree2 = _interopRequireDefault(_espree);var _esprima_options = require(
@@ -94,6 +98,7 @@ var NODE_TYPES = {
     DebuggerStatement: DebuggerStatement, 
     DoWhileStatement: DoWhileStatement, 
     EmptyStatement: EmptyStatement, 
+    ExperimentalSpreadProperty: ExperimentalSpreadProperty, 
     ExportDefaultDeclaration: ExportDefaultDeclaration, 
     ExportNamedDeclaration: ExportNamedDeclaration, 
     ExportSpecifier: ExportSpecifier, 
@@ -115,6 +120,7 @@ var NODE_TYPES = {
     JSXExpressionContainer: JSXExpressionContainer, 
     JSXIdentifier: JSXIdentifier, 
     JSXOpeningElement: JSXOpeningElement, 
+    LabeledStatement: LabeledStatement, 
     Literal: Literal, 
     LogicalExpression: LogicalExpression, 
     MemberExpression: MemberExpression, 
@@ -122,6 +128,7 @@ var NODE_TYPES = {
     MethodDefinition: MethodDefinition, 
     NewExpression: NewExpression, 
     ObjectExpression: ObjectExpression, 
+    ObjectPattern: ObjectPattern, 
     Program: Program, 
     Property: Property, 
     RestElement: RestElement, 
@@ -141,7 +148,8 @@ var NODE_TYPES = {
     UpdateExpression: UpdateExpression, 
     VariableDeclaration: VariableDeclaration, 
     VariableDeclarator: VariableDeclarator, 
-    WhileStatement: WhileStatement };
+    WhileStatement: WhileStatement, 
+    YieldExpression: YieldExpression };
 
 
 

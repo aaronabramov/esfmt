@@ -15,6 +15,8 @@ var DONT_INDENT = {
 
 function format(node, context, recur) {
     context.write(node.kind, ' ');
+
+    var blockComments = context.blockComments(node);
     var indent = true;
 
     /**
@@ -30,10 +32,27 @@ function format(node, context, recur) {
 
 
     indent && context.indentIn();
+
     for (var i = 0; i < node.declarations.length; i++) {
-        recur(node.declarations[i]);
-        if (node.declarations[i + 1]) {
-            context.write(',\n', context.getIndent());}}
+        var previous = node.declarations[i - 1];
+        var current = node.declarations[i];
+        var next = node.declarations[i + 1];
+
+        context.write(blockComments.printLeading(current, previous));
+
+        if (i > 0) {
+            context.write(context.getIndent());}
+
+
+        recur(current);
+
+        if (next) {
+            context.write(',');}
+
+
+        context.write(blockComments.printTrailing(current, previous, next));
+        if (next) {
+            context.write('\n');}}
 
 
 

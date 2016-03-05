@@ -40,11 +40,25 @@
  */'use strict';Object.defineProperty(exports, '__esModule', { value: true });exports.format = format;
 
 function format(node, context, recur) {
-  context.write('for (');
-  recur(node.init);
-  context.write('; ');
-  recur(node.test);
-  context.write('; ');
-  recur(node.update);
-  context.write(') ');
-  recur(node.body);}
+    context.write('for (');
+
+    if (node.init) {
+        recur(node.init);}
+
+
+    context.write(';');
+
+    if (node.test) {
+        context.write(' ');
+        recur(node.test);}
+
+
+    context.write(';');
+
+    if (node.update) {
+        context.write(' ');
+        recur(node.update);}
+
+
+    context.write(') ');
+    recur(node.body);}

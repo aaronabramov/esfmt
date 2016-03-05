@@ -5,6 +5,7 @@
     ForStatement: true, 
     FunctionDeclaration: true, 
     IfStatement: true, 
+    LabeledStatement: true, 
     SwitchStatement: true, 
     TryStatement: true, 
     WhileStatement: true };

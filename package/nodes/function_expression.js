@@ -34,6 +34,10 @@ function format(node, context, recur) {var _ref = arguments.length <= 3 || argum
         context.write('function');}
 
 
+    if (node.generator) {
+        context.write('* ');}
+
+
     if (node.id) {
         context.write(' ');
         recur(node.id);}

@@ -17,8 +17,18 @@
 
 '../list');
 
+var WRAP_IN_PARENTHESES = { 
+    FunctionExpression: true };
+
+
 function format(node, context, recur) {
+    var wrapInParentheses = !!WRAP_IN_PARENTHESES[node.callee.type];
+
+    wrapInParentheses && context.write('(');
+
     recur(node.callee);
+
+    wrapInParentheses && context.write(')');
 
     var rollback = context.transaction();
 

@@ -31,17 +31,17 @@ function format(node, context, recur) {
     context.indentIn();
     for (var i = 0; i < node.properties.length; i++) {
         var previous = node.properties[i - 1];
-        var child = node.properties[i];
+        var current = node.properties[i];
         var next = node.properties[i + 1];
 
-        context.write(blockComments.printLeading(child, previous, next));
+        context.write(blockComments.printLeading(current, previous));
         context.write(context.getIndent());
-        recur(child);
+        recur(current);
         if (next) {
             context.write(',');}
 
 
-        context.write(blockComments.printTrailing(child, previous, next));
+        context.write(blockComments.printTrailing(current, previous, next));
         if (next) {
             context.write('\n');}}
 
