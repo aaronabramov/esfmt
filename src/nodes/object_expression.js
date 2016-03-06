@@ -27,7 +27,14 @@ export function format(node, context, recur) {
 
     let blockComments = context.blockComments(node);
 
-    context.write('{\n');
+    context.write('{');
+
+    let firstLineComment = blockComments.printFirstLine();
+    if (firstLineComment) {
+        context.write(' ', firstLineComment);
+    }
+
+    context.write('\n');
     context.indentIn();
     for (let i = 0; i < node.properties.length; i++) {
         let previous = node.properties[i - 1];

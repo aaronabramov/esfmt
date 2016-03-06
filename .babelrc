@@ -1,4 +1,5 @@
 {
     "retainLines": true,
-    "optional": ["runtime"]
+    "optional": ["runtime"],
+    "retainLines": true
 }
