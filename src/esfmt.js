@@ -78,8 +78,6 @@ import defaultConfig from './default_config';
 import Context from './context';
 import invariant from './invariant';
 
-import 'babel-polyfill';
-
 const NODE_TYPES = {
     ArrayExpression,
     ArrayPattern,
@@ -165,7 +163,7 @@ export function format(code, config) {
     try {
         ast = esprima.parse(code, esprimaOptions);
     } catch(e) {
-        console.error('Failed parsing javascript'); // eslint-disable-line no-console
+        // console.error('Failed parsing javascript'); // eslint-disable-line no-console
         throw e;
     }
 

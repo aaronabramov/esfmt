@@ -1,5 +1,4 @@
 {
     "retainLines": true,
-    "optional": ["runtime"],
-    "retainLines": true
+    "presets": ["es2015"]
 }

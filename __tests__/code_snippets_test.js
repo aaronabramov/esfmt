@@ -1,4 +1,4 @@
-/* eslint-env mocha */
+/* eslint-env jasmine */
 
 import glob from 'glob';
 import fs from 'fs';
@@ -14,7 +14,7 @@ function shiftLine(string) {
 }
 
 describe('code snippets', function() {
-    glob.sync((path.resolve(SNIPPETS_DIR, '*.js'))).forEach(file => {
+    glob.sync(path.resolve(SNIPPETS_DIR, '*.js')).forEach(file => {
         const TEST_DEF_REGEX = /^\/\/[\s]+input\:[\s]*/gm;
         let content = fs.readFileSync(file).toString();
         let filename = path.basename(file, '.js');
@@ -32,10 +32,10 @@ describe('code snippets', function() {
             // rest of the test definition (without description);
             let rest = shiftLine(test);
 
-            // mocha function to define the test (specify, specify.only or specify.skip)
+            // mocha function to define the test (it, it.only or it.skip)
             let fn;
 
-            // // skip or // only line that will blacklist or whitelist the test (specify.only|skip)
+            // // skip or // only line that will blacklist or whitelist the test (it.only|skip)
             let skiponlyLine = rest.match(SKIPONLY_REGEX);
             let skiponly = null;
 
@@ -47,13 +47,13 @@ describe('code snippets', function() {
 
             switch (skiponly) {
             case 'only':
-                fn = specify.only;
+                fn = fit;
                 break;
             case 'skip':
-                fn = specify.skip;
+                fn = xit;
                 break;
             default:
-                fn = specify;
+                fn = it;
             }
 
             // `// config: {a: b}` line
