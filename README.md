@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/abramovdmitrii/esfmt.svg?branch=master)](https://travis-ci.org/abramovdmitrii/esfmt)
-[![codecov.io](https://codecov.io/github/abramovdmitrii/esfmt/coverage.svg?branch=master)](https://codecov.io/github/abramovdmitrii/esfmt?branch=master)
+[![codecov.io](http://codecov.io/github/dmitriiabramov/esfmt/coverage.svg?branch=master)](http://codecov.io/github/dmitriiabramov/esfmt?branch=master)
 [![npm version](https://badge.fury.io/js/esfmt.svg)](https://badge.fury.io/js/esfmt)
 
 
