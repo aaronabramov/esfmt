@@ -11,20 +11,6 @@ esfmt formats (beautifies, pretty-prints) javascript (es6, jsx) code.
 npm install -g esfmt
 ```
 
-## CLI
-```
-Usage:
-   esfmt [flags] [files ...]
-
-Options:
-   -w          | overwrite contents of the files with formatted version
-   --help      | print this text
-   --version   | print esfmt version
-
-Without an explicit path, esfmt will process stdin and print results to stdout
-```
-
-
 ## Example
 ```js
 // echo 'if((a + b) * 4){return (e) => { return a.b.c(<Component a="5" b={[1, b, 0]}><br /></Component>)}} else { return {a: 5, b: 8, c: 9} }' | ./bin/esfmt
