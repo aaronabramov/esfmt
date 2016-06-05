@@ -1,6 +1,8 @@
 /* eslint-disable */
 
 // input: trailing line comments
+// only
+// config: {"max-len": 20}
 let a; // stuff
 const b = {
     a: 5, // yo

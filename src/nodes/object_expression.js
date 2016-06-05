@@ -20,40 +20,15 @@
  *      }]
  *  }
  */
+import {long, short} from '../list';
+
 export function format(node, context, recur) {
-    if (!node.properties.length) {
-        return context.write('{}');
+    let rollback = context.transaction();
+
+    long(node.properties, context, recur, '{}');
+
+    if (context.overflown()) {
+        rollback();
+        short(node.properties, context, recur, '{}');
     }
-
-    let blockComments = context.blockComments(node);
-
-    context.write('{');
-
-    let firstLineComment = blockComments.printFirstLine();
-    if (firstLineComment) {
-        context.write(' ', firstLineComment);
-    }
-
-    context.write('\n');
-    context.indentIn();
-    for (let i = 0; i < node.properties.length; i++) {
-        let previous = node.properties[i - 1];
-        let current = node.properties[i];
-        let next = node.properties[i + 1];
-
-        context.write(blockComments.printLeading(current, previous));
-        context.write(context.getIndent());
-        recur(current);
-        if (next) {
-            context.write(',');
-        }
-
-        context.write(blockComments.printTrailing(current, previous, next));
-        if (next) {
-            context.write('\n');
-        }
-    }
-
-    context.indentOut();
-    context.write('\n', context.getIndent(), '}');
 }
