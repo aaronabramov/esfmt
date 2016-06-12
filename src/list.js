@@ -25,13 +25,17 @@ const WRAPPERS = {
  * @example
  *  [1, 2, 3, 4, 5]
  */
-export function long(nodes, context, recur, wrap) {
+export function long(node, items, context, recur, wrap) {
+    if (!items.length) {
+        return context.write(WRAPPERS[wrap].left, WRAPPERS[wrap].right);
+    }
+
     context.write(WRAPPERS[wrap].left);
 
-    for (let i = 0; i < nodes.length; i++) {
-        recur(nodes[i]);
+    for (let i = 0; i < items.length; i++) {
+        recur(items[i]);
 
-        if (nodes[i + 1]) {
+        if (items[i + 1]) {
             context.write(', ');
         }
     }
@@ -50,17 +54,41 @@ export function long(nodes, context, recur, wrap) {
  *      4
  *  ]
  */
-export function short(nodes, context, recur, wrap) {
+export function short(node, items, context, recur, wrap) {
+    if (!items.length) {
+        return context.write(WRAPPERS[wrap].left, WRAPPERS[wrap].right);
+    }
+
+    let blockComments = context.blockComments(node);
+
     context.write(WRAPPERS[wrap].left);
-    context.indentIn();
+
+    let firstLineComment = blockComments.printFirstLine();
+    if (firstLineComment) {
+        context.write(' ', firstLineComment);
+    }
+
     context.write('\n');
+    context.indentIn();
 
-    for (let i = 0; i < nodes.length; i++) {
+    for (let i = 0; i < items.length; i++) {
+        let previous = items[i - 1];
+        let current = items[i];
+        let next = items[i + 1];
+
+        context.write(blockComments.printLeading(current, previous));
         context.write(context.getIndent());
-        recur(nodes[i]);
 
-        if (nodes[i + 1]) {
-            context.write(',\n');
+        recur(current);
+
+        if (next) {
+            context.write(',');
+        }
+
+        context.write(blockComments.printTrailing(current, previous, next));
+
+        if (next) {
+            context.write('\n');
         }
     }
 

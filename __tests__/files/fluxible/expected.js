@@ -247,9 +247,7 @@ FluxContext.prototype.getComponentContext = function getComponentContext() {
             }
 
             self.executeAction(action, payload)['catch'](function actionHandlerWrapper(err) {
-                return self.executeAction(self._app._componentActionHandler, {
-                    err: err
-                });
+                return self.executeAction(self._app._componentActionHandler, {err: err});
             })['catch'](function unhandledError(err) {
                 setImmediate(function() {
                     throw err;
@@ -302,10 +300,7 @@ FluxContext.prototype.getStoreContext = function getStoreContext() {
  */
 FluxContext.prototype.dehydrate = function dehydrate() {
     var self = this;
-    var state = {
-        dispatcher: this._dispatcher && this._dispatcher.dehydrate() || {},
-        plugins: {}
-    };
+    var state = {dispatcher: this._dispatcher && this._dispatcher.dehydrate() || {}, plugins: {}};
 
     self._plugins.forEach(function pluginsEach(plugin) {
         if ('function' === typeof plugin.dehydrate) {
