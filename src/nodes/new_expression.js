@@ -17,10 +17,10 @@ export function format(node, context, recur) {
 
     let rollback = context.transaction();
 
-    long(node.arguments, context, recur, '()');
+    long(node, node.arguments, context, recur, '()');
 
     if (context.overflown()) {
         rollback();
-        short(node.arguments, context, recur, '()');
+        short(node, node.arguments, context, recur, '()');
     }
 }

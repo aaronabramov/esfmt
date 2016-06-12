@@ -15,6 +15,7 @@ a[b[c[0]]];
 'abc'[1];
 
 // input: declaration
+// config: {"max-len": 30}
 let a = {
     b: function() {
         return c;
@@ -38,20 +39,11 @@ let a = {
 };
 
 // input: destructuring
-let a = {
-    b,
-    c,
-    d
-};
+let a = {b, c, d};
 // output:
-let a = {
-    b,
-    c,
-    d
-};
+let a = {b, c, d};
 
 // input: one line objects
-// skip
 let a = {a: 1, b: 2};
 // output:
 let a = {a: 1, b: 2};

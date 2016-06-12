@@ -34,12 +34,12 @@ export function format(node, context, recur) {
 
         let rollback = context.transaction();
 
-        long(node.specifiers, context, recur, '{}');
+        long(node, node.specifiers, context, recur, '{}');
 
         if (context.overflown()) {
             rollback();
 
-            short(node.specifiers, context, recur, '{}');
+            short(node, node.specifiers, context, recur, '{}');
         }
     }
 }

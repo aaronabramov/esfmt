@@ -28,10 +28,10 @@ import {long, short} from '../list';
 export function format(node, context, recur) {
     let rollback = context.transaction();
 
-    long(node.elements, context, recur, '[]');
+    long(node, node.elements, context, recur, '[]');
 
     if (context.overflown()) {
         rollback();
-        short(node.elements, context, recur, '[]');
+        short(node, node.elements, context, recur, '[]');
     }
 }
