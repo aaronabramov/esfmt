@@ -38,11 +38,11 @@ export function format(node, context, recur) {
 
     let rollback = context.transaction();
 
-    long(node.params, context, recur, '()');
+    long(node, node.params, context, recur, '()');
 
     if (context.overflown()) {
         rollback();
-        short(node.params, context, recur, '()');
+        short(node, node.params, context, recur, '()');
     }
 
     context.write(' ');

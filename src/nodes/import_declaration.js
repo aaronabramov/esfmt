@@ -57,11 +57,11 @@ export function format(node, context, recur) {
     if (specs.ImportSpecifier.length) {
         let rollback = context.transaction();
 
-        long(specs.ImportSpecifier, context, recur, '{}');
+        long(node, specs.ImportSpecifier, context, recur, '{}');
 
         if (context.overflown()) {
             rollback();
-            short(specs.ImportSpecifier, context, recur, '{}');
+            short(node, specs.ImportSpecifier, context, recur, '{}');
         }
     }
 

@@ -44,10 +44,10 @@ import {long, short} from '../list';
 export function format(node, context, recur) {
     let rollback = context.transaction();
 
-    long(node.properties, context, recur, '{}');
+    long(node, node.properties, context, recur, '{}');
 
     if (context.overflown()) {
         rollback();
-        short(node.properties, context, recur, '{}');
+        short(node, node.properties, context, recur, '{}');
     }
 }

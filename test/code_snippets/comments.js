@@ -1,6 +1,7 @@
 /* eslint-disable */
 
 // input: trailing line comments
+// config: {"max-len": 20}
 let a; // stuff
 const b = {
     a: 5, // yo
@@ -16,6 +17,7 @@ const b = {
 // end
 
 // input: leading line comments
+// config: {"max-len": 15}
 // yo yo yo
 function abc() {
     // dude
@@ -42,6 +44,7 @@ var obj = {
 
 
 // input: block comments
+// config: {"max-len": 15}
 /*
 abc
 */
@@ -146,6 +149,7 @@ function a(a, /* b */ c /* rest */) {}
 a(a, /* b */ c /* rest */);
 
 // input: in objects
+// config: {"max-len": 20}
 let a = {
     /* b */
     a: function() {}, // cde
@@ -165,6 +169,7 @@ let a = {
 // b
 
 // input: trailing comment on the first line
+// config: {"max-len": 10}
 const a = { // abc
     b
 };
