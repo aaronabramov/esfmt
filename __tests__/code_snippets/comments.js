@@ -208,7 +208,6 @@ let a = 5, // acb
     b = 5; // ddd
 
 // input: in multiline arrays
-// skip
 // config: {"max-len": 5}
 let a = [ // bbb
     1, // cccc
@@ -216,7 +215,7 @@ let a = [ // bbb
     /* 234'4 */
     3
     // abc
-] // 999
+]; // 999
 // 888
 // output:
 let a = [ // bbb
@@ -225,5 +224,5 @@ let a = [ // bbb
     /* 234'4 */
     3
     // abc
-] // 999
+]; // 999
 // 888
