@@ -134,13 +134,11 @@ class A { // cde
 // oeu
 
 // input: in arrays
-// skip
 [a, /* b */ c /* d */]; // abc
 // output:
 [a, /* b */ c /* d */]; // abc
 
 // input: in function argument list
-// skip
 function a(a, /* b */ c /* rest */) {}
 a(a, /* b */ c /* rest */);
 // output:

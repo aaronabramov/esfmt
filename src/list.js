@@ -30,13 +30,25 @@ export function long(node, items, context, recur, wrap) {
         return context.write(WRAPPERS[wrap].left, WRAPPERS[wrap].right);
     }
 
+    let blockComments = context.blockComments(node);
+
     context.write(WRAPPERS[wrap].left);
 
     for (let i = 0; i < items.length; i++) {
-        recur(items[i]);
+        let previous = items[i - 1];
+        let current = items[i];
+        let next = items[i + 1];
 
-        if (items[i + 1]) {
-            context.write(', ');
+        recur(current);
+
+        if (next) {
+            context.write(',');
+        }
+
+        context.write(blockComments.printTrailing(current, previous, next));
+
+        if (next) {
+            context.write(' ');
         }
     }
 
