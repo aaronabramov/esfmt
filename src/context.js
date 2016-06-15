@@ -91,9 +91,11 @@ export default class Context {
     transaction() {
         let _this = this;
         let current = this.result;
+        let currentComments = this.comments;
 
         return function rollback() {
             _this.result = current;
+            _this.comments = currentComments;
         };
     }
 
