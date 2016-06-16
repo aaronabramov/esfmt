@@ -224,3 +224,15 @@ let a = [ // bbb
     // abc
 ]; // 999
 // 888
+
+// input: in block body
+// skip
+function FluxContext(app) {
+    // To be created on demand
+    this._dispatcher = null;
+}
+// output:
+function FluxContext(app) {
+    // To be created on demand
+    this._dispatcher = null;
+}
