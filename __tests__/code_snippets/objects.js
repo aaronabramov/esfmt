@@ -43,6 +43,20 @@ let a = {b, c, d};
 // output:
 let a = {b, c, d};
 
+// input: multiline destructuring
+// config: {"max-len": 30}
+let a = {
+    aaaaaaaaaa,
+    bbbbbbbbbb,
+    dddddddddd
+};
+// output:
+let a = {
+    aaaaaaaaaa,
+    bbbbbbbbbb,
+    dddddddddd
+};
+
 // input: one line objects
 let a = {a: 1, b: 2};
 // output:
